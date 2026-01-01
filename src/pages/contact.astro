@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const sp = Astro.url.searchParams;
+const preTopic = sp.get("topic") ?? "";
+const preModule = sp.get("module") ?? "";
+const prePackage = sp.get("package") ?? "";
+
+const prefill =
+  prePackage ? `Paket: ${prePackage}\n` :
+  preModule ? `Modul: ${preModule}\n` :
+  preTopic ? `Thema: ${preTopic}\n` : "";
+---
+
+<BaseLayout title="Angebot anfragen - RecVerse" description="Anfrage fuer Websites, KI-Projekte, Beratung oder IT-Projektmanagement.">
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="text-3xl font-semibold">Angebot anfragen</h1>
+    <p class="mt-3 text-zinc-300">
+      Kurz beschreiben, was du erreichen willst. Du bekommst eine konkrete Rueckmeldung (Scope, Timeline, Budgetrahmen).
+    </p>
+
+    <form
+      name="angebot"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      class="mt-8 space-y-4 rounded-3xl border border-zinc-800/60 bg-zinc-900/20 p-8"
+    >
+      <input type="hidden" name="form-name" value="angebot" />
+      <p class="hidden">
+        <label>Don’t fill this out: <input name="bot-field" /></label>
+      </p>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <label class="space-y-2">
+          <span class="text-sm text-zinc-300">Name</span>
+          <input name="name" required class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100" />
+        </label>
+
+        <label class="space-y-2">
+          <span class="text-sm text-zinc-300">E-Mail</span>
+          <input name="email" type="email" required class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100" />
+        </label>
+      </div>
+
+      <label class="space-y-2 block">
+        <span class="text-sm text-zinc-300">Worum geht’s?</span>
+        <select name="topic" class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100">
+          {[
+            "Website (Landing/Blog/Business)",
+            "KI-MVP / PoC",
+            "Prozess-/Unternehmensberatung",
+            "IT-Projektmanagement",
+            "Etwas anderes",
+          ].map((opt) => (
+            <option value={opt} selected={preTopic === opt}>{opt}</option>
+          ))}
+        </select>
+      </label>
+
+      <label class="space-y-2 block">
+        <span class="text-sm text-zinc-300">Kurzbeschreibung</span>
+        <textarea
+          name="message"
+          required
+          rows="6"
+          class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100"
+        >{prefill}</textarea>
+      </label>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <label class="space-y-2">
+          <span class="text-sm text-zinc-300">Budgetrahmen</span>
+          <select name="budget" class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100">
+            <option>unter CHF 500</option>
+            <option>CHF 500-1'500</option>
+            <option>CHF 1'500-5'000</option>
+            <option>CHF 5'000+</option>
+            <option>noch offen</option>
+          </select>
+        </label>
+
+        <label class="space-y-2">
+          <span class="text-sm text-zinc-300">Zeitrahmen</span>
+          <select name="timeline" class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100">
+            <option>sofort / diese Woche</option>
+            <option>2-4 Wochen</option>
+            <option>1-3 Monate</option>
+            <option>spaeter</option>
+          </select>
+        </label>
+      </div>
+
+      <button type="submit" class="rounded-xl bg-zinc-100 px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-200 transition">
+        Anfrage senden
+      </button>
+
+      <p class="text-xs text-zinc-500">
+        Mit dem Absenden erklaerst du dich mit der Verarbeitung deiner Angaben zur Bearbeitung deiner Anfrage einverstanden.
+        Details siehe <a class="underline" href="/privacy">Datenschutz</a>.
+      </p>
+    </form>
+  </section>
+</BaseLayout>

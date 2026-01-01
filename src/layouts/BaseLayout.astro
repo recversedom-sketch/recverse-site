@@ -1,0 +1,25 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const { title = "RecVerse", description = "Digitale Lösungen, KI-Unternehmertum, Beratung, Wirtschaftsinformatik & IT-Projektmanagement." } = Astro.props;
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+
+  <body>
+    <Navbar />
+    <main class="min-h-[70vh]">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
