@@ -1,23 +1,41 @@
 ---
-import "../styles/global.css";
+import "../styles/theme.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 
-const { title = "RecVerse", description = "Digitale Lösungen, KI-Unternehmertum, Beratung, Wirtschaftsinformatik & IT-Projektmanagement." } = Astro.props;
+const {
+  title = "RecVerse",
+  description = "Digitale Loesungen, KI-MVPs und Transformation/PM. Klarer Scope, wartbare Umsetzung.",
+  ogImage = "",
+} = Astro.props;
+
+const pageTitle = title.includes("RecVerse") ? title : `${title} - RecVerse`;
 ---
+
 <!doctype html>
 <html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
-    <title>{title}</title>
-    <link rel="icon" href="/favicon.svg" />
+
+    <!-- Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    {ogImage ? <meta property="og:image" content={ogImage} /> : null}
   </head>
 
   <body>
     <Navbar />
-    <main class="min-h-[70vh]">
+    <main>
       <slot />
     </main>
     <Footer />
