@@ -16,3 +16,26 @@
   to = "https://www.recverse.ch/:splat"
   status = 301
   force = true
+[[redirects]]
+  from = "https://www.recverse.ch/*"
+  to = "https://www.recverse.ch/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://recverse.ch/*"
+  to = "https://www.recverse.ch/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.recverse.ch/*"
+  to = "https://www.recverse.ch/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://recverse.ch/*"
+  to = "https://www.recverse.ch/:splat"
+  status = 301
+  force = true
