@@ -3,23 +3,24 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="RecVerse - digitale Loesungen und KI-Unternehmertum"
-  description="Digitale Loesungen, Website-Erstellung, KI-Unternehmertum, Beratung, Wirtschaftsinformatik und IT-Projektmanagement."
+  title="RecVerse - digitale Loesungen & KI-Unternehmertum"
+  description="KI-MVPs, Transformation/PM und Websites. Klarer Scope, wartbare Umsetzung, wenig Overhead."
 >
+  <!-- HERO -->
   <section class="mx-auto max-w-6xl px-4 py-16">
     <div class="grid gap-10 md:grid-cols-2 md:items-center">
       <div>
         <p class="text-sm text-zinc-400">
-          Digitale Loesungen | Website-Erstellung | KI-Unternehmertum | Beratung | IT-Projektmanagement
+          KI-MVP | Transformation/PM | Websites | Prozessdenken | Wirtschaftsinformatik
         </p>
 
         <h1 class="mt-3 text-4xl md:text-5xl font-semibold tracking-tight">
-          Digitale Loesungen - von klarer Strategie bis sauberer Umsetzung.
+          Ideen in Ergebnisse uebersetzen - sauber, pragmatisch, umsetzbar.
         </h1>
 
         <p class="mt-5 text-zinc-300 leading-relaxed">
-          RecVerse verbindet Wirtschaftsinformatik, Prozessdenken und moderne Softwareentwicklung.
-          Ergebnis: Websites, KI-gestuetzte Produkte und pragmatische Beratung mit messbarem Output.
+          RecVerse verbindet Business/Prozesslogik mit moderner Umsetzung.
+          Ziel ist nicht “mehr Konzept”, sondern ein klares Ergebnis: MVP, Projektfortschritt oder eine scharfe Web-Praesenz.
         </p>
 
         <div class="mt-7 flex flex-col sm:flex-row gap-3">
@@ -40,49 +41,50 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
         <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
           <div class="rounded-2xl border border-zinc-800/60 bg-zinc-900/20 p-4">
+            <div class="font-semibold">Scope-klar</div>
+            <div class="mt-1 text-zinc-400">wenig Overhead</div>
+          </div>
+
+          <div class="rounded-2xl border border-zinc-800/60 bg-zinc-900/20 p-4">
             <div class="font-semibold">Code-first</div>
-            <div class="mt-1 text-zinc-400">Wartbar und performant</div>
+            <div class="mt-1 text-zinc-400">wartbar & performant</div>
           </div>
 
           <div class="rounded-2xl border border-zinc-800/60 bg-zinc-900/20 p-4">
-            <div class="font-semibold">Prozess-klar</div>
-            <div class="mt-1 text-zinc-400">End-to-End gedacht</div>
-          </div>
-
-          <div class="rounded-2xl border border-zinc-800/60 bg-zinc-900/20 p-4">
-            <div class="font-semibold">KI-faehig</div>
-            <div class="mt-1 text-zinc-400">Pragmatisch und compliant</div>
+            <div class="font-semibold">Risiken sichtbar</div>
+            <div class="mt-1 text-zinc-400">Daten/Legal/Tech</div>
           </div>
         </div>
       </div>
 
+      <!-- RIGHT PANEL -->
       <div class="rounded-3xl border border-zinc-800/60 bg-gradient-to-b from-zinc-900/50 to-zinc-950 p-8">
-        <div class="text-sm text-zinc-400">Typische Ergebnisse</div>
+        <div class="text-sm text-zinc-400">Wofuer RecVerse oft gebucht wird</div>
 
         <ul class="mt-4 space-y-3 text-zinc-200">
-          <li>- Website mit starker Conversion und sauberem SEO-Fundament</li>
-          <li>- KI-PoC bis MVP mit klaren Risiken und Datenfluessen</li>
-          <li>- Prozessanalyse (Ist/Soll), KPI-Set, Umsetzung mit Alignment</li>
-          <li>- IT-Projektfuehrung: Scope, Backlog, Cutover, Go-Live</li>
+          <li>- KI-PoC bis MVP: Nutzen, Datenfluss, Risiken, Demo</li>
+          <li>- Transformation/PM: Scope, Backlog, Cutover, Go-Live</li>
+          <li>- Websites: klare Positionierung, saubere Struktur, schnelle Ladezeit</li>
+          <li>- Prozesse: Ist/Soll, Pain Points, KPI-Set, Umsetzungsplan</li>
         </ul>
 
         <div class="mt-6 rounded-2xl border border-zinc-800/60 bg-zinc-900/30 p-4 text-sm text-zinc-300">
-          Fokus: Umsetzbarkeit, klare Schnittstellen, wenig Overhead.
+          Fokus: Entscheidungen beschleunigen, Umsetzung vereinfachen, technische Schulden vermeiden.
         </div>
       </div>
     </div>
   </section>
 
+  <!-- HOW -->
   <section class="mx-auto max-w-6xl px-4 pb-16">
     <div class="rounded-3xl border border-zinc-800/60 bg-zinc-900/20 p-10">
-      <h2 class="text-2xl font-semibold">So arbeiten wir</h2>
+      <h2 class="text-2xl font-semibold">Ablauf in kurz</h2>
 
-      <div class="mt-6 grid gap-6 md:grid-cols-4">
+      <div class="mt-6 grid gap-6 md:grid-cols-3">
         {[
-          ["1. Kurz-Briefing", "Ziel, Scope, Constraints (Tech/Legal/Budget)."],
-          ["2. Blueprint", "Struktur, Copy, Komponenten, Datenfluessen."],
-          ["3. Build", "Repo, Deploy, schnelle Iterationen."],
-          ["4. Launch", "SEO-Basics, Form-Handling, Rechtstexte, Uebergabe."],
+          ["1) Briefing", "Ziel, Kontext, Constraints. 15 Minuten reichen oft fuer den Start."],
+          ["2) Brainstorming → Scope", "Optionen/Trade-offs, dann ein klares Vorgehen (minimal, aber belastbar)."],
+          ["3) Umsetzung", "Repo, Deploy, Iterationen. Saubere Uebergabe."],
         ].map(([t, d]) => (
           <div class="rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-5">
             <div class="font-semibold">{t}</div>
@@ -91,23 +93,31 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         ))}
       </div>
 
-      <div class="mt-8">
+      <div class="mt-8 flex flex-col sm:flex-row gap-3">
         <a
           href="/contact"
           class="rounded-xl bg-zinc-100 px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-200 transition"
         >
           Angebot anfragen
         </a>
+
+        <a
+          href="/services"
+          class="rounded-xl border border-zinc-700 px-5 py-3 text-sm font-semibold text-zinc-100 hover:border-zinc-500 transition"
+        >
+          Leistungen ansehen
+        </a>
       </div>
     </div>
   </section>
 
+  <!-- FINAL CTA -->
   <section class="mx-auto max-w-6xl px-4 pb-20">
     <div class="rounded-3xl border border-zinc-800/60 bg-zinc-950/40 p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
       <div>
-        <h2 class="text-2xl font-semibold">Bereit fuer den naechsten Schritt?</h2>
+        <h2 class="text-2xl font-semibold">Kurz anfragen, klar weiterkommen.</h2>
         <p class="mt-2 text-sm text-zinc-400">
-          Schick eine kurze Anfrage. Du bekommst eine klare Rueckmeldung mit Scope, Timeline und Budgetrahmen.
+          Du beschreibst kurz den Stand. Ich antworte mit naechsten Schritten und einem realistischen Scope.
         </p>
       </div>
 
