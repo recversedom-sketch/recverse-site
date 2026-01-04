@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import EmailObfuscated from "../components/EmailObfuscated.astro";
 const title = "Datenschutz";
 const description = "Datenschutzerklärung von RecVerse (DSG/DSGVO).";
 ---
@@ -19,7 +20,8 @@ const description = "Datenschutzerklärung von RecVerse (DSG/DSGVO).";
         <p class="mt-2">
           <strong>Domenico Recchia</strong><br />
           6042 Dietwil, Aargau, Schweiz<br />
-          E-Mail: <a class="underline hover:text-zinc-100" href="mailto:re001do@gmail.com">re001do@gmail.com</a>
+Kontakt: <a class="underline hover:text-zinc-100" href="/contact/">Kontaktformular</a> oder
+E-Mail: <EmailObfuscated user="re001do" domain="gmail.com" text="re001do [at] gmail [dot] com" />
         </p>
       </div>
 
