@@ -3,198 +3,166 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const sp = Astro.url.searchParams;
 const preTopic = sp.get("topic") ?? "";
+const preModule = sp.get("module") ?? "";
+const prePackage = sp.get("package") ?? "";
 
-const topics = [
-  "Website (Redesign/Performance/UX)",
-  "Website (Datenschutz-Check)",
-  "KI-MVP / PoC",
-  "IT-Projektmanagement",
-  "Prozess-/Unternehmensberatung",
-  "Etwas anderes",
-];
+const prefill =
+  prePackage ? `Paket: ${prePackage}\n` :
+  preModule ? `Modul: ${preModule}\n` :
+  preTopic ? `Thema: ${preTopic}\n` : "";
 ---
 
 <BaseLayout
   title="Kontakt — Recverse"
-  description="Anfrage für Websites, KI-Projekte, Beratung oder IT-Projektmanagement. Kurze Beschreibung genügt."
+  description="Kontaktformular für Angebote: Websites, KI-MVPs, Transformation/IT-Projektmanagement."
 >
   <section class="section">
-    <div class="container" style="padding-top: 34px; padding-bottom: 62px;">
-      <div class="card">
-        <div class="card-inner">
-          <div class="kicker"><span class="badge-dot"></span> Kontakt</div>
-          <h1 class="h1" style="margin-top: 16px;">Brainstorming starten</h1>
-          <p class="lead" style="margin-top: 10px; max-width: 64ch;">
-            Schreib kurz, was du erreichen willst. Ich melde mich mit einer konkreten Rückmeldung
-            (Scope, nächste Schritte, ggf. Fragen).
-          </p>
-
-          <div class="grid grid-2" style="margin-top: 18px; align-items:start;">
-            <form
-              name="angebot"
-              method="POST"
-              action="/thanks/"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              class="card"
-              style="margin:0;"
-            >
-              <div class="card-inner">
-                <input type="hidden" name="form-name" value="angebot" />
-
-                <!-- Honeypot -->
-                <p class="hidden">
-                  <label>Don’t fill this out: <input name="bot-field" /></label>
-                </p>
-
-                <!-- Time-trap fields (werden durch JS befüllt; ohne JS kein Block) -->
-                <input type="hidden" name="tt_elapsed" value="" />
-
-                <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
-                  <label class="field">
-                    <span class="label">Name *</span>
-                    <input name="name" required autocomplete="name" />
-                  </label>
-
-                  <label class="field">
-                    <span class="label">E-Mail *</span>
-                    <input name="email" type="email" required autocomplete="email" />
-                  </label>
-                </div>
-
-                <label class="field" style="margin-top: 12px;">
-                  <span class="label">Firma (optional)</span>
-                  <input name="company" autocomplete="organization" />
-                </label>
-
-                <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
-                  <label class="field">
-                    <span class="label">Telefon (optional)</span>
-                    <input name="phone" autocomplete="tel" />
-                  </label>
-
-                  <label class="field">
-                    <span class="label">Thema</span>
-                    <select name="topic">
-                      {topics.map((opt) => (
-                        <option value={opt} selected={preTopic === opt}>{opt}</option>
-                      ))}
-                    </select>
-                  </label>
-                </div>
-
-                <label class="field" style="margin-top: 12px;">
-                  <span class="label">Kurzbeschreibung *</span>
-                  <textarea name="message" required rows="6" placeholder="Ziel, Kontext, was bereits existiert, was blockiert…"></textarea>
-                </label>
-
-                <div id="formError" class="pill" style="display:none; margin-top: 12px;">
-                  <span class="badge-dot"></span>
-                  <span id="formErrorText">Bitte kurz warten.</span>
-                </div>
-
-                <button id="submitBtn" type="submit" class="btn btn-primary" style="margin-top: 14px; width: 100%; justify-content:center;">
-                  Anfrage senden
-                </button>
-
-                <p style="margin-top: 10px; font-size: 12px; color: var(--muted-2);">
-                  Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Angaben zur Bearbeitung deiner Anfrage einverstanden.
-                  Details siehe <a href="/privacy" style="color: rgba(255,255,255,0.85); text-decoration: underline;">Datenschutz</a>.
-                </p>
-              </div>
-            </form>
-
-            <div class="card" style="margin:0;">
-              <div class="card-inner">
-                <h2 style="margin:0; font-size: 16px;">Was passiert als Nächstes?</h2>
-                <div style="margin-top: 12px; display:grid; gap: 10px;">
-                  <div class="pill"><span class="badge-dot"></span> 1) Ich lese deine Anfrage (Ziel/Constraints)</div>
-                  <div class="pill"><span class="badge-dot"></span> 2) Rückfragen (falls nötig) oder Vorschlag</div>
-                  <div class="pill"><span class="badge-dot"></span> 3) Nächster Schritt: Call, Mini-Assessment oder Angebot</div>
-                </div>
-
-                <div style="margin-top: 14px; color: var(--muted); font-size: 13px; line-height: 1.6;">
-                  Hinweis: Aktuell ist das Formular der bevorzugte Kanal (reduziert Spam).
-                </div>
-
-                <div class="card" style="margin-top: 14px;">
-                  <div class="card-inner">
-                    <div class="kicker"><span class="badge-dot"></span> Tipp für schnelle Antworten</div>
-                    <ul style="margin: 10px 0 0 18px; color: var(--muted); line-height: 1.8;">
-                      <li>Was ist das Ziel (1 Satz)?</li>
-                      <li>Was existiert bereits (Systeme/Website/Repo)?</li>
-                      <li>Was ist der Engpass / Risiko?</li>
-                      <li>Was ist „gut genug“ als erstes Ergebnis?</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <script is:inline>
-            (function () {
-              const startedAt = Date.now();
-              const minMs = 3000; // 3 Sekunden
-              const btn = document.getElementById("submitBtn");
-              const err = document.getElementById("formError");
-              const errText = document.getElementById("formErrorText");
-              const elapsedField = document.querySelector('input[name="tt_elapsed"]');
-              const form = btn && btn.closest("form");
-
-              if (!btn || !form || !elapsedField) return;
-
-              // UX: Button kurz deaktivieren (macht Bots nicht glücklich, Users verstehen es)
-              btn.disabled = true;
-              let t = Math.ceil(minMs / 1000);
-              btn.textContent = `Bitte ${t}s warten…`;
-
-              const interval = setInterval(() => {
-                const left = Math.max(0, minMs - (Date.now() - startedAt));
-                const s = Math.ceil(left / 1000);
-                if (left <= 0) {
-                  clearInterval(interval);
-                  btn.disabled = false;
-                  btn.textContent = "Anfrage senden";
-                } else {
-                  btn.textContent = `Bitte ${s}s warten…`;
-                }
-              }, 250);
-
-              form.addEventListener("submit", (e) => {
-                const elapsed = Date.now() - startedAt;
-                elapsedField.value = String(Math.round(elapsed / 1000));
-                if (elapsed < minMs) {
-                  e.preventDefault();
-                  err.style.display = "flex";
-                  errText.textContent = "Anti-Spam: Bitte kurz warten und erneut senden.";
-                  setTimeout(() => { err.style.display = "none"; }, 3500);
-                }
-              });
-            })();
-          </script>
-
-          <style>
-            .field { display: grid; gap: 6px; }
-            .label { font-size: 12px; color: rgba(255,255,255,0.72); }
-            input, select, textarea {
-              width: 100%;
-              border-radius: 14px;
-              border: 1px solid rgba(255,255,255,0.12);
-              background: rgba(5,7,12,0.55);
-              color: rgba(255,255,255,0.92);
-              padding: 12px 12px;
-              outline: none;
-              transition: box-shadow 180ms ease, border-color 180ms ease;
-            }
-            textarea { resize: vertical; min-height: 130px; }
-            input:focus, select:focus, textarea:focus {
-              border-color: rgba(0,185,255,0.35);
-              box-shadow: 0 0 0 6px rgba(0,185,255,0.12);
-            }
-          </style>
-        </div>
+    <div class="container">
+      <div class="kicker">
+        <span class="kicker__dot" aria-hidden="true"></span>
+        <span>Kontakt</span>
       </div>
+
+      <h1 class="h1">Angebot anfragen</h1>
+      <p class="lead">
+        Kurz beschreiben, was du erreichen willst. Du bekommst eine konkrete Rückmeldung (Scope, nächste Schritte).
+      </p>
+
+      <form
+        class="form"
+        name="angebot"
+        method="POST"
+        action="/thanks/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        data-form
+      >
+        <input type="hidden" name="form-name" value="angebot" />
+
+        <!-- Honeypot (soll leer bleiben) -->
+        <p class="sr-only">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <!-- Time-trap -->
+        <input type="hidden" name="tt_start" value="" data-tt-start />
+        <input type="hidden" name="tt_ms" value="" data-tt-ms />
+
+        <div class="row row--2">
+          <label class="field">
+            <span class="field__label">Name *</span>
+            <input class="input" name="name" required autocomplete="name" />
+          </label>
+
+          <label class="field">
+            <span class="field__label">E-Mail *</span>
+            <input class="input" name="email" type="email" required autocomplete="email" />
+          </label>
+        </div>
+
+        <div class="row row--2">
+          <label class="field">
+            <span class="field__label">Firma (optional)</span>
+            <input class="input" name="company" autocomplete="organization" />
+          </label>
+
+          <label class="field">
+            <span class="field__label">Telefon (optional)</span>
+            <input class="input" name="phone" autocomplete="tel" />
+          </label>
+        </div>
+
+        <label class="field">
+          <span class="field__label">Worum geht’s?</span>
+          <select class="select" name="topic">
+            {[
+              "Website (Landing/Blog/Business)",
+              "KI-MVP / PoC",
+              "Transformation & Delivery PM",
+              "IT-Projektmanagement",
+              "Etwas anderes",
+            ].map((opt) => (
+              <option value={opt} selected={preTopic === opt}>{opt}</option>
+            ))}
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Kurzbeschreibung *</span>
+          <textarea class="textarea" name="message" required rows="7">{prefill}</textarea>
+        </label>
+
+        <div class="row row--2">
+          <label class="field">
+            <span class="field__label">Budgetrahmen</span>
+            <select class="select" name="budget">
+              <option>unter CHF 500</option>
+              <option>CHF 500–1'500</option>
+              <option>CHF 1'500–5'000</option>
+              <option>CHF 5'000+</option>
+              <option>noch offen</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Zeitrahmen</span>
+            <select class="select" name="timeline">
+              <option>sofort / diese Woche</option>
+              <option>2–4 Wochen</option>
+              <option>1–3 Monate</option>
+              <option>später</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- Bot-Falle: "Website" ist für echte Menschen irrelevant -->
+        <label class="field sr-only">
+          <span class="field__label">Website</span>
+          <input class="input" name="website" tabindex="-1" autocomplete="off" />
+        </label>
+
+        <div class="hero__actions">
+          <button class="btn btn--primary" type="submit">Anfrage senden</button>
+          <a class="btn btn--ghost" href="/privacy">Datenschutz</a>
+        </div>
+
+        <p class="help" data-tt-hint>
+          Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Angaben zur Bearbeitung deiner Anfrage einverstanden.
+          Details siehe <a href="/privacy">Datenschutz</a>.
+        </p>
+
+        <p class="help" data-tt-error style="display:none">
+          Bitte warte einen Moment und sende dann nochmals ab. (Anti-Spam Schutz)
+        </p>
+      </form>
+
+      <script is:inline>
+        (() => {
+          const form = document.querySelector("[data-form]");
+          if (!form) return;
+
+          const startEl = form.querySelector("[data-tt-start]");
+          const msEl = form.querySelector("[data-tt-ms]");
+          const err = form.querySelector("[data-tt-error]");
+          const hint = form.querySelector("[data-tt-hint]");
+
+          const started = Date.now();
+          if (startEl) startEl.value = String(started);
+
+          form.addEventListener("submit", (e) => {
+            const ms = Date.now() - started;
+            if (msEl) msEl.value = String(ms);
+
+            // Time-trap: < 3s gilt als sehr wahrscheinlich Bot/Script
+            if (ms < 3000) {
+              e.preventDefault();
+              if (err) err.style.display = "block";
+              if (hint) hint.style.display = "none";
+              return false;
+            }
+          });
+        })();
+      </script>
     </div>
   </section>
 </BaseLayout>

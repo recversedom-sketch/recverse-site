@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Recverse — Vorschau</title>
+  <meta name="description" content="KI- und IT-Delivery für KMUs: MVPs, Projektmanagement und moderne Web-Präsenzen. Schlank, sauber, messbar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+  :root{
+    --bg-0:#05070c;
+    --bg-1:#070b14;
+    --panel:rgba(12,16,28,.72);
+    --panel-2:rgba(7,10,18,.55);
+    --text:#e9edf7;
+    --muted:#aab3c5;
+    --muted-2:#7b859c;
+    --border:rgba(255,255,255,.10);
+    --border-2:rgba(255,255,255,.16);
+    --accent:#0aa8ff;          /* Electric Deep Sea Blue */
+    --accent-2:#4bf3ff;        /* Neon highlight (sparingly) */
+    --ok:#2ee59d;
+    --warn:#ffcc66;
+    --shadow:0 18px 55px rgba(0,0,0,.55);
+    --shadow-soft:0 12px 32px rgba(0,0,0,.35);
+    --radius:22px;
+    --radius-sm:14px;
+    --max:1120px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(900px 600px at 15% 15%, rgba(10,168,255,.17), transparent 60%),
+      radial-gradient(900px 600px at 85% 18%, rgba(75,243,255,.10), transparent 55%),
+      radial-gradient(900px 700px at 60% 95%, rgba(10,168,255,.10), transparent 55%),
+      linear-gradient(180deg, var(--bg-0), var(--bg-1));
+    overflow-x:hidden;
+  }
+  /* Subtle animated aura */
+  body::before{
+    content:"";
+    position:fixed; inset:-40%;
+    background: conic-gradient(from 180deg, rgba(10,168,255,.14), rgba(75,243,255,.08), rgba(10,168,255,.14));
+    filter: blur(90px);
+    opacity:.55;
+    animation: spin 16s linear infinite;
+    pointer-events:none;
+    z-index:-1;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  a{color:inherit; text-decoration:none}
+  .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+  .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+  .skip:focus{left:18px; top:18px; width:auto; height:auto; padding:10px 12px; border-radius:10px; background:#0b1020; border:1px solid var(--border)}
+
+  /* NAV */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:saturate(160%) blur(14px);
+    background:linear-gradient(180deg, rgba(5,7,12,.85), rgba(5,7,12,.55));
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 0}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+  .brand-mark{
+    width:34px; height:34px; border-radius:12px;
+    background:
+      radial-gradient(circle at 30% 35%, rgba(75,243,255,.85), transparent 55%),
+      radial-gradient(circle at 70% 65%, rgba(10,168,255,.85), transparent 60%),
+      linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,0));
+    border:1px solid rgba(255,255,255,.16);
+    box-shadow:0 10px 30px rgba(10,168,255,.16);
+  }
+  .brand span{font-family:"Space Grotesk", Inter, sans-serif; letter-spacing:.2px}
+  .nav-links{display:none; gap:22px; align-items:center; justify-content:center; flex:1}
+  .nav-links a{
+    font-size:14px; color:var(--muted);
+    padding:10px 10px;
+    border-radius:10px;
+    transition:background .18s ease, color .18s ease;
+  }
+  .nav-links a:hover{color:var(--text); background:rgba(255,255,255,.06)}
+  .nav-cta{display:none}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:12px 14px;
+    border-radius:14px;
+    font-weight:650;
+    letter-spacing:.2px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.06);
+    box-shadow:var(--shadow-soft);
+    transition:transform .15s ease, border-color .15s ease, background .15s ease, box-shadow .15s ease;
+    cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.22); background:rgba(255,255,255,.08)}
+  .btn-primary{
+    background: linear-gradient(180deg, rgba(10,168,255,.20), rgba(10,168,255,.08));
+    border-color: rgba(10,168,255,.40);
+    box-shadow: 0 16px 50px rgba(10,168,255,.18);
+  }
+  .btn-primary:hover{border-color: rgba(75,243,255,.45); box-shadow: 0 18px 60px rgba(10,168,255,.24)}
+  .hamburger{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:44px; height:44px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.05);
+    color:var(--text);
+    cursor:pointer;
+  }
+  .hamburger svg{width:20px; height:20px}
+  .mobile{
+    display:none;
+    border-top:1px solid rgba(255,255,255,.08);
+    background:rgba(5,7,12,.65);
+  }
+  .mobile.open{display:block}
+  .mobile .inner{padding:14px 0 18px}
+  .mobile a{display:block; padding:12px 10px; border-radius:12px; color:var(--muted)}
+  .mobile a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+  .mobile .cta{margin-top:10px}
+
+  @media (min-width: 920px){
+    .nav-links{display:flex}
+    .nav-cta{display:flex}
+    .hamburger{display:none}
+    .mobile{display:none !important}
+  }
+
+  /* HERO */
+  .hero{padding:72px 0 28px}
+  .kicker{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:12px;
+    color:var(--muted);
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.05);
+    padding:8px 10px;
+    border-radius:999px;
+  }
+  .dot{
+    width:8px; height:8px; border-radius:999px;
+    background:var(--accent);
+    box-shadow:0 0 0 6px rgba(10,168,255,.16);
+  }
+  h1{
+    margin:14px 0 0;
+    font-family:"Space Grotesk", Inter, sans-serif;
+    letter-spacing:-.6px;
+    line-height:1.06;
+    font-size: clamp(34px, 4.2vw, 56px);
+  }
+  .hero p{
+    margin:14px 0 0;
+    color:var(--muted);
+    font-size: clamp(15px, 1.35vw, 18px);
+    line-height:1.6;
+    max-width: 60ch;
+  }
+  .hero-actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px}
+  .btn-secondary{
+    background: rgba(255,255,255,.04);
+    border-color: rgba(255,255,255,.14);
+    box-shadow:none;
+  }
+  .hero-grid{
+    display:grid; gap:14px;
+    grid-template-columns:1fr;
+    margin-top:26px;
+  }
+  .panel{
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,.10);
+    background: linear-gradient(180deg, rgba(12,16,28,.72), rgba(7,10,18,.55));
+    box-shadow: var(--shadow);
+    overflow:hidden;
+    position:relative;
+  }
+  .panel::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(600px 220px at 20% 0%, rgba(10,168,255,.18), transparent 60%),
+      radial-gradient(520px 220px at 90% 20%, rgba(75,243,255,.10), transparent 60%);
+    pointer-events:none;
+  }
+  .panel-inner{position:relative; padding:18px}
+  .stat-row{display:grid; grid-template-columns:1fr; gap:12px}
+  .stat{
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.10);
+    background:rgba(0,0,0,.18);
+    padding:14px;
+  }
+  .stat .label{color:var(--muted-2); font-size:12px}
+  .stat .value{margin-top:6px; font-weight:700; letter-spacing:.2px}
+  .stat .value strong{color:var(--accent-2)}
+  .mini{display:flex; align-items:center; gap:10px; margin-top:10px; color:var(--muted); font-size:13px}
+  .mini svg{width:16px; height:16px; color:var(--accent)}
+
+  @media (min-width: 860px){
+    .hero-grid{grid-template-columns: 1.2fr .8fr; align-items:stretch}
+    .stat-row{grid-template-columns:1fr 1fr}
+  }
+
+  /* SECTIONS */
+  section{padding:52px 0}
+  .section-title{
+    font-family:"Space Grotesk", Inter, sans-serif;
+    font-size: 24px;
+    letter-spacing:-.2px;
+    margin:0;
+  }
+  .section-sub{margin:10px 0 0; color:var(--muted); line-height:1.65; max-width:72ch}
+  .grid{
+    display:grid;
+    gap:14px;
+    margin-top:18px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 740px){
+    .grid{grid-template-columns: repeat(3, 1fr)}
+  }
+  .card{
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.04);
+    padding:18px;
+    box-shadow: var(--shadow-soft);
+    transition: transform .18s ease, border-color .18s ease, background .18s ease;
+  }
+  .card:hover{
+    transform: translateY(-2px);
+    border-color: rgba(10,168,255,.30);
+    background: rgba(255,255,255,.06);
+  }
+  .icon{
+    width:40px; height:40px;
+    border-radius: 14px;
+    display:grid; place-items:center;
+    border:1px solid rgba(10,168,255,.32);
+    background: linear-gradient(180deg, rgba(10,168,255,.18), rgba(10,168,255,.06));
+    box-shadow: 0 14px 40px rgba(10,168,255,.12);
+  }
+  .icon svg{width:20px; height:20px}
+  .card h3{margin:12px 0 0; font-size:16px}
+  .card p{margin:8px 0 0; color:var(--muted); line-height:1.6; font-size:14px}
+
+  /* CTA band */
+  .cta{
+    padding:0 0 64px;
+  }
+  .cta .panel-inner{padding:22px}
+  .cta h2{margin:0; font-family:"Space Grotesk",Inter,sans-serif; letter-spacing:-.3px}
+  .cta p{margin:10px 0 0; color:var(--muted); line-height:1.6}
+  .cta .row{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+
+  /* FOOTER */
+  footer{
+    border-top:1px solid rgba(255,255,255,.08);
+    background: rgba(3,5,10,.55);
+    padding:34px 0;
+  }
+  .footer-grid{display:grid; gap:18px; grid-template-columns: 1fr}
+  .footer-grid a{color:var(--muted)}
+  .footer-grid a:hover{color:var(--text)}
+  .fine{margin-top:12px; color:var(--muted-2); font-size:12px; line-height:1.5}
+  @media (min-width: 860px){
+    .footer-grid{grid-template-columns: 1.3fr .7fr .7fr}
+  }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Zum Inhalt</a>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Recverse</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#mission">Mission</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="#kontakt">Brainstorming starten</a>
+      </div>
+
+      <button class="hamburger" type="button" aria-label="Menü" aria-expanded="false" aria-controls="mobileNav" id="navBtn">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile" id="mobileNav">
+      <div class="container inner">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#mission">Mission</a>
+        <a href="#kontakt">Kontakt</a>
+        <div class="cta">
+          <a class="btn btn-primary" href="#kontakt">Brainstorming starten</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <div class="container">
+        <div class="kicker"><span class="dot" aria-hidden="true"></span><span>KI & IT Delivery · für KMUs</span></div>
+        <h1>Von Idee zu Ergebnis — in Wochen, nicht Quartalen.</h1>
+        <p>
+          Recverse verbindet Produktdenken, Engineering und Projektmanagement: MVPs, Web-Präsenzen und IT-Delivery,
+          die skalierbar gebaut sind und im Alltag funktionieren.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#kontakt">Angebot anfragen</a>
+          <a class="btn btn-secondary" href="#leistungen">Leistungen ansehen</a>
+        </div>
+
+        <div class="hero-grid">
+          <div class="panel">
+            <div class="panel-inner">
+              <div class="stat-row">
+                <div class="stat">
+                  <div class="label">Fokus</div>
+                  <div class="value">MVPs · Delivery · <strong>Trust</strong></div>
+                </div>
+                <div class="stat">
+                  <div class="label">Arbeitsweise</div>
+                  <div class="value">klarer Scope · iterativ · dokumentiert</div>
+                </div>
+              </div>
+              <div class="mini">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                </svg>
+                <span>Neon-Akzente bewusst dosiert — „Enterprise“ statt „Gaming“.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-inner">
+              <div class="stat">
+                <div class="label">Typische Outputs</div>
+                <div class="value">Landing · PoC · Delivery-Plan</div>
+              </div>
+              <div class="stat" style="margin-top:12px">
+                <div class="label">Start</div>
+                <div class="value">30-min Brainstorming → Angebot</div>
+              </div>
+              <div class="mini">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 12h12M12 6v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                <span>Du bekommst Klarheit: Scope, Risiko, nächste Schritte.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="leistungen">
+      <div class="container">
+        <h2 class="section-title">Leistungen</h2>
+        <p class="section-sub">
+          Nicht „alles für alle“, sondern ein fokussiertes Set an Angeboten, die KMUs zuverlässig voranbringen.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 7h10v10H7z" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M4 12h3M17 12h3M12 4v3M12 17v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>KI-MVP / PoC</h3>
+            <p>Prototypen, die echte Prozesse abbilden: Datenfluss, Security, Hand-off in Betrieb.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 18V6l8-3 8 3v12l-8 3-8-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>IT-Projektmanagement</h3>
+            <p>Steuerung, Stakeholder, Risiko, Scope — damit Delivery planbar bleibt.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6 19h12M8 17V7h8v10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M9 10h6M9 13h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Web & UX</h3>
+            <p>Performance-optimierte Websites/Landingpages mit sauberer Struktur und klarer Conversion.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission">
+      <div class="container">
+        <h2 class="section-title">Mission</h2>
+        <p class="section-sub">
+          Moderne Systeme müssen nicht schwer sein. Recverse liefert schlanke Lösungen, die Vertrauen erzeugen:
+          klare Architektur, messbare Ergebnisse, nachvollziehbare Entscheidungen.
+        </p>
+      </div>
+    </section>
+
+    <section class="cta" id="kontakt">
+      <div class="container">
+        <div class="panel">
+          <div class="panel-inner">
+            <h2>Deine Ideen — unser Brainstorming — mein Angebot</h2>
+            <p>Schick mir kurz Ziel, Kontext und gewünschtes Ergebnis. Du bekommst eine konkrete Rückmeldung (Scope, nächste Schritte).</p>
+            <div class="row">
+              <a class="btn btn-primary" href="#">Angebot anfragen</a>
+              <a class="btn btn-secondary" href="#">Leistungen als PDF (später)</a>
+            </div>
+            <p class="fine">Datenschutz & Impressum sind Pflicht. Keine Newsletter, kein Tracking by default.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span>Recverse</span></div>
+          <div class="fine">KI · IT-Delivery · Projektmanagement. Schweiz (AG).</div>
+        </div>
+        <div>
+          <div style="font-weight:650;margin-bottom:10px">Seiten</div>
+          <a href="#leistungen">Leistungen</a><br />
+          <a href="#mission">Mission</a><br />
+          <a href="#kontakt">Kontakt</a>
+        </div>
+        <div>
+          <div style="font-weight:650;margin-bottom:10px">Rechtliches</div>
+          <a href="#">Datenschutz</a><br />
+          <a href="#">Impressum</a>
+        </div>
+      </div>
+      <div class="fine">© <span id="y"></span> Recverse. Alle Rechte vorbehalten.</div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('navBtn');
+    const mobile = document.getElementById('mobileNav');
+    if(btn && mobile){
+      btn.addEventListener('click', () => {
+        const open = mobile.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+      mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        mobile.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+      }));
+    }
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

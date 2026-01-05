@@ -1,7 +1,5 @@
 ---
-import "../styles/global.css";
 import "../styles/theme.css";
-
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 
@@ -12,15 +10,29 @@ const {
 
 const canonical = `https://www.recverse.ch${Astro.url.pathname}`;
 ---
+
 <!doctype html>
 <html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
+    <!-- Open Graph / Social -->
+    <meta property="og:site_name" content="Recverse" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <!-- Optional: Lege später /public/og.png an -->
+    <meta property="og:image" content="https://www.recverse.ch/og.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts (Google Fonts; siehe Datenschutz) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,21 +41,9 @@ const canonical = `https://www.recverse.ch${Astro.url.pathname}`;
     />
 
     <meta name="theme-color" content="#05070c" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
   </head>
 
   <body>
-    <a class="skip" href="#content">Zum Inhalt</a>
     <Navbar />
     <main id="content">
       <slot />

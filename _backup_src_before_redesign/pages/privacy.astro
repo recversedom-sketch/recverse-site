@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Datenschutz — Recverse"
+  description="Informationen zur Bearbeitung personenbezogener Daten auf recverse.ch (Schweiz/EU)."
+>
+  <section class="section">
+    <div class="container" style="padding-top: 34px; padding-bottom: 62px;">
+      <div class="card">
+        <div class="card-inner">
+          <div class="kicker"><span class="badge-dot"></span> Datenschutz</div>
+          <h1 class="h1" style="margin-top: 16px;">Datenschutzhinweise</h1>
+
+          <p class="lead" style="margin-top: 10px; max-width: 70ch;">
+            Diese Seite erklärt, welche Daten auf recverse.ch verarbeitet werden und wofür.
+            Stand: Januar 2026. (Kein juristischer Rat.)
+          </p>
+
+          <div class="grid" style="grid-template-columns: 1fr; gap: 14px; margin-top: 18px;">
+            <div class="card">
+              <div class="card-inner">
+                <h2 style="margin:0; font-size: 16px;">Verantwortlicher</h2>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Domenico Recchia, 6042 Dietwil (AG), Schweiz.<br />
+                  Kontakt: über das <a href="/contact" style="color: rgba(255,255,255,0.88); text-decoration: underline;">Kontaktformular</a>.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-inner">
+                <h2 style="margin:0; font-size: 16px;">Hosting & Protokolle</h2>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Die Website wird über Netlify bereitgestellt (Deployment/Hosting/CDN). Dabei können technische Daten
+                  (z. B. IP-Adresse, Zeitpunkt, angeforderte Ressource, User-Agent) in Server-Logs verarbeitet werden,
+                  um Betrieb, Sicherheit und Fehlersuche zu ermöglichen.
+                </p>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Je nach Netlify-Infrastruktur können Daten in verschiedenen Ländern verarbeitet werden.
+                  Rechtsgrundlage ist i. d. R. das berechtigte Interesse an sicherem, stabilem Betrieb (DSG/DSGVO).
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-inner">
+                <h2 style="margin:0; font-size: 16px;">Kontaktformular (Netlify Forms)</h2>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Wenn du das Formular nutzt, werden die von dir eingegebenen Daten (z. B. Name, E-Mail, Nachricht)
+                  zur Bearbeitung der Anfrage verarbeitet. Die Übermittlung erfolgt über Netlify Forms.
+                </p>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Zweck: Bearbeitung der Anfrage, Rückfragen, Angebotserstellung. Aufbewahrung: solange erforderlich
+                  für die Bearbeitung/Abwicklung, bzw. gemäss gesetzlichen Pflichten (falls relevant).
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-inner">
+                <h2 style="margin:0; font-size: 16px;">Google Fonts</h2>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Zur Darstellung von Schriftarten lädt die Website Fonts von Google (fonts.googleapis.com / fonts.gstatic.com).
+                  Dabei werden technisch notwendige Informationen (u. a. IP-Adresse, Browser-Details) an Google übertragen.
+                  Wenn du das vermeiden willst, kannst du in deinem Browser externe Ressourcen blockieren – die Darstellung
+                  kann dann abweichen.
+                </p>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Optionaler Feinschliff (später): Self-Hosting der Fonts, um externe Requests zu reduzieren.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-inner">
+                <h2 style="margin:0; font-size: 16px;">Deine Rechte</h2>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Du kannst Auskunft, Berichtigung, Löschung und – soweit anwendbar – Einschränkung/Widerspruch verlangen.
+                  Am schnellsten über das <a href="/contact" style="color: rgba(255,255,255,0.88); text-decoration: underline;">Kontaktformular</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 18px;">
+            <div class="card-inner" style="display:flex; justify-content:space-between; align-items:center; gap: 14px; flex-wrap:wrap;">
+              <div>
+                <div class="kicker"><span class="badge-dot"></span> Transparenz</div>
+                <div style="margin-top: 8px; font-size: 14px; color: var(--muted);">
+                  Wenn du eine spezifische Frage zur Datenverarbeitung hast, schreib kurz – ich beantworte sie konkret.
+                </div>
+              </div>
+              <a class="btn btn-secondary" href="/contact">Kontakt</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

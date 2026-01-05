@@ -1,0 +1,20 @@
+/* --- Small aliases & helpers (Sprint: Conversion/Trust) --- */
+.hidden {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.btn-secondary {
+  /* Alias für "secondary" CTA (bewusst zurückhaltend) */
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.86);
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.14);
+  transform: translateY(-1px);
+}

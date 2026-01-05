@@ -1,5 +1,11 @@
-/contact   /contact/   301
-/thanks    /thanks/    301
-/services  /services/  301
-/shop      /shop/      301
-/blog      /blog/      301
+﻿# Canonical trailing slash (avoid 404 on static routes)
+/services   /services/   301
+/shop       /shop/       301
+/contact    /contact/    301
+/privacy    /privacy/    301
+/impressum  /impressum/  301
+/thanks     /thanks/     301
+/blog       /blog/       301
+
+# Optional: www canonical (nur falls du www erzwingen willst)
+https://recverse.ch/* https://www.recverse.ch/:splat 301

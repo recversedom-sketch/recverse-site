@@ -5,6 +5,14 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# 1) Canonical Domain: non-www -> www (Primary Domain A)
+[[redirects]]
+  from = "https://recverse.ch/*"
+  to = "https://www.recverse.ch/:splat"
+  status = 301
+  force = true
+
+# 2) Trailing slash normalization for static routes
 [[redirects]]
   from = "/services"
   to = "/services/"
@@ -20,5 +28,29 @@
 [[redirects]]
   from = "/contact"
   to = "/contact/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/impressum"
+  to = "/impressum/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/thanks"
+  to = "/thanks/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog/"
   status = 301
   force = true

@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Impressum — Recverse"
+  description="Impressum / Anbieterkennzeichnung für recverse.ch."
+>
+  <section class="section">
+    <div class="container" style="padding-top: 34px; padding-bottom: 62px;">
+      <div class="card">
+        <div class="card-inner">
+          <div class="kicker"><span class="badge-dot"></span> Impressum</div>
+          <h1 class="h1" style="margin-top: 16px;">Anbieter</h1>
+
+          <div class="card" style="margin-top: 18px;">
+            <div class="card-inner">
+              <p style="margin:0; line-height:1.8;">
+                <strong>Domenico Recchia</strong><br />
+                6042 Dietwil, Aargau (CH)
+              </p>
+
+              <p style="margin-top: 12px; color: var(--muted); line-height:1.7;">
+                Kontakt: Bitte über das <a href="/contact" style="color: rgba(255,255,255,0.88); text-decoration: underline;">Kontaktformular</a>.
+              </p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 14px;">
+            <div class="card-inner">
+              <h2 style="margin:0; font-size: 16px;">Haftungsausschluss</h2>
+              <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                Inhalte wurden mit Sorgfalt erstellt, dennoch keine Gewähr für Vollständigkeit, Richtigkeit und Aktualität.
+                Für externe Links wird keine Haftung übernommen; verantwortlich sind die jeweiligen Anbieter.
+              </p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 14px;">
+            <div class="card-inner">
+              <h2 style="margin:0; font-size: 16px;">Urheberrecht</h2>
+              <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                Inhalte, Design und Code dieser Website unterliegen dem Urheberrecht, soweit nicht anders gekennzeichnet.
+              </p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 18px;">
+            <div class="card-inner" style="display:flex; justify-content:space-between; align-items:center; gap: 14px; flex-wrap:wrap;">
+              <div>
+                <div class="kicker"><span class="badge-dot"></span> Datenschutz</div>
+                <div style="margin-top: 8px; color: var(--muted);">
+                  Details zur Datenbearbeitung: <a href="/privacy" style="color: rgba(255,255,255,0.88); text-decoration: underline;">Datenschutz</a>.
+                </div>
+              </div>
+              <a class="btn btn-secondary" href="/privacy">Zur Datenschutzseite</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

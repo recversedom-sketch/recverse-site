@@ -2,89 +2,32 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout
-  title="Danke — Recverse"
-  description="Anfrage erhalten. Recverse meldet sich mit Scope und nächsten Schritten."
->
-  <section class="container" style="padding-top: 34px; padding-bottom: 62px;">
-    <div class="wrap card">
-      <div class="pill"><span class="dot"></span> Anfrage eingegangen</div>
+<BaseLayout title="Danke — Recverse" description="Danke für deine Anfrage.">
+  <section class="section">
+    <div class="container">
+      <div class="panel">
+        <div class="panel__inner">
+          <div class="kicker">
+            <span class="kicker__dot" aria-hidden="true"></span>
+            <span>Danke</span>
+          </div>
 
-      <div class="grid">
-        <div>
-          <h1 style="margin-top:14px; font-family:'Space Grotesk', Inter, system-ui;">
-            Danke. Ich habe deine Anfrage erhalten.
-          </h1>
-
-          <p style="margin-top:14px; max-width: 72ch;">
-            Ich melde mich mit einem konkreten Vorschlag (Scope, nächste Schritte).
-            Wenn du Zusatzinfos hast (Ziel, Constraints, Beispiele), kannst du sie direkt nachreichen.
+          <h1 class="h1">Anfrage ist eingegangen.</h1>
+          <p class="lead">
+            Ich melde mich mit einer konkreten Rückmeldung (Scope, nächste Schritte). Wenn du noch Infos ergänzen willst:
+            antworte einfach auf die Bestätigungsmail von Netlify (falls aktiviert) oder sende nochmals über das Formular.
           </p>
 
-          <div class="actions">
-            <a class="btn primary" href="/services">Leistungen ansehen</a>
-            <a class="btn" href="/">Zur Startseite</a>
-            <a class="btn ghost" href="/shop">RecVerseShop</a>
-          </div>
-        </div>
-
-        <div class="next card">
-          <div class="kicker">Nächste Schritte</div>
-
-          <div class="steps">
-            <div class="step">
-              <strong>1) Kurz-Check</strong>
-              <span>Ich schaue mir deine Anfrage an und kläre offene Punkte.</span>
-            </div>
-            <div class="step">
-              <strong>2) Scope-Vorschlag</strong>
-              <span>Lieferobjekte, Annahmen, Risiken, klare Abgrenzungen.</span>
-            </div>
-            <div class="step">
-              <strong>3) Umsetzung</strong>
-              <span>Lean delivery: sauber, nachvollziehbar, deploybar.</span>
-            </div>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="/">Zur Startseite</a>
+            <a class="btn btn--ghost" href="/services">Leistungen</a>
           </div>
 
-          <div style="margin-top: 14px;">
-            <a class="btn ghost" href="/contact">Noch etwas ergänzen</a>
-          </div>
+          <p class="help">
+            Hinweis: Bitte prüfe auch den Spam-Ordner, falls du eine Antwort erwartest.
+          </p>
         </div>
       </div>
     </div>
   </section>
-
-  <style>
-    .wrap{ padding: 22px; border-radius: var(--r-2xl); }
-    .grid{ display:grid; gap: 16px; margin-top: 14px; }
-
-    .actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 18px; }
-
-    .next{ padding: 16px; border-radius: var(--r-2xl); }
-    .steps{ display:grid; gap: 10px; margin-top: 10px; }
-    .step{
-      padding: 12px;
-      border-radius: var(--r-xl);
-      border: 1px solid rgb(var(--border) / .25);
-      background: rgb(var(--surface2) / .18);
-    }
-    .step strong{
-      display:block;
-      color: rgb(var(--text));
-      font-weight: 850;
-      font-size: 13px;
-      letter-spacing: -0.01em;
-    }
-    .step span{
-      display:block;
-      margin-top: 6px;
-      color: rgb(var(--muted));
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    @media (min-width: 980px){
-      .grid{ grid-template-columns: 1.1fr .9fr; align-items: start; }
-    }
-  </style>
 </BaseLayout>

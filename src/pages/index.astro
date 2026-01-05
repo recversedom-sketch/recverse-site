@@ -1,24 +1,132 @@
-﻿---
+---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="Blog — Recverse"
-  description="Updates und kurze Informationen/Notizen. Der erste Blog ist aktuell in Vorbereitung."
+  title="Recverse — KI & IT Delivery für KMUs"
+  description="Recverse liefert KI-MVPs, IT-Projektmanagement und moderne Web-Präsenzen für KMUs. Schlank gebaut, sauber betrieben."
 >
-  <section class="section">
-    <div class="container" style="padding-top: 34px; padding-bottom: 62px;">
-      <div class="card">
-        <div class="card-inner">
-          <div class="kicker"><span class="badge-dot"></span> Blog</div>
-          <h1 class="h1" style="margin-top: 16px;">In Vorbereitung</h1>
-          <p class="lead" style="margin-top: 10px; max-width: 60ch;">
-            Hier kommen kurze, praktische Beiträge zu KI, IT-Delivery und Web-Performance.
-          </p>
-          <div style="margin-top: 18px; display:flex; gap: 10px; flex-wrap:wrap;">
-            <a class="btn btn-secondary" href="/services">Leistungen</a>
-            <a class="btn btn-primary" href="/contact">Kontakt</a>
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">
+        <span class="kicker__dot" aria-hidden="true"></span>
+        <span>KI & IT Delivery · für KMUs</span>
+      </div>
+
+      <h1 class="h1">Von Idee zu Ergebnis — in Wochen, nicht Quartalen.</h1>
+
+      <p class="lead">
+        Recverse verbindet Produktdenken, Engineering und Projektmanagement: MVPs, Websites und IT-Delivery,
+        die skalierbar gebaut sind und im Alltag funktionieren.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="/contact">Angebot anfragen</a>
+        <a class="btn btn--ghost" href="/services">Leistungen ansehen</a>
+      </div>
+
+      <div class="hero__grid">
+        <div class="panel">
+          <div class="panel__inner">
+            <div class="stat-row">
+              <div class="stat">
+                <div class="stat__label">Fokus</div>
+                <div class="stat__value">MVPs · Delivery · <strong>Trust</strong></div>
+              </div>
+              <div class="stat">
+                <div class="stat__label">Arbeitsweise</div>
+                <div class="stat__value">klarer Scope · iterativ · dokumentiert</div>
+              </div>
+            </div>
+
+            <div class="mini">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+              </svg>
+              <span>Neon-Akzente bewusst dosiert — „Enterprise“ statt „Gaming“.</span>
+            </div>
           </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel__inner">
+            <div class="stat">
+              <div class="stat__label">Typische Outputs</div>
+              <div class="stat__value">Landing · PoC · Delivery-Plan</div>
+            </div>
+
+            <div class="stat" style="margin-top:12px">
+              <div class="stat__label">Start</div>
+              <div class="stat__value">Brainstorming → Angebot</div>
+            </div>
+
+            <div class="mini">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 12h12M12 6v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+              <span>Du bekommst Klarheit: Scope, Risiko, nächste Schritte.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">Wobei ich helfe</h2>
+      <p class="section__sub">
+        Fokussiert, pragmatisch, mit sauberer Dokumentation. Du bekommst keine „Folien“-Beratung,
+        sondern umsetzbare Delivery.
+      </p>
+
+      <div class="grid grid--3 mt-12">
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 7h10v10H7z" stroke="currentColor" stroke-width="1.6" />
+              <path d="M4 12h3M17 12h3M12 4v3M12 17v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>KI-MVP / PoC</h3>
+          <p>Prototypen, die echte Prozesse abbilden: Datenfluss, Security, Hand-off in Betrieb.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 18V6l8-3 8 3v12l-8 3-8-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+              <path d="M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>IT-Projektmanagement</h3>
+          <p>Steuerung, Stakeholder, Risiko, Scope — damit Delivery planbar bleibt.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M6 19h12M8 17V7h8v10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M9 10h6M9 13h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>Web & UX</h3>
+          <p>Performance-optimierte Websites/Landingpages mit klarer Conversion und sauberer Struktur.</p>
+        </article>
+      </div>
+
+      <div class="panel mt-12">
+        <div class="panel__inner">
+          <h2 class="section__title">Deine Ideen — unser Brainstorming — mein Angebot</h2>
+          <p class="section__sub">
+            Du schickst mir kurz Ziel, Kontext und gewünschtes Ergebnis. Du bekommst eine konkrete Rückmeldung:
+            Scope, nächste Schritte und ein Angebot.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="/contact">Brainstorming starten</a>
+            <a class="btn btn--ghost" href="/services">Leistungen im Detail</a>
+          </div>
+          <p class="help">Keine Newsletter, kein Tracking by default. Details siehe <a href="/privacy">Datenschutz</a>.</p>
         </div>
       </div>
     </div>
