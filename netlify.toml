@@ -13,6 +13,13 @@
   force = true
 
 # 2) Trailing slash normalization for static routes
+
+[[redirects]]
+  from = "https://recverse.ch/services"
+  to = "https://www.recverse.ch/services/"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/services"
   to = "/services/"
