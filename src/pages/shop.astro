@@ -3,28 +3,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="RecVerseShop - RecVerse" description="Derzeit keine Pakete. Anfrage via Kontaktformular.">
-  <section class="mx-auto max-w-6xl px-4 py-16">
-    <h1 class="text-3xl md:text-4xl font-semibold">RecVerseShop</h1>
-
-    <p class="mt-4 text-zinc-300 max-w-2xl">
-      Aktuell gibt es keine Pakete oder Shop-Inhalte auf dieser Seite.
-      Wenn du etwas umsetzen willst: kurze Anfrage reicht.
+  <section class="rc-container" style="padding: 64px 16px 80px;">
+    <div class="rc-pill rc-pill-accent">RecVerseShop</div>
+    <h1 style="margin-top: 14px;">RecVerseShop</h1>
+    <p class="rc-muted" style="margin-top: 14px; max-width: 70ch;">
+      Aktuell gibt es keine Pakete oder Shop-Inhalte auf dieser Seite. Wenn du etwas umsetzen willst: kurze Anfrage reicht.
     </p>
 
-    <div class="mt-8 flex flex-col sm:flex-row gap-3">
-      <a
-        href="/contact"
-        class="rounded-xl bg-zinc-100 px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-200 transition"
-      >
-        Angebot anfragen
-      </a>
-
-      <a
-        href="/services"
-        class="rounded-xl border border-zinc-700 px-5 py-3 text-sm font-semibold text-zinc-100 hover:border-zinc-500 transition"
-      >
-        Leistungen ansehen
-      </a>
+    <div style="margin-top: 18px; display:flex; gap: 10px; flex-wrap: wrap;">
+      <a class="rc-btn rc-btn-primary" href="/contact">Anfrage</a>
+      <a class="rc-btn" href="/services">Leistungen ansehen</a>
     </div>
   </section>
 </BaseLayout>

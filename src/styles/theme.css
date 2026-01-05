@@ -1,0 +1,129 @@
+/* src/styles/theme.css */
+
+:root {
+  /* Neutrals (RGB triples) */
+  --bg: 9 9 11;          /* near zinc-950 */
+  --surface: 18 18 24;   /* lifted */
+  --surface-2: 24 24 32; /* hover */
+  --border: 63 63 70;    /* zinc-700-ish */
+  --text: 244 244 245;   /* zinc-100-ish */
+  --muted: 161 161 170;  /* zinc-400-ish */
+
+  /* Accent: electric deep sea blue (dosed) */
+  --accent: 0 198 214;      /* #00C6D6 */
+  --accent-2: 0 216 232;    /* hover */
+  --accent-soft: 0 198 214 / 0.14;
+
+  --r-lg: 18px;
+  --r-xl: 24px;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Inter", "Segoe UI", Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: rgb(var(--bg));
+  color: rgb(var(--text));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ambient background glow */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -200px;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(700px 500px at 15% 10%, rgb(var(--accent) / 0.12), transparent 55%),
+    radial-gradient(800px 600px at 90% 25%, rgb(var(--accent) / 0.08), transparent 55%),
+    radial-gradient(700px 600px at 50% 110%, rgb(255 255 255 / 0.04), transparent 55%);
+  filter: blur(0px);
+}
+
+/* Typography defaults */
+h1, h2, h3 { letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.0rem, 3.2vw, 3.2rem); line-height: 1.08; margin: 0; }
+h2 { font-size: clamp(1.4rem, 2.1vw, 1.9rem); line-height: 1.15; margin: 0; }
+p  { line-height: 1.65; margin: 0; }
+
+a { color: inherit; text-underline-offset: 3px; }
+a:hover { color: rgb(var(--text)); }
+
+:focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+::selection { background: rgb(var(--accent-soft)); }
+
+/* Layout helpers */
+.rc-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Surfaces */
+.rc-card {
+  border: 1px solid rgb(var(--border) / 0.35);
+  background: rgb(var(--surface) / 0.30);
+  border-radius: var(--r-xl);
+}
+.rc-card-strong {
+  border: 1px solid rgb(var(--border) / 0.45);
+  background: rgb(var(--surface) / 0.55);
+  border-radius: var(--r-xl);
+}
+.rc-muted { color: rgb(var(--muted)); }
+
+/* Buttons */
+.rc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-weight: 650;
+  font-size: 14px;
+  line-height: 1;
+  border: 1px solid rgb(var(--border) / 0.50);
+  background: rgb(var(--surface) / 0.40);
+  color: rgb(var(--text));
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease, opacity 120ms ease;
+}
+.rc-btn:hover { background: rgb(var(--surface-2) / 0.55); border-color: rgb(var(--border) / 0.70); }
+.rc-btn:active { transform: translateY(1px); }
+
+.rc-btn-primary {
+  border-color: rgb(var(--accent) / 0.40);
+  background: rgb(var(--accent) / 0.92);
+  color: rgb(var(--bg));
+}
+.rc-btn-primary:hover { background: rgb(var(--accent-2) / 0.96); }
+
+/* Pills */
+.rc-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgb(var(--border) / 0.45);
+  background: rgb(var(--surface) / 0.25);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: rgb(var(--muted));
+}
+.rc-pill-accent {
+  border-color: rgb(var(--accent) / 0.35);
+  background: rgb(var(--accent) / 0.10);
+  color: rgb(var(--text));
+}
+
+/* Small divider */
+.rc-divider { border-top: 1px solid rgb(var(--border) / 0.30); }

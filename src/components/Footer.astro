@@ -1,33 +1,43 @@
----
-const year = new Date().getFullYear();
----
-<footer class="border-t border-zinc-800/60">
-  <div class="mx-auto max-w-6xl px-4 py-10 grid gap-6 md:grid-cols-3">
-    <div>
-      <div class="font-semibold">RecVerse</div>
-      <p class="mt-2 text-sm text-zinc-400">
-        Digitale Lösungen & Produkte, KI-Unternehmertum, Unternehmens- & Prozessberatung,
-        Wirtschaftsinformatik und IT-Projektmanagement.
-      </p>
-    </div>
+<footer class="mt-16">
+  <div class="rc-container pb-14">
+    <div class="rc-card px-6 py-10">
+      <div class="grid gap-10 md:grid-cols-3">
+        <div>
+          <div class="font-semibold text-lg">RecVerse</div>
+          <p class="mt-2 text-sm rc-muted">
+            Digitale Loesungen, KI-MVPs und Transformation/PM – pragmatisch, umsetzbar, wartbar.
+          </p>
+          <div class="mt-4 flex gap-2 flex-wrap">
+            <span class="rc-pill rc-pill-accent">Electric deep sea</span>
+            <span class="rc-pill">Lean</span>
+            <span class="rc-pill">Code-first</span>
+            <span class="rc-pill">Mobile-ready</span>
+          </div>
+        </div>
 
-    <div class="text-sm">
-      <div class="font-semibold">Navigation</div>
-      <ul class="mt-2 space-y-2 text-zinc-400">
-        <li><a class="hover:text-zinc-100" href="/services">Leistungen</a></li>
-        <li><a class="hover:text-zinc-100" href="/shop">Pakete</a></li>
-        <li><a class="hover:text-zinc-100" href="/blog">Blog</a></li>
-        <li><a class="hover:text-zinc-100" href="/contact">Angebot anfragen</a></li>
-      </ul>
-    </div>
+        <div>
+          <div class="font-semibold">Navigation</div>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a class="rc-muted hover:text-[rgb(var(--text))] underline" href="/services">Leistungen</a></li>
+            <li><a class="rc-muted hover:text-[rgb(var(--text))] underline" href="/shop">RecVerseShop</a></li>
+            <li><a class="rc-muted hover:text-[rgb(var(--text))] underline" href="/blog">Blog</a></li>
+            <li><a class="rc-muted hover:text-[rgb(var(--text))] underline" href="/contact">Kontakt</a></li>
+          </ul>
+        </div>
 
-    <div class="text-sm">
-      <div class="font-semibold">Recht</div>
-      <ul class="mt-2 space-y-2 text-zinc-400">
-        <li><a class="hover:text-zinc-100" href="/privacy">Datenschutz</a></li>
-        <li><a class="hover:text-zinc-100" href="/impressum">Impressum</a></li>
-      </ul>
-      <div class="mt-4 text-xs text-zinc-500">© {year} RecVerse</div>
+        <div>
+          <div class="font-semibold">Rechtliches</div>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a class="rc-muted hover:text-[rgb(var(--text))] underline" href="/privacy">Datenschutz</a></li>
+            <li><a class="rc-muted hover:text-[rgb(var(--text))] underline" href="/impressum">Impressum</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10 rc-divider pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <p class="text-xs rc-muted">© {new Date().getFullYear()} RecVerse</p>
+        <p class="text-xs rc-muted">Schlank. Klar. Umsetzbar.</p>
+      </div>
     </div>
   </div>
 </footer>
