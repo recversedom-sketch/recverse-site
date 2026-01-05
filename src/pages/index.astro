@@ -3,121 +3,185 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="RecVerse - digitale Loesungen & KI-Unternehmertum"
-  description="KI-MVPs, Transformation/PM und Websites. Klarer Scope, wartbare Umsetzung, wenig Overhead."
+  title="Recverse — AI & IT Services für moderne Unternehmen"
+  description="Recverse liefert KI-MVPs, IT-Projektmanagement und moderne Web-Präsenzen. Enterprise-Look, schlanke Umsetzung, klare Resultate."
 >
-  <section class="rc-container" style="padding-top: 64px; padding-bottom: 56px;">
-    <div class="grid gap-10 md:grid-cols-2 md:items-center">
-      <!-- Left -->
-      <div>
-        <div class="rc-pill rc-pill-accent">KI-MVP • Transformation/PM • Websites</div>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-left card">
+          <div class="pill"><span class="dot"></span> Enterprise-Level Umsetzung ohne Overhead</div>
 
-        <h1 style="margin-top: 14px;">
-          Ideen in Ergebnisse uebersetzen - sauber, pragmatisch, umsetzbar.
-        </h1>
+          <h1 style="margin-top:14px; font-family: 'Space Grotesk', Inter, system-ui;">
+            KI & IT-Delivery, die Vertrauen schafft — und Resultate liefert.
+          </h1>
 
-        <p class="rc-muted" style="margin-top: 16px; max-width: 56ch;">
-          RecVerse verbindet Business/Prozesslogik mit moderner Umsetzung.
-          Ziel ist nicht “mehr Konzept”, sondern ein klares Ergebnis: MVP, Projektfortschritt oder eine scharfe Web-Praesenz.
-        </p>
+          <p class="hero-lead">
+            Recverse unterstützt KMUs auf dem Weg zur Moderne: von KI-PoC/MVP über Projektmanagement bis zur performanten Web-Präsenz.
+            Klarer Scope. Sauberer Code. Saubere Übergabe.
+          </p>
 
-        <div style="margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px;">
-          <a class="rc-btn rc-btn-primary" href="/contact">Anfrage</a>
-          <a class="rc-btn" href="/services">Leistungen ansehen</a>
+          <div class="hero-actions">
+            <a class="btn primary" href="/contact">Projekt anfragen</a>
+            <a class="btn" href="/services">Scope-Check</a>
+          </div>
+
+          <div class="trust-row" aria-label="Trust Signals">
+            <div class="trust-item">
+              <strong>Governance-light</strong>
+              <span>Risiken sichtbar, Entscheidungen schnell</span>
+            </div>
+            <div class="trust-item">
+              <strong>Delivery-Fokus</strong>
+              <span>MVP-fähig, wartbar, deploybar</span>
+            </div>
+            <div class="trust-item">
+              <strong>B2B-Ready</strong>
+              <span>Saubere Doku & Übergabe</span>
+            </div>
+          </div>
         </div>
 
-        <div style="margin-top: 24px; display: grid; gap: 10px; grid-template-columns: repeat(3, minmax(0, 1fr));">
-          <div class="rc-card" style="padding: 14px;">
-            <div style="font-weight: 700; font-size: 14px;">Scope-klar</div>
-            <div class="rc-muted" style="margin-top: 6px; font-size: 12px;">wenig Overhead</div>
-          </div>
-          <div class="rc-card" style="padding: 14px;">
-            <div style="font-weight: 700; font-size: 14px;">Code-first</div>
-            <div class="rc-muted" style="margin-top: 6px; font-size: 12px;">wartbar & performant</div>
-          </div>
-          <div class="rc-card" style="padding: 14px;">
-            <div style="font-weight: 700; font-size: 14px;">Risiken sichtbar</div>
-            <div class="rc-muted" style="margin-top: 6px; font-size: 12px;">Daten/Legal/Tech</div>
-          </div>
-        </div>
-      </div>
+        <div class="hero-right card" aria-label="Hero Visual Panel">
+          <div class="hero-panel">
+            <div class="kicker">Was du erwarten kannst</div>
+            <h3 style="margin-top:6px;">Modernisierung, die nicht nach „Spielerei“ aussieht.</h3>
 
-      <!-- Right -->
-      <div class="rc-card-strong" style="padding: 22px; position: relative; overflow: hidden;">
-        <!-- subtle svg accent -->
-        <svg width="520" height="220" viewBox="0 0 520 220" style="position:absolute; top:-40px; right:-120px; opacity:0.35;">
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="rgb(0 198 214)"/>
-              <stop offset="1" stop-color="rgb(0 216 232)" stop-opacity="0.15"/>
-            </linearGradient>
-          </defs>
-          <path d="M40,120 C140,10 280,10 380,110 C460,190 520,180 520,180 L520,0 L0,0 L0,220 C0,220 0,160 40,120 Z" fill="url(#g)"/>
-        </svg>
+            <div class="bullets">
+              <div class="bullet">
+                <div class="icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8Z" stroke="rgb(244 246 255)" stroke-width="1.8" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>KI-PoC → MVP</strong>
+                  <span>Nutzen, Datenfluss, Risiken, Demo – in einem lieferbaren Scope.</span>
+                </div>
+              </div>
 
-        <div style="position: relative;">
-          <div class="rc-muted" style="font-size: 13px;">Wofuer RecVerse oft gebucht wird</div>
-          <ul style="margin-top: 12px; padding-left: 16px; color: rgb(var(--text));">
-            <li style="margin: 8px 0;">KI-PoC bis MVP: Nutzen, Datenfluss, Risiken, Demo</li>
-            <li style="margin: 8px 0;">Transformation/PM: Scope, Backlog, Cutover, Go-Live</li>
-            <li style="margin: 8px 0;">Websites: Positionierung, Struktur, Performance</li>
-            <li style="margin: 8px 0;">Prozesse: Ist/Soll, Pain Points, KPI-Set, Umsetzungsplan</li>
-          </ul>
+              <div class="bullet">
+                <div class="icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 20V4m0 0h6a3 3 0 0 1 0 6H5m0 0h10a3 3 0 0 1 0 6H5" stroke="rgb(244 246 255)" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Transformation & IT PM</strong>
+                  <span>Backlog, Stakeholder, Cutover/Go-Live – ohne unnötige Rituale.</span>
+                </div>
+              </div>
 
-          <div class="rc-card" style="margin-top: 14px; padding: 14px;">
-            <div class="rc-muted" style="font-size: 13px;">
-              Fokus: Entscheidungen beschleunigen, Umsetzung vereinfachen, technische Schulden vermeiden.
+              <div class="bullet">
+                <div class="icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2 20 6v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4Z" stroke="rgb(244 246 255)" stroke-width="1.8" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Trust & Qualität</strong>
+                  <span>Performance-first, A11y-Basics, klare Struktur.</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:10px;">
+              <a class="btn ghost" href="/services">Leistungen ansehen</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- How -->
-  <section class="rc-container" style="padding-bottom: 64px;">
-    <div class="rc-card" style="padding: 26px;">
-      <h2>Ablauf in kurz</h2>
+    <style>
+      .hero{ padding: 64px 0 40px; position: relative; }
+      .hero-grid{ display:grid; grid-template-columns: 1fr; gap:18px; align-items:start; }
 
-      <div class="grid gap-10 md:grid-cols-3" style="margin-top: 16px;">
-        <div class="rc-card" style="padding: 16px;">
-          <div style="font-weight: 750;">1) Briefing</div>
-          <div class="rc-muted" style="margin-top: 8px; font-size: 14px;">
-            Ziel, Kontext, Constraints. 15 Minuten reichen oft fuer den Start.
-          </div>
-        </div>
-        <div class="rc-card" style="padding: 16px;">
-          <div style="font-weight: 750;">2) Brainstorming → Scope</div>
-          <div class="rc-muted" style="margin-top: 8px; font-size: 14px;">
-            Optionen/Trade-offs, dann ein klares Vorgehen (minimal, aber belastbar).
-          </div>
-        </div>
-        <div class="rc-card" style="padding: 16px;">
-          <div style="font-weight: 750;">3) Umsetzung</div>
-          <div class="rc-muted" style="margin-top: 8px; font-size: 14px;">
-            Repo, Deploy, Iterationen. Saubere Uebergabe.
-          </div>
-        </div>
-      </div>
+      .hero-left{ padding: 22px; border-radius: var(--r-2xl); }
+      .hero-lead{ margin-top: 16px; font-size: 16px; max-width: 62ch; }
 
-      <div style="margin-top: 18px; display:flex; gap: 10px; flex-wrap: wrap;">
-        <a class="rc-btn rc-btn-primary" href="/contact">Anfrage</a>
-        <a class="rc-btn" href="/services">Leistungen ansehen</a>
-      </div>
-    </div>
-  </section>
+      .hero-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px; }
 
-  <!-- Final CTA -->
-  <section class="rc-container" style="padding-bottom: 80px;">
-    <div class="rc-card-strong" style="padding: 26px; display:flex; flex-direction: column; gap: 12px;">
-      <h2>Kurz anfragen, klar weiterkommen.</h2>
-      <p class="rc-muted" style="max-width: 70ch;">
-        Du beschreibst kurz den Stand. Ich antworte mit naechsten Schritten und einem realistischen Scope.
-      </p>
-      <div style="display:flex; gap: 10px; flex-wrap: wrap;">
-        <a class="rc-btn rc-btn-primary" href="/contact">Anfrage</a>
-        <a class="rc-btn" href="/services">Leistungen ansehen</a>
-      </div>
-    </div>
+      .trust-row{ margin-top: 18px; display:grid; grid-template-columns: 1fr; gap:10px; }
+      .trust-item{
+        padding: 14px;
+        border-radius: var(--r-xl);
+        border: 1px solid rgb(var(--border) / .25);
+        background: rgb(var(--surface) / .20);
+      }
+      .trust-item strong{
+        display:block;
+        color: rgb(var(--text));
+        font-weight: 750;
+        font-size: 14px;
+      }
+      .trust-item span{ color: rgb(var(--muted)); font-size: 12px; }
+
+      .hero-right{
+        position: relative;
+        padding: 22px;
+        border-radius: var(--r-2xl);
+        overflow: hidden;
+        min-height: 280px;
+      }
+      .hero-right::before{
+        content:"";
+        position: absolute;
+        inset: -80px;
+        background:
+          radial-gradient(420px 280px at 20% 25%, rgb(var(--accent) / .25), transparent 60%),
+          radial-gradient(520px 340px at 80% 35%, rgb(var(--accent2) / .18), transparent 60%),
+          radial-gradient(520px 420px at 45% 85%, rgb(255 255 255 / .05), transparent 60%);
+        opacity: .95;
+        animation: floatMesh 8s var(--ease) infinite alternate;
+      }
+      .hero-right::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        background: linear-gradient(180deg, rgb(var(--bg) / 0.10), rgb(var(--bg) / 0.75));
+        pointer-events:none;
+      }
+      @keyframes floatMesh{
+        from { transform: translate3d(0,0,0) scale(1); }
+        to   { transform: translate3d(16px,-10px,0) scale(1.03); }
+      }
+
+      .hero-panel{ position:relative; display:grid; gap: 12px; }
+      .bullets{ display:grid; gap:10px; margin-top: 6px; }
+      .bullet{
+        display:grid;
+        grid-template-columns: 26px 1fr;
+        gap:10px;
+        align-items:start;
+        padding: 12px;
+        border-radius: 18px;
+        border: 1px solid rgb(var(--border) / .28);
+        background: rgb(var(--surface2) / .22);
+      }
+      .icon{
+        width: 26px;
+        height: 26px;
+        display:grid;
+        place-items:center;
+        border-radius: 12px;
+        border: 1px solid rgb(var(--accent) / .28);
+        background: rgb(var(--accent) / .10);
+        box-shadow: 0 0 26px rgb(var(--accent) / .10);
+      }
+      .bullet strong{ display:block; font-size: 13px; color: rgb(var(--text)); font-weight: 750; }
+      .bullet span{ display:block; margin-top:4px; color: rgb(var(--muted)); font-size: 12px; line-height: 1.55; }
+
+      @media (min-width: 980px){
+        .hero{ padding: 82px 0 56px; }
+        .hero-grid{ grid-template-columns: 1.05fr .95fr; align-items: stretch; }
+        .trust-row{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .hero-right{ min-height: 100%; }
+      }
+
+      @media (prefers-reduced-motion: reduce){
+        .hero-right::before{ animation: none; }
+      }
+    </style>
   </section>
 </BaseLayout>
