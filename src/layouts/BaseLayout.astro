@@ -4,9 +4,11 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 
 const {
-  title = "Recverse — AI & IT Services",
+  title = "Recverse — KI & IT Delivery für KMUs",
   description = "KI-MVPs, IT-Projektmanagement und moderne Web-Präsenzen für KMUs. Schlank umgesetzt, sauber betrieben.",
 } = Astro.props;
+
+const canonical = `https://www.recverse.ch${Astro.url.pathname}`;
 ---
 
 <!doctype html>
@@ -14,12 +16,25 @@ const {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <title>{title}</title>
 
-    <!-- Fonts (robust, keine Sonder-Attribute, keine Parser-Fallen) -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:site_name" content="Recverse" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <!-- Optional: Lege später /public/og.png an -->
+    <meta property="og:image" content="https://www.recverse.ch/og.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts (Google Fonts; siehe Datenschutz) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
@@ -30,7 +45,7 @@ const {
 
   <body>
     <Navbar />
-    <main>
+    <main id="content">
       <slot />
     </main>
     <Footer />

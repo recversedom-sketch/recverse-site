@@ -1,134 +1,102 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import EmailObfuscated from "../components/EmailObfuscated.astro";
-
-const title = "Datenschutz — Recverse";
-const description = "Datenschutzerklärung von Recverse (DSG/DSGVO).";
 ---
 
-<BaseLayout title={title} description={description}>
-  <section class="container" style="padding-top: 34px; padding-bottom: 62px;">
-    <div class="wrap card">
-      <div class="pill"><span class="dot"></span> DSG / DSGVO</div>
+<BaseLayout
+  title="Datenschutz — Recverse"
+  description="Informationen zur Bearbeitung personenbezogener Daten auf recverse.ch (Schweiz/EU)."
+>
+  <section class="section">
+    <div class="container" style="padding-top: 34px; padding-bottom: 62px;">
+      <div class="card">
+        <div class="card-inner">
+          <div class="kicker"><span class="badge-dot"></span> Datenschutz</div>
+          <h1 class="h1" style="margin-top: 16px;">Datenschutzhinweise</h1>
 
-      <header class="head">
-        <h1 style="font-family:'Space Grotesk', Inter, system-ui;">Datenschutz</h1>
-        <p>
-          Diese Datenschutzerklärung beschreibt, wie <strong>Domenico Recchia</strong> (nachfolgend „wir“) Personendaten
-          im Zusammenhang mit dieser Website verarbeitet. Grundlage sind das Schweizer DSG sowie – soweit anwendbar – die DSGVO.
-        </p>
-      </header>
+          <p class="lead" style="margin-top: 10px; max-width: 70ch;">
+            Diese Seite erklärt, welche Daten auf recverse.ch verarbeitet werden und wofür.
+            Stand: Januar 2026. (Kein juristischer Rat.)
+          </p>
 
-      <div class="grid">
-        <article class="block card">
-          <h2>Verantwortlicher</h2>
-          <p class="text">
-            <strong>Domenico Recchia</strong><br />
-            6042 Dietwil, Aargau, Schweiz<br />
-            Kontakt: <a class="link" href="/contact">Kontaktformular</a> oder
-            E-Mail: <EmailObfuscated user="re001do" domain="gmail.com" text="re001do [at] gmail [dot] com" />
-          </p>
-        </article>
+          <div class="grid" style="grid-template-columns: 1fr; gap: 14px; margin-top: 18px;">
+            <div class="card">
+              <div class="card-inner">
+                <h2 style="margin:0; font-size: 16px;">Verantwortlicher</h2>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Domenico Recchia, 6042 Dietwil (AG), Schweiz.<br />
+                  Kontakt: über das <a href="/contact" style="color: rgba(255,255,255,0.88); text-decoration: underline;">Kontaktformular</a>.
+                </p>
+              </div>
+            </div>
 
-        <article class="block card">
-          <h2>Hosting</h2>
-          <p class="text">
-            Die Website wird bei Netlify gehostet (Netlify, Inc.). Beim Aufruf der Website werden technisch notwendige Daten
-            (z. B. IP-Adresse, Zeitpunkt, angeforderte Ressource, User-Agent) in Server-Logs verarbeitet, um Betrieb und Sicherheit
-            sicherzustellen.
-          </p>
-        </article>
+            <div class="card">
+              <div class="card-inner">
+                <h2 style="margin:0; font-size: 16px;">Hosting & Protokolle</h2>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Die Website wird über Netlify bereitgestellt (Deployment/Hosting/CDN). Dabei können technische Daten
+                  (z. B. IP-Adresse, Zeitpunkt, angeforderte Ressource, User-Agent) in Server-Logs verarbeitet werden,
+                  um Betrieb, Sicherheit und Fehlersuche zu ermöglichen.
+                </p>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Je nach Netlify-Infrastruktur können Daten in verschiedenen Ländern verarbeitet werden.
+                  Rechtsgrundlage ist i. d. R. das berechtigte Interesse an sicherem, stabilem Betrieb (DSG/DSGVO).
+                </p>
+              </div>
+            </div>
 
-        <article class="block card">
-          <h2>Kontaktformular</h2>
-          <p class="text">
-            Wenn du uns über das Kontaktformular kontaktierst, verarbeiten wir die von dir eingegebenen Daten (z. B. Name, E-Mail,
-            Nachricht), um deine Anfrage zu bearbeiten und zu beantworten.
-          </p>
-          <p class="text">
-            Rechtsgrundlage: Bearbeitung zur Beantwortung deiner Anfrage (vorvertragliche Massnahmen bzw. berechtigtes Interesse).
-          </p>
-          <p class="text">
-            Aufbewahrung: Wir speichern Anfragen so lange, wie es für die Bearbeitung notwendig ist, und löschen sie anschliessend,
-            sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
-          </p>
-        </article>
+            <div class="card">
+              <div class="card-inner">
+                <h2 style="margin:0; font-size: 16px;">Kontaktformular (Netlify Forms)</h2>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Wenn du das Formular nutzt, werden die von dir eingegebenen Daten (z. B. Name, E-Mail, Nachricht)
+                  zur Bearbeitung der Anfrage verarbeitet. Die Übermittlung erfolgt über Netlify Forms.
+                </p>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Zweck: Bearbeitung der Anfrage, Rückfragen, Angebotserstellung. Aufbewahrung: solange erforderlich
+                  für die Bearbeitung/Abwicklung, bzw. gemäss gesetzlichen Pflichten (falls relevant).
+                </p>
+              </div>
+            </div>
 
-        <article class="block card">
-          <h2>Cookies / Tracking</h2>
-          <p class="text">
-            Diese Website verwendet derzeit keine Analyse- oder Werbe-Tracking-Tools. Es werden nur technisch notwendige Cookies
-            eingesetzt, soweit dies für den Betrieb erforderlich ist.
-          </p>
-        </article>
+            <div class="card">
+              <div class="card-inner">
+                <h2 style="margin:0; font-size: 16px;">Google Fonts</h2>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Zur Darstellung von Schriftarten lädt die Website Fonts von Google (fonts.googleapis.com / fonts.gstatic.com).
+                  Dabei werden technisch notwendige Informationen (u. a. IP-Adresse, Browser-Details) an Google übertragen.
+                  Wenn du das vermeiden willst, kannst du in deinem Browser externe Ressourcen blockieren – die Darstellung
+                  kann dann abweichen.
+                </p>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Optionaler Feinschliff (später): Self-Hosting der Fonts, um externe Requests zu reduzieren.
+                </p>
+              </div>
+            </div>
 
-        <article class="block card">
-          <h2>Weitergabe / Auftragsbearbeitung</h2>
-          <p class="text">
-            Dienstleister (z. B. Hosting) können Personendaten als Auftragsbearbeiter verarbeiten. Wir wählen Dienstleister sorgfältig
-            aus und stellen geeignete technische und organisatorische Massnahmen sicher.
-          </p>
-        </article>
+            <div class="card">
+              <div class="card-inner">
+                <h2 style="margin:0; font-size: 16px;">Deine Rechte</h2>
+                <p style="margin-top: 8px; color: var(--muted); line-height: 1.7;">
+                  Du kannst Auskunft, Berichtigung, Löschung und – soweit anwendbar – Einschränkung/Widerspruch verlangen.
+                  Am schnellsten über das <a href="/contact" style="color: rgba(255,255,255,0.88); text-decoration: underline;">Kontaktformular</a>.
+                </p>
+              </div>
+            </div>
+          </div>
 
-        <article class="block card">
-          <h2>Deine Rechte</h2>
-          <p class="text">
-            Du hast – je nach anwendbarem Recht – insbesondere das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der
-            Verarbeitung sowie Widerspruch. Anfragen richten bitte an die oben angegebene Kontaktadresse.
-          </p>
-        </article>
-      </div>
-
-      <div class="bottom card">
-        <div>
-          <div class="kicker">Aktualität</div>
-          <p class="text" style="margin-top:8px;">Stand: 04.01.2026</p>
-        </div>
-        <div class="actions">
-          <a class="btn ghost" href="/impressum">Impressum</a>
-          <a class="btn" href="/contact">Kontakt</a>
+          <div class="card" style="margin-top: 18px;">
+            <div class="card-inner" style="display:flex; justify-content:space-between; align-items:center; gap: 14px; flex-wrap:wrap;">
+              <div>
+                <div class="kicker"><span class="badge-dot"></span> Transparenz</div>
+                <div style="margin-top: 8px; font-size: 14px; color: var(--muted);">
+                  Wenn du eine spezifische Frage zur Datenverarbeitung hast, schreib kurz – ich beantworte sie konkret.
+                </div>
+              </div>
+              <a class="btn btn-secondary" href="/contact">Kontakt</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
-  <style>
-    .wrap{ padding: 22px; border-radius: var(--r-2xl); }
-    .head p{ margin-top: 10px; max-width: 85ch; }
-
-    .grid{ display:grid; gap: 12px; margin-top: 16px; grid-template-columns: 1fr; }
-
-    .block{ padding: 18px; border-radius: var(--r-2xl); }
-    .block h2{
-      margin: 0;
-      color: rgb(var(--text));
-      font-size: 14px;
-      font-weight: 850;
-      letter-spacing: -0.01em;
-    }
-    .text{ margin-top: 10px; color: rgb(var(--muted)); line-height: 1.75; font-size: 14px; }
-
-    .link{
-      color: rgb(var(--text));
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-    .link:hover{ opacity: .95; }
-
-    .bottom{
-      margin-top: 14px;
-      padding: 16px;
-      border-radius: var(--r-2xl);
-      display:grid;
-      gap: 14px;
-      align-items: center;
-    }
-    .actions{ display:flex; gap:10px; flex-wrap:wrap; justify-content: flex-start; }
-
-    @media (min-width: 980px){
-      .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .bottom{ grid-template-columns: 1.1fr .9fr; }
-      .actions{ justify-content: flex-end; }
-    }
-  </style>
 </BaseLayout>
