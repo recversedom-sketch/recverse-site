@@ -5,281 +5,253 @@ const sp = Astro.url.searchParams;
 const preTopic = sp.get("topic") ?? "";
 const preModule = sp.get("module") ?? "";
 const prePackage = sp.get("package") ?? "";
-const preBudget = sp.get("budget") ?? "";
-const preTimeline = sp.get("timeline") ?? "";
 
 const prefill =
   prePackage ? `Paket: ${prePackage}\n` :
   preModule ? `Modul: ${preModule}\n` :
   preTopic ? `Thema: ${preTopic}\n` : "";
-
-const topics = [
-  "KI-MVP / PoC",
-  "Transformation / Projektmanagement",
-  "Website (Landing/Blog/Business)",
-  "Prozess-/Unternehmensberatung",
-  "IT-Projektmanagement",
-  "Etwas anderes",
-];
-
-const budgets = [
-  "unter CHF 500",
-  "CHF 500-1'500",
-  "CHF 1'500-5'000",
-  "CHF 5'000+",
-  "noch offen",
-];
-
-const timelines = [
-  "sofort / diese Woche",
-  "2-4 Wochen",
-  "1-3 Monate",
-  "spaeter",
-];
 ---
 
-<BaseLayout title="Angebot anfragen - RecVerse" description="Anfrage fuer KI-MVP, Transformation-PM oder Beratung.">
-  <section class="mx-auto max-w-3xl px-4 py-16">
-    <h1 class="text-3xl font-semibold">Angebot anfragen</h1>
-    <p class="mt-3 text-zinc-300">
-      Kurz beschreiben, was du erreichen willst. Du bekommst eine konkrete Rueckmeldung (Scope, Timeline, Budgetrahmen).
-    </p>
+<BaseLayout
+  title="Kontakt — Recverse"
+  description="Kontaktformular für Projekte (Web, KI, Transformation/PM). Kurzer Input, konkrete Rückmeldung."
+>
+  <section class="container" style="padding-top: 34px; padding-bottom: 62px;">
+    <div class="top card">
+      <div class="pill"><span class="dot"></span> Kurz, konkret, verwertbar</div>
 
-    <form
-      name="angebot"
-      method="POST"
-      action="/thanks/"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      class="mt-8 space-y-4 rc-card p-8"
-    >
-      <!-- Pflicht fuer Netlify Forms -->
-      <input type="hidden" name="form-name" value="angebot" />
+      <div class="top-grid">
+        <div>
+          <h1 style="margin-top:14px; font-family:'Space Grotesk', Inter, system-ui;">
+            Projekt anfragen
+          </h1>
+          <p style="margin-top:14px; max-width: 70ch;">
+            Schreib kurz, was du erreichen willst. Ich antworte konkret: Scope-Vorschlag, nächste Schritte.
+          </p>
 
-      <!-- Honeypot 1 (Netlify) -->
-      <p class="hidden">
-        <label>Don’t fill this out: <input name="bot-field" autocomplete="off" /></label>
-      </p>
+          <div class="meta">
+            <div class="meta-item">
+              <strong>Antwortstil</strong>
+              <span>direkt, sachlich, ohne Sales-Floskeln</span>
+            </div>
+            <div class="meta-item">
+              <strong>Typische Themen</strong>
+              <span>Web, KI-MVP/PoC, Transformation, IT-PM</span>
+            </div>
+          </div>
+        </div>
 
-      <!-- Honeypot 2 (zusatz) -->
-      <p class="hidden">
-        <label>Leave empty: <input name="nickname" autocomplete="off" /></label>
-      </p>
-
-      <!-- Time-trap -->
-      <input type="hidden" name="ts" id="ts" value="" />
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <label class="space-y-2">
-          <span class="text-sm text-zinc-300">Name</span>
-          <input
-            name="name"
-            required
-            autocomplete="name"
-            class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100"
-          />
-        </label>
-
-        <label class="space-y-2">
-          <span class="text-sm text-zinc-300">E-Mail</span>
-          <input
-            name="email"
-            type="email"
-            required
-            autocomplete="email"
-            inputmode="email"
-            class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100"
-          />
-        </label>
-
-        <label class="space-y-2 block">
-          <span class="text-sm text-zinc-300">Firma / Organisation (optional)</span>
-          <input
-            name="org"
-            autocomplete="organization"
-            class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100"
-         />
-        </label>
-      </div>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <label class="space-y-2">
-          <span class="text-sm text-zinc-300">Telefon (optional)</span>
-          <input
-            name="phone"
-            type="tel"
-            autocomplete="tel"
-            inputmode="tel"
-            placeholder="+41 …"
-            class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100"
-          />
-        </label>
-
-        <label class="space-y-2">
-          <span class="text-sm text-zinc-300">Rolle (optional)</span>
-          <select
-            name="role"
-            class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100"
-          >
-            <option value="">bitte waehlen</option>
-            <option>Inhaber / Geschaeftsfuehrung</option>
-            <option>Projektleitung / PM</option>
-            <option>IT / Engineering</option>
-            <option>Fachbereich / Business</option>
-            <option>Privatperson</option>
-          </select>
-        </label>
-      </div>
-
-      <label class="space-y-2 block">
-        <span class="text-sm text-zinc-300">Worum geht’s?</span>
-        <select
-          name="topic"
-          class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100"
+        <form
+          name="angebot"
+          method="POST"
+          action="/thanks/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          class="form card"
+          id="contactForm"
         >
-          {topics.map((opt) => (
-            <option value={opt} selected={preTopic === opt}>{opt}</option>
-          ))}
-        </select>
-      </label>
+          <input type="hidden" name="form-name" value="angebot" />
 
-      <div class="grid gap-4 md:grid-cols-2">
-        <label class="space-y-2">
-          <span class="text-sm text-zinc-300">Budgetrahmen</span>
-          <select
-            name="budget"
-            class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100"
-          >
-            {budgets.map((b) => (
-              <option value={b} selected={preBudget === b}>{b}</option>
-            ))}
-          </select>
-        </label>
+          <!-- Honeypot (Netlify) -->
+          <p class="hidden">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
 
-        <label class="space-y-2">
-          <span class="text-sm text-zinc-300">Zeitrahmen</span>
-          <select
-            name="timeline"
-            class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100"
-          >
-            {timelines.map((t) => (
-              <option value={t} selected={preTimeline === t}>{t}</option>
-            ))}
-          </select>
-        </label>
+          <!-- Time-trap fields -->
+          <input type="hidden" name="tt_start" id="tt_start" value="" />
+          <input type="hidden" name="tt_elapsed_ms" id="tt_elapsed_ms" value="" />
+
+          <!-- Prefill signals (optional) -->
+          <input type="hidden" name="pref_topic" value={preTopic} />
+          <input type="hidden" name="pref_module" value={preModule} />
+          <input type="hidden" name="pref_package" value={prePackage} />
+
+          <div class="grid2">
+            <label class="field">
+              <span>Name</span>
+              <input name="name" required autocomplete="name" />
+            </label>
+
+            <label class="field">
+              <span>E-Mail</span>
+              <input name="email" type="email" required autocomplete="email" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Worum geht’s?</span>
+            <select name="topic">
+              {[
+                "Website (Landing/Blog/Business)",
+                "Website (Datenschutz-Check)",
+                "Website (Performance/UX)",
+                "KI-MVP / PoC",
+                "Prozess-/Unternehmensberatung",
+                "IT-Projektmanagement",
+                "RecVerseShop",
+                "Etwas anderes",
+              ].map((opt) => (
+                <option value={opt} selected={preTopic === opt}>{opt}</option>
+              ))}
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Kurzbeschreibung</span>
+            <textarea name="message" required rows="7">{prefill}</textarea>
+            <small>Optional: Ziel, Ausgangslage, Deadline, Constraints.</small>
+          </label>
+
+          <div class="grid2">
+            <label class="field">
+              <span>Budgetrahmen (optional)</span>
+              <select name="budget">
+                <option>noch offen</option>
+                <option>unter CHF 500</option>
+                <option>CHF 500-1'500</option>
+                <option>CHF 1'500-5'000</option>
+                <option>CHF 5'000+</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Zeitrahmen (optional)</span>
+              <select name="timeline">
+                <option>noch offen</option>
+                <option>sofort / diese Woche</option>
+                <option>2-4 Wochen</option>
+                <option>1-3 Monate</option>
+                <option>später</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" name="consent" required />
+            <span>
+              Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verarbeitet werden.
+              Details: <a href="/privacy">Datenschutz</a>.
+            </span>
+          </label>
+
+          <div class="err" id="formError" role="status" aria-live="polite"></div>
+
+          <button type="submit" class="btn primary">Anfrage senden</button>
+
+          <p class="fine">
+            Kein Newsletter. Keine Weitergabe an Dritte. Nur Bearbeitung deiner Anfrage.
+          </p>
+        </form>
       </div>
-      
-      <label class="space-y-2 block">
-        <span class="text-sm text-zinc-300">Aktueller Stand (pflicht)</span>
-        <textarea
-          name="current_state"
-          required
-          rows="4"
-          class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100"
-          placeholder="Was existiert bereits? (z.B. Idee, Konzept, aktuelle Website, Tools/ERP, Team, Constraints, offene Fragen)"
-        ></textarea>
-      </label>
-      
-      <label class="space-y-2 block">
-        <span class="text-sm text-zinc-300">Kurzbeschreibung</span>
-        <textarea
-          name="message"
-          required
-          rows="7"
-          class="w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-zinc-100"
-        >{prefill}</textarea>
-        <p class="text-xs text-zinc-500">
-          Tipp: Ziel, aktueller Stand, gewuenschter Output, Stakeholder, technische Randbedingungen.
-        </p>
-      </label>
-
-      <!-- Soft-block gegen typische Spam-/SEO-/LinkedIn-Pitches -->
-      <label class="mt-2 flex items-start gap-3 text-sm text-zinc-300">
-        <input
-          id="noPitch"
-          name="noPitch_confirm"
-          type="checkbox"
-          required
-          class="mt-1 h-4 w-4 rounded border border-zinc-700 bg-zinc-950"
-        />
-        <span>
-          Ich kontaktiere dich <strong>nicht</strong> wegen SEO/Backlinks/Guest-Posts/Leadgen/Recruiting/LinkedIn-Outreach,
-          sondern weil ich eine konkrete Leistung anfragen will.
-        </span>
-      </label>
-
-      <button
-        id="submitBtn"
-        <button type="submit" class="rc-btn rc-btn-primary">
-  Anfrage senden
-</button>
-
-
-      <p class="text-xs text-zinc-500">
-        Mit dem Absenden erklaerst du dich mit der Verarbeitung deiner Angaben zur Bearbeitung deiner Anfrage einverstanden.
-        Details siehe <a class="underline" href="/privacy">Datenschutz</a>.
-      </p>
-
-      <script is:inline>
-        (function () {
-          const form = document.currentScript?.closest("form");
-          if (!form) return;
-
-          const tsEl = form.querySelector("#ts");
-          const btn = form.querySelector("#submitBtn");
-          const bot1 = form.querySelector('input[name="bot-field"]');
-          const bot2 = form.querySelector('input[name="nickname"]');
-          const emailEl = form.querySelector('input[name="email"]');
-          const msgEl = form.querySelector('textarea[name="message"]');
-
-          // set timestamp when page loads
-          if (tsEl) tsEl.value = String(Date.now());
-
-          // simple keyword filter for obvious pitches (soft-block)
-          const blockedPatterns = [
-            "seo", "backlink", "guest post", "linkbuilding", "link building",
-            "outreach", "ranking", "traffic guarantee", "google first page",
-            "linkedin", "recruit", "headhunt", "leadgen", "lead generation",
-          ];
-
-          function includesBlocked(text) {
-            const t = (text || "").toLowerCase();
-            return blockedPatterns.some(p => t.includes(p));
-          }
-
-          form.addEventListener("submit", (e) => {
-            // Honeypots must be empty
-            if ((bot1 && bot1.value.trim()) || (bot2 && bot2.value.trim())) {
-              e.preventDefault();
-              return;
-            }
-
-            // Time-trap: minimum time on page before submit
-            const started = Number(tsEl?.value || "0");
-            const minMs = 4000; // 4 seconds
-            if (!started || (Date.now() - started) < minMs) {
-              e.preventDefault();
-              alert("Bitte kurz pruefen und nach wenigen Sekunden erneut absenden.");
-              return;
-            }
-
-            // Soft-block spam keywords
-            const email = emailEl?.value || "";
-            const msg = msgEl?.value || "";
-            if (includesBlocked(email) || includesBlocked(msg)) {
-              e.preventDefault();
-              alert("Bitte nur konkrete Leistungsanfragen senden (keine SEO/Outreach/Recruiting-Pitches).");
-              return;
-            }
-
-            // Double-submit protection
-            if (btn) {
-              btn.setAttribute("disabled", "disabled");
-              btn.textContent = "Wird gesendet…";
-            }
-          });
-        })();
-      </script>
-    </form>
+    </div>
   </section>
+
+  <script is:inline>
+    (function(){
+      var form = document.getElementById("contactForm");
+      if (!form) return;
+
+      var startEl = document.getElementById("tt_start");
+      var elapsedEl = document.getElementById("tt_elapsed_ms");
+      var err = document.getElementById("formError");
+
+      // Start timestamp on page load
+      var started = Date.now();
+      if (startEl) startEl.value = String(started);
+
+      form.addEventListener("submit", function(e){
+        var now = Date.now();
+        var elapsed = now - started;
+        if (elapsedEl) elapsedEl.value = String(elapsed);
+
+        // Time-trap: block ultra-fast submits (typical bot behavior)
+        // Threshold deliberately conservative to avoid false positives.
+        if (elapsed < 2500) {
+          e.preventDefault();
+          if (err) {
+            err.textContent = "Bitte kurz warten und dann erneut senden (Anti-Spam Schutz).";
+          }
+          return false;
+        }
+
+        // Clear error if ok
+        if (err) err.textContent = "";
+      });
+    })();
+  </script>
+
+  <style>
+    .top{ padding: 22px; border-radius: var(--r-2xl); }
+    .top-grid{ display:grid; gap:18px; margin-top: 14px; }
+
+    .meta{ display:grid; gap:10px; margin-top: 16px; }
+    .meta-item{
+      padding: 14px;
+      border-radius: var(--r-xl);
+      border: 1px solid rgb(var(--border) / .25);
+      background: rgb(var(--surface) / .18);
+    }
+    .meta-item strong{ display:block; color: rgb(var(--text)); font-weight: 820; font-size: 13px; }
+    .meta-item span{ display:block; margin-top:6px; color: rgb(var(--muted)); font-size: 12px; line-height: 1.6; }
+
+    .form{ padding: 18px; border-radius: var(--r-2xl); }
+    .grid2{ display:grid; gap: 12px; }
+
+    .field{ display:grid; gap: 8px; }
+    .field span{ color: rgb(var(--muted)); font-size: 13px; }
+    .field small{ color: rgb(var(--faint)); font-size: 12px; line-height: 1.5; }
+
+    input, select, textarea{
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgb(var(--border) / .55);
+      background: rgb(var(--bg) / .55);
+      color: rgb(var(--text));
+      padding: 12px 12px;
+      font: inherit;
+      transition: border-color var(--t) var(--ease), background var(--t) var(--ease), box-shadow var(--t) var(--ease);
+    }
+    textarea{ resize: vertical; min-height: 140px; }
+    input:focus, select:focus, textarea:focus{
+      outline: none;
+      border-color: rgb(var(--accent) / .65);
+      box-shadow: 0 0 0 4px rgb(var(--accent) / .12);
+      background: rgb(var(--bg) / .70);
+    }
+
+    .consent{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      margin-top: 4px;
+      margin-bottom: 6px;
+      padding: 12px;
+      border-radius: var(--r-xl);
+      border: 1px solid rgb(var(--border) / .25);
+      background: rgb(var(--surface) / .14);
+      color: rgb(var(--muted));
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .consent input{ width: 18px; height: 18px; margin-top: 2px; }
+    .consent a{ color: rgb(var(--text)); }
+
+    .fine{ margin-top: 10px; font-size: 12px; color: rgb(var(--faint)); }
+
+    .hidden{ display:none; }
+
+    .err{
+      min-height: 20px;
+      color: rgb(255 120 120);
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    @media (min-width: 980px){
+      .top-grid{ grid-template-columns: 1.05fr .95fr; align-items: start; }
+      .meta{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .form{ padding: 20px; }
+    }
+  </style>
 </BaseLayout>
