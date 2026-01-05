@@ -1,49 +1,109 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const title = "Impressum";
-const description = "Impressum von RecVerse.";
+
+const title = "Impressum — Recverse";
+const description = "Impressum von Recverse.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="mx-auto max-w-3xl px-4 py-16">
-    <h1 class="text-3xl font-semibold">Impressum</h1>
+  <section class="container" style="padding-top: 34px; padding-bottom: 62px;">
+    <div class="wrap card">
+      <div class="pill"><span class="dot"></span> Rechtliches</div>
 
-    <div class="mt-8 space-y-6 text-zinc-300">
-      <div>
-        <h2 class="text-lg font-semibold text-zinc-100">Anbieter</h2>
-        <p class="mt-2">
-          <strong>Domenico Recchia</strong><br />
-          6042 Dietwil, Aargau, Schweiz
+      <header class="head">
+        <h1 style="font-family:'Space Grotesk', Inter, system-ui;">Impressum</h1>
+        <p>
+          Anbieterangaben und rechtliche Hinweise zu recverse.ch.
         </p>
-        <p class="mt-3">
-  Kontakt: <a class="underline hover:text-zinc-100" href="/contact/">Kontaktformular</a>
-</p>
+      </header>
 
+      <div class="grid">
+        <article class="block card">
+          <h2>Anbieter</h2>
+          <p class="text">
+            <strong>Domenico Recchia</strong><br />
+            6042 Dietwil, Aargau, Schweiz
+          </p>
+          <p class="text" style="margin-top:12px;">
+            Kontakt: <a class="link" href="/contact">Kontaktformular</a>
+          </p>
+        </article>
+
+        <article class="block card">
+          <h2>Haftungsausschluss</h2>
+          <p class="text">
+            Inhalte werden mit Sorgfalt erstellt. Für Vollständigkeit, Aktualität und Richtigkeit wird keine Gewähr übernommen.
+            Haftungsansprüche für direkte oder indirekte Schäden aus der Nutzung der Inhalte sind – soweit gesetzlich zulässig – ausgeschlossen.
+          </p>
+        </article>
+
+        <article class="block card">
+          <h2>Urheberrechte</h2>
+          <p class="text">
+            Inhalte und Werke auf dieser Website unterliegen dem Urheberrecht. Vervielfältigung, Bearbeitung oder Verbreitung
+            ausserhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung.
+          </p>
+        </article>
+
+        <article class="block card">
+          <h2>Externe Links</h2>
+          <p class="text">
+            Für Inhalte externer Links sind ausschliesslich deren Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine
+            Rechtsverstösse erkennbar.
+          </p>
+        </article>
       </div>
 
-      <div>
-        <h2 class="text-lg font-semibold text-zinc-100">Haftungsausschluss</h2>
-        <p class="mt-2">
-          Inhalte werden mit Sorgfalt erstellt. Für Vollständigkeit, Aktualität und Richtigkeit wird keine Gewähr übernommen.
-          Haftungsansprüche für direkte oder indirekte Schäden aus der Nutzung der Inhalte sind – soweit gesetzlich zulässig – ausgeschlossen.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-lg font-semibold text-zinc-100">Urheberrechte</h2>
-        <p class="mt-2">
-          Inhalte und Werke auf dieser Website unterliegen dem Urheberrecht. Vervielfältigung, Bearbeitung oder Verbreitung
-          ausserhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-lg font-semibold text-zinc-100">Externe Links</h2>
-        <p class="mt-2">
-          Für Inhalte externer Links sind ausschliesslich deren Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine
-          Rechtsverstösse erkennbar.
-        </p>
+      <div class="bottom card">
+        <div>
+          <div class="kicker">Hinweis</div>
+          <p class="text" style="margin-top:8px;">
+            Wenn du rechtliche Rückfragen hast, nutze bitte das <a class="link" href="/contact">Kontaktformular</a>.
+          </p>
+        </div>
+        <div class="actions">
+          <a class="btn ghost" href="/privacy">Datenschutz</a>
+          <a class="btn" href="/">Startseite</a>
+        </div>
       </div>
     </div>
   </section>
+
+  <style>
+    .wrap{ padding: 22px; border-radius: var(--r-2xl); }
+    .head p{ margin-top: 10px; max-width: 78ch; }
+    .grid{ display:grid; gap: 12px; margin-top: 16px; grid-template-columns: 1fr; }
+
+    .block{ padding: 18px; border-radius: var(--r-2xl); }
+    .block h2{
+      margin: 0;
+      color: rgb(var(--text));
+      font-size: 14px;
+      font-weight: 850;
+      letter-spacing: -0.01em;
+    }
+    .text{ margin-top: 10px; color: rgb(var(--muted)); line-height: 1.75; font-size: 14px; }
+    .link{
+      color: rgb(var(--text));
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .link:hover{ opacity: .95; }
+
+    .bottom{
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: var(--r-2xl);
+      display:grid;
+      gap: 14px;
+      align-items: center;
+    }
+    .actions{ display:flex; gap:10px; flex-wrap:wrap; justify-content: flex-start; }
+
+    @media (min-width: 980px){
+      .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .bottom{ grid-template-columns: 1.1fr .9fr; }
+      .actions{ justify-content: flex-end; }
+    }
+  </style>
 </BaseLayout>
