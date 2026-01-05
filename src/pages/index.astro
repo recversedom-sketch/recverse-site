@@ -1,47 +1,36 @@
-<footer class="section" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 46px; padding-bottom: 46px;">
-  <div class="container">
-    <div class="grid grid-3">
-      <div class="card">
-        <div class="card-inner">
-          <div class="kicker"><span class="badge-dot"></span> Recverse</div>
-          <h3 style="margin-top: 14px; font-size: 18px;">AI & IT Services für KMUs</h3>
-          <p style="margin-top: 10px;">
-            KI-MVPs, Projektmanagement und moderne Web-Präsenzen – pragmatisch, sauber umgesetzt.
-          </p>
-        </div>
-      </div>
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
 
+<BaseLayout
+  title="Blog â€” Recverse"
+  description="Blog von Recverse. Inhalte sind in Vorbereitung."
+>
+  <section class="section">
+    <div class="container">
       <div class="card">
         <div class="card-inner">
-          <h3 style="font-size: 16px;">Navigation</h3>
-          <div style="display:grid; gap:10px; margin-top: 12px;">
-            <a class="pill" href="/">Start</a>
-            <a class="pill" href="/services">Leistungen</a>
-            <a class="pill" href="/shop">RecVerseShop</a>
-            <a class="pill" href="/contact">Kontakt</a>
+          <div class="kicker"><span class="badge-dot"></span> Blog</div>
+
+          <h1 class="h1" style="margin-top:16px;">In Vorbereitung</h1>
+          <p class="lead" style="margin-top:10px;">
+            Hier erscheinen demnÃ¤chst kurze, praxisnahe Inhalte zu KI, Delivery und modernen IT-Setups fÃ¼r KMUs.
+            Wenn du jetzt schon ein konkretes Ziel hast: wir klÃ¤ren es in einem kurzen Brainstorming.
+          </p>
+
+          <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="/contact">Brainstorming starten</a>
+            <a class="btn btn-ghost" href="/services">Leistungen ansehen</a>
+          </div>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <span class="pill">KI-MVP / PoC</span>
+            <span class="pill">IT-Projektmanagement</span>
+            <span class="pill">Web-Presence</span>
           </div>
         </div>
       </div>
-
-      <div class="card">
-        <div class="card-inner">
-          <h3 style="font-size: 16px;">Rechtliches</h3>
-          <div style="display:grid; gap:10px; margin-top: 12px;">
-            <a class="pill" href="/privacy">Datenschutz</a>
-            <a class="pill" href="/impressum">Impressum</a>
-          </div>
-          <p class="small" style="margin-top: 14px;">
-            Ohne Tracking by default. Wenn wir Analytics aktivieren, dann sauber dokumentiert.
-          </p>
-        </div>
-      </div>
     </div>
+  </section>
+</BaseLayout>
 
-    <hr class="hr" />
-
-    <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-      <p class="small">© {new Date().getFullYear()} Recverse. Alle Rechte vorbehalten.</p>
-      <p class="small">Made in CH. Deployed via Netlify.</p>
-    </div>
-  </div>
-</footer>
