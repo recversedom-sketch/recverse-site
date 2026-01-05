@@ -1,217 +1,26 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const sp = Astro.url.searchParams;
-const cat = sp.get("cat") ?? "";
-
-const products = [
-  {
-    cat: "web",
-    title: "Website Datenschutz-Check (Privatperson)",
-    price: "CHF 100",
-    desc: "Schneller Reality-Check für eine private Website: Cookie/Tracking, Formulare, Consent, Grund-TOMs (light).",
-    includes: ["Kurzreport (konkret)", "Priorisierte Fix-Liste", "Pragmatische Empfehlungen"],
-    cta: { label: "Anfragen", href: "/contact?topic=Website%20(Datenschutz-Check)&package=Datenschutz-Check%20Privat%20(CHF%20100)" },
-  },
-  {
-    cat: "web",
-    title: "Website Datenschutz-Check (KMU)",
-    price: "CHF 380",
-    desc: "KMU-Check für typische B2B-Websites inkl. Formulare, Drittanbieter, Consent-Basics und saubere Empfehlungen.",
-    includes: ["Kurzreport (konkret)", "Priorisierte Fix-Liste", "Abgleich gegen gängige Risiken"],
-    cta: { label: "Anfragen", href: "/contact?topic=Website%20(Datenschutz-Check)&package=Datenschutz-Check%20KMU%20(CHF%20380)" },
-  },
-  {
-    cat: "web",
-    title: "Website Performance & UX Quick-Audit",
-    price: "CHF 290",
-    desc: "Schneller Audit: Struktur, Ladezeiten, Core UX, mobile Touch-UX, klare Verbesserungen (ohne Marketing-Blabla).",
-    includes: ["Top 10 Findings", "Konkrete Fixes", "Quick Wins + Next Steps"],
-    cta: { label: "Anfragen", href: "/contact?topic=Website%20(Performance%2FUX)&package=Performance%20%26%20UX%20Quick-Audit%20(CHF%20290)" },
-  },
-  {
-    cat: "ai",
-    title: "KI-MVP Scope-Check",
-    price: "CHF 450",
-    desc: "Ein strukturierter MVP-Schnitt: Use-Case, Inputs/Outputs, Datenfluss, Risiken, Demo-Plan.",
-    includes: ["Scope-Vorschlag", "Risiken & Abhängigkeiten", "MVP-Demo-Plan"],
-    cta: { label: "Anfragen", href: "/contact?topic=KI-MVP%20/%20PoC&package=KI-MVP%20Scope-Check%20(CHF%20450)" },
-  },
-  {
-    cat: "pm",
-    title: "Projekt-Setup (PM) — Lean Delivery",
-    price: "CHF 650",
-    desc: "Einmaliges Setup: Backlog-Struktur, Deliverables, Risk-Log, Kommunikationsrhythmus. Ohne Overhead.",
-    includes: ["Backlog-Struktur", "Risiko-/Entscheidungslog", "Lieferplan-Template"],
-    cta: { label: "Anfragen", href: "/contact?topic=IT-Projektmanagement&package=Projekt-Setup%20Lean%20Delivery%20(CHF%20650)" },
-  },
-];
-
-const filtered = cat ? products.filter(p => p.cat === cat) : products;
-
-const cats = [
-  { key: "", label: "Alles" },
-  { key: "web", label: "Web" },
-  { key: "ai", label: "KI" },
-  { key: "pm", label: "PM" },
-];
 ---
 
 <BaseLayout
-  title="RecVerseShop — Fixpreis-Items"
-  description="RecVerseShop: Fixpreis-Items für Web, KI und Projektmanagement. Schnell anfragen, klarer Scope."
+  title="RecVerseShop — Recverse"
+  description="RecVerseShop: ausgewählte digitale Angebote. Aktuell in Vorbereitung."
 >
-  <section class="container" style="padding-top: 34px;">
-    <div class="top card">
-      <div class="pill"><span class="dot"></span> Fixpreis-Items • Klarer Scope • Saubere Lieferung</div>
-
-      <div class="top-grid">
-        <div>
-          <h1 style="margin-top:14px; font-family:'Space Grotesk', Inter, system-ui;">
-            RecVerseShop
-          </h1>
-          <p style="margin-top:14px; max-width: 70ch;">
-            Für typische, wiederkehrende Bedürfnisse: kurze Pakete mit klarer Leistung. Wenn du etwas Spezifisches brauchst, nimm das Formular – ich mache dir ein Angebot.
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <div class="card-inner">
+          <div class="kicker"><span class="badge-dot"></span> RecVerseShop</div>
+          <h1 class="h1" style="margin-top: 16px;">In Vorbereitung</h1>
+          <p class="lead" style="margin-top: 10px;">
+            Hier kommen ausgewählte digitale Lösungen und Bausteine rein. Wenn du jetzt schon ein konkretes Ziel hast:
+            lass uns kurz abgleichen.
           </p>
-
-          <div class="actions">
-            <a class="btn primary" href="/contact?topic=RecVerseShop">Etwas anfragen</a>
-            <a class="btn" href="/services">Leistungen</a>
-          </div>
-
-          <p class="note">
-            Preise in CHF. Je nach Leistungsart und Kunde kann MWST anwendbar sein. Details klären wir im Angebot.
-          </p>
-        </div>
-
-        <div class="filter card">
-          <div class="kicker">Filter</div>
-          <div class="chips" role="tablist" aria-label="Kategorien">
-            {cats.map(c => (
-              <a class={"chip " + (cat === c.key ? "active" : "")} href={c.key ? `/shop?cat=${c.key}` : "/shop"}>
-                {c.label}
-              </a>
-            ))}
-          </div>
-
-          <div class="filter-hint">
-            <strong>So funktioniert’s</strong>
-            <span>Item wählen → Anfrage öffnet Kontaktformular mit Prefill.</span>
+          <div style="margin-top: 16px;">
+            <a class="btn btn-primary" href="/contact">Brainstorming starten</a>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <section class="container" style="padding-bottom: 62px;">
-    <div class="section-head">
-      <div>
-        <div class="kicker">Produkte</div>
-        <h2 style="margin-top:8px; font-family:'Space Grotesk', Inter, system-ui;">Wähle ein Item</h2>
-      </div>
-      <a class="btn ghost" href="/contact">Custom Anfrage</a>
-    </div>
-
-    <div class="grid cards">
-      {filtered.map(p => (
-        <article class="prod card">
-          <header class="prod-head">
-            <div>
-              <h3>{p.title}</h3>
-              <p style="margin-top:10px;">{p.desc}</p>
-            </div>
-            <div class="price" aria-label="Preis">{p.price}</div>
-          </header>
-
-          <ul class="list">
-            {p.includes.map(x => <li>{x}</li>)}
-          </ul>
-
-          <div class="prod-cta">
-            <a class="btn primary" href={p.cta.href}>{p.cta.label}</a>
-            <a class="btn" href="/contact">Frage stellen</a>
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <style>
-    .top{ padding: 22px; border-radius: var(--r-2xl); }
-    .top-grid{ display:grid; gap:18px; margin-top: 14px; }
-    .actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 18px; }
-
-    .note{
-      margin-top: 14px;
-      font-size: 12px;
-      color: rgb(var(--faint));
-      max-width: 70ch;
-    }
-
-    .filter{ padding: 16px; border-radius: var(--r-2xl); }
-    .chips{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
-    .chip{
-      text-decoration:none;
-      font-size: 13px;
-      color: rgb(var(--muted));
-      border: 1px solid rgb(var(--border) / .30);
-      background: rgb(var(--surface2) / .20);
-      padding: 8px 12px;
-      border-radius: 999px;
-      transition: background var(--t) var(--ease), border-color var(--t) var(--ease), color var(--t) var(--ease);
-    }
-    .chip:hover{ color: rgb(var(--text)); background: rgb(var(--surface2) / .40); border-color: rgb(var(--border) / .60); }
-    .chip.active{
-      color: rgb(var(--bg));
-      border-color: rgb(var(--accent) / .45);
-      background: rgb(var(--accent) / .92);
-      box-shadow: 0 14px 60px rgb(var(--accent) / .18);
-    }
-
-    .filter-hint{
-      margin-top: 14px;
-      padding: 12px;
-      border-radius: var(--r-xl);
-      border: 1px solid rgb(var(--border) / .25);
-      background: rgb(var(--surface) / .18);
-    }
-    .filter-hint strong{ display:block; color: rgb(var(--text)); font-size: 13px; font-weight: 800; }
-    .filter-hint span{ display:block; margin-top:6px; color: rgb(var(--muted)); font-size: 12px; line-height: 1.6; }
-
-    .section-head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin-top: 10px;
-      margin-bottom: 16px;
-    }
-
-    .cards{ grid-template-columns: 1fr; }
-    .prod{ padding: 20px; border-radius: var(--r-2xl); display:flex; flex-direction:column; gap:14px; }
-    .prod h3{ font-size: 18px; font-weight: 820; color: rgb(var(--text)); letter-spacing: -0.02em; }
-
-    .prod-head{ display:grid; gap: 12px; }
-    .price{
-      justify-self: start;
-      display:inline-flex;
-      align-items:center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgb(var(--accent) / .30);
-      background: rgb(var(--accent) / .10);
-      color: rgb(var(--text));
-      font-weight: 850;
-      letter-spacing: -0.01em;
-    }
-
-    .list{ margin:0; padding-left: 18px; display:grid; gap:8px; color: rgb(var(--muted)); }
-    .list li{ line-height: 1.6; }
-
-    .prod-cta{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 4px; }
-
-    @media (min-width: 980px){
-      .top-grid{ grid-template-columns: 1.1fr .9fr; align-items: start; }
-      .cards{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .prod-head{ grid-template-columns: 1fr auto; align-items:start; }
-      .price{ justify-self: end; }
-    }
-  </style>
 </BaseLayout>

@@ -1,74 +1,147 @@
-<footer>
+---
+const nav = [
+  { href: "/", label: "Start" },
+  { href: "/services", label: "Leistungen" },
+  { href: "/shop", label: "RecVerseShop" },
+  { href: "/contact", label: "Kontakt" },
+];
+---
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(14px);
+    background: rgba(5, 7, 12, 0.65);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .row {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-family: "Space Grotesk", Inter, system-ui;
+  }
+  .mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,185,255,0.35);
+    background: radial-gradient(120% 160% at 30% 15%, rgba(0,185,255,0.35), rgba(0,119,255,0.18) 55%, rgba(255,255,255,0.04));
+    box-shadow: 0 18px 60px rgba(0,185,255,0.12);
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 8px 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.02);
+  }
+  .links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.74);
+    padding: 8px 10px;
+    border-radius: 999px;
+    transition: background 180ms ease, color 180ms ease;
+  }
+  .links a:hover {
+    color: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .burger {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.03);
+    color: rgba(255,255,255,0.9);
+    cursor: pointer;
+  }
+
+  .mobile {
+    display: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: rgba(5, 7, 12, 0.85);
+    backdrop-filter: blur(14px);
+  }
+  .mobile-inner {
+    padding: 14px 0 18px 0;
+    display: grid;
+    gap: 10px;
+  }
+  .mobile a {
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.02);
+    color: rgba(255,255,255,0.85);
+  }
+
+  @media (max-width: 860px) {
+    .links { display: none; }
+    .burger { display: inline-flex; align-items: center; justify-content: center; }
+    .mobile[data-open="true"] { display: block; }
+  }
+</style>
+
+<header class="nav">
   <div class="container">
-    <div class="footer card">
-      <div class="footer-grid">
-        <div>
-          <div class="pill"><span class="dot"></span> Recverse</div>
-          <h3 style="margin-top:12px;">Enterprise-Look. Lean Delivery.</h3>
-          <p style="margin-top:10px; max-width: 60ch;">
-            KI-MVPs, IT-Projektmanagement und moderne Web-Präsenzen für KMUs — mit Fokus auf Vertrauen, Qualität und Performance.
-          </p>
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap: wrap;">
-            <a class="btn ghost" href="/services">Leistungen</a>
-            <a class="btn" href="/contact">Kontakt</a>
-          </div>
-        </div>
+    <div class="row">
+      <a class="brand" href="/" aria-label="Recverse Home">
+        <span class="mark" aria-hidden="true"></span>
+        <span>Recverse</span>
+      </a>
 
-        <div class="footer-cols">
-          <div>
-            <h3>Seiten</h3>
-            <ul>
-              <li><a href="/services">Leistungen</a></li>
-              <li><a href="/shop">RecVerseShop</a></li>
-              <li><a href="/contact">Kontakt</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3>Rechtliches</h3>
-            <ul>
-              <li><a href="/privacy">Datenschutz</a></li>
-              <li><a href="/impressum">Impressum</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <nav class="links" aria-label="Primary">
+        {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+      </nav>
 
-      <div class="footer-bottom">
-        <small>© <span id="year"></span> Recverse</small>
-        <small>Dark Mode • Neon Accent • Performance-first</small>
+      <div class="right">
+        <a class="btn btn-primary" href="/contact">Brainstorming starten</a>
+
+        <button class="burger" type="button" aria-expanded="false" aria-controls="mobileNav" data-burger>
+          <span aria-hidden="true">☰</span>
+        </button>
       </div>
     </div>
+
+    <nav id="mobileNav" class="mobile" data-open="false" aria-label="Mobile">
+      <div class="mobile-inner">
+        {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+        <a class="btn btn-primary" href="/contact">Brainstorming starten</a>
+      </div>
+    </nav>
   </div>
+</header>
 
-  <style>
-    footer{ padding: 46px 0 66px; }
-    .footer{ padding: 22px; border-radius: var(--r-2xl); }
-    .footer-grid{ display:grid; gap: 18px; }
-    .footer a{ color: rgb(var(--muted)); }
-    .footer a:hover{ color: rgb(var(--text)); }
-
-    .footer-cols{ display:grid; gap: 18px; }
-    .footer-cols h3{
-      font-size: 13px;
-      color: rgb(var(--text));
-      opacity: .9;
-      margin-bottom: 10px;
-    }
-    .footer-cols ul{ margin:0; padding:0; list-style:none; display:grid; gap: 8px; }
-    .footer-bottom{
-      margin-top: 18px;
-      padding-top: 16px;
-      border-top: 1px solid rgb(var(--border) / .25);
-      display:flex;
-      flex-direction:column;
-      gap: 8px;
-    }
-    .footer small{ color: rgb(var(--faint)); }
-
-    @media (min-width: 980px){
-      .footer-grid{ grid-template-columns: 1.1fr .9fr; align-items:start; }
-      .footer-cols{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-      .footer-bottom{ flex-direction:row; justify-content:space-between; align-items:center; }
-    }
-  </style>
-</footer>
+<script is:inline>
+  const btn = document.querySelector("[data-burger]");
+  const mobile = document.getElementById("mobileNav");
+  if (btn && mobile) {
+    btn.addEventListener("click", () => {
+      const open = mobile.getAttribute("data-open") === "true";
+      mobile.setAttribute("data-open", String(!open));
+      btn.setAttribute("aria-expanded", String(!open));
+    });
+  }
+</script>

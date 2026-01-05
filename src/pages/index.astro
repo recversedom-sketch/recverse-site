@@ -1,187 +1,47 @@
----
-import BaseLayout from "../layouts/BaseLayout.astro";
----
-
-<BaseLayout
-  title="Recverse — AI & IT Services für moderne Unternehmen"
-  description="Recverse liefert KI-MVPs, IT-Projektmanagement und moderne Web-Präsenzen. Enterprise-Look, schlanke Umsetzung, klare Resultate."
->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-left card">
-          <div class="pill"><span class="dot"></span> Enterprise-Level Umsetzung ohne Overhead</div>
-
-          <h1 style="margin-top:14px; font-family: 'Space Grotesk', Inter, system-ui;">
-            KI & IT-Delivery, die Vertrauen schafft — und Resultate liefert.
-          </h1>
-
-          <p class="hero-lead">
-            Recverse unterstützt KMUs auf dem Weg zur Moderne: von KI-PoC/MVP über Projektmanagement bis zur performanten Web-Präsenz.
-            Klarer Scope. Sauberer Code. Saubere Übergabe.
+<footer class="section" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 46px; padding-bottom: 46px;">
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-inner">
+          <div class="kicker"><span class="badge-dot"></span> Recverse</div>
+          <h3 style="margin-top: 14px; font-size: 18px;">AI & IT Services für KMUs</h3>
+          <p style="margin-top: 10px;">
+            KI-MVPs, Projektmanagement und moderne Web-Präsenzen – pragmatisch, sauber umgesetzt.
           </p>
+        </div>
+      </div>
 
-          <div class="hero-actions">
-            <a class="btn primary" href="/contact">Projekt anfragen</a>
-            <a class="btn" href="/services">Scope-Check</a>
-          </div>
-
-          <div class="trust-row" aria-label="Trust Signals">
-            <div class="trust-item">
-              <strong>Governance-light</strong>
-              <span>Risiken sichtbar, Entscheidungen schnell</span>
-            </div>
-            <div class="trust-item">
-              <strong>Delivery-Fokus</strong>
-              <span>MVP-fähig, wartbar, deploybar</span>
-            </div>
-            <div class="trust-item">
-              <strong>B2B-Ready</strong>
-              <span>Saubere Doku & Übergabe</span>
-            </div>
+      <div class="card">
+        <div class="card-inner">
+          <h3 style="font-size: 16px;">Navigation</h3>
+          <div style="display:grid; gap:10px; margin-top: 12px;">
+            <a class="pill" href="/">Start</a>
+            <a class="pill" href="/services">Leistungen</a>
+            <a class="pill" href="/shop">RecVerseShop</a>
+            <a class="pill" href="/contact">Kontakt</a>
           </div>
         </div>
+      </div>
 
-        <div class="hero-right card" aria-label="Hero Visual Panel">
-          <div class="hero-panel">
-            <div class="kicker">Was du erwarten kannst</div>
-            <h3 style="margin-top:6px;">Modernisierung, die nicht nach „Spielerei“ aussieht.</h3>
-
-            <div class="bullets">
-              <div class="bullet">
-                <div class="icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8Z" stroke="rgb(244 246 255)" stroke-width="1.8" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <div>
-                  <strong>KI-PoC → MVP</strong>
-                  <span>Nutzen, Datenfluss, Risiken, Demo – in einem lieferbaren Scope.</span>
-                </div>
-              </div>
-
-              <div class="bullet">
-                <div class="icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 20V4m0 0h6a3 3 0 0 1 0 6H5m0 0h10a3 3 0 0 1 0 6H5" stroke="rgb(244 246 255)" stroke-width="1.8" stroke-linecap="round"/>
-                  </svg>
-                </div>
-                <div>
-                  <strong>Transformation & IT PM</strong>
-                  <span>Backlog, Stakeholder, Cutover/Go-Live – ohne unnötige Rituale.</span>
-                </div>
-              </div>
-
-              <div class="bullet">
-                <div class="icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2 20 6v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4Z" stroke="rgb(244 246 255)" stroke-width="1.8" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <div>
-                  <strong>Trust & Qualität</strong>
-                  <span>Performance-first, A11y-Basics, klare Struktur.</span>
-                </div>
-              </div>
-            </div>
-
-            <div style="margin-top:10px;">
-              <a class="btn ghost" href="/services">Leistungen ansehen</a>
-            </div>
+      <div class="card">
+        <div class="card-inner">
+          <h3 style="font-size: 16px;">Rechtliches</h3>
+          <div style="display:grid; gap:10px; margin-top: 12px;">
+            <a class="pill" href="/privacy">Datenschutz</a>
+            <a class="pill" href="/impressum">Impressum</a>
           </div>
+          <p class="small" style="margin-top: 14px;">
+            Ohne Tracking by default. Wenn wir Analytics aktivieren, dann sauber dokumentiert.
+          </p>
         </div>
       </div>
     </div>
 
-    <style>
-      .hero{ padding: 64px 0 40px; position: relative; }
-      .hero-grid{ display:grid; grid-template-columns: 1fr; gap:18px; align-items:start; }
+    <hr class="hr" />
 
-      .hero-left{ padding: 22px; border-radius: var(--r-2xl); }
-      .hero-lead{ margin-top: 16px; font-size: 16px; max-width: 62ch; }
-
-      .hero-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px; }
-
-      .trust-row{ margin-top: 18px; display:grid; grid-template-columns: 1fr; gap:10px; }
-      .trust-item{
-        padding: 14px;
-        border-radius: var(--r-xl);
-        border: 1px solid rgb(var(--border) / .25);
-        background: rgb(var(--surface) / .20);
-      }
-      .trust-item strong{
-        display:block;
-        color: rgb(var(--text));
-        font-weight: 750;
-        font-size: 14px;
-      }
-      .trust-item span{ color: rgb(var(--muted)); font-size: 12px; }
-
-      .hero-right{
-        position: relative;
-        padding: 22px;
-        border-radius: var(--r-2xl);
-        overflow: hidden;
-        min-height: 280px;
-      }
-      .hero-right::before{
-        content:"";
-        position: absolute;
-        inset: -80px;
-        background:
-          radial-gradient(420px 280px at 20% 25%, rgb(var(--accent) / .25), transparent 60%),
-          radial-gradient(520px 340px at 80% 35%, rgb(var(--accent2) / .18), transparent 60%),
-          radial-gradient(520px 420px at 45% 85%, rgb(255 255 255 / .05), transparent 60%);
-        opacity: .95;
-        animation: floatMesh 8s var(--ease) infinite alternate;
-      }
-      .hero-right::after{
-        content:"";
-        position:absolute;
-        inset:0;
-        background: linear-gradient(180deg, rgb(var(--bg) / 0.10), rgb(var(--bg) / 0.75));
-        pointer-events:none;
-      }
-      @keyframes floatMesh{
-        from { transform: translate3d(0,0,0) scale(1); }
-        to   { transform: translate3d(16px,-10px,0) scale(1.03); }
-      }
-
-      .hero-panel{ position:relative; display:grid; gap: 12px; }
-      .bullets{ display:grid; gap:10px; margin-top: 6px; }
-      .bullet{
-        display:grid;
-        grid-template-columns: 26px 1fr;
-        gap:10px;
-        align-items:start;
-        padding: 12px;
-        border-radius: 18px;
-        border: 1px solid rgb(var(--border) / .28);
-        background: rgb(var(--surface2) / .22);
-      }
-      .icon{
-        width: 26px;
-        height: 26px;
-        display:grid;
-        place-items:center;
-        border-radius: 12px;
-        border: 1px solid rgb(var(--accent) / .28);
-        background: rgb(var(--accent) / .10);
-        box-shadow: 0 0 26px rgb(var(--accent) / .10);
-      }
-      .bullet strong{ display:block; font-size: 13px; color: rgb(var(--text)); font-weight: 750; }
-      .bullet span{ display:block; margin-top:4px; color: rgb(var(--muted)); font-size: 12px; line-height: 1.55; }
-
-      @media (min-width: 980px){
-        .hero{ padding: 82px 0 56px; }
-        .hero-grid{ grid-template-columns: 1.05fr .95fr; align-items: stretch; }
-        .trust-row{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .hero-right{ min-height: 100%; }
-      }
-
-      @media (prefers-reduced-motion: reduce){
-        .hero-right::before{ animation: none; }
-      }
-    </style>
-  </section>
-</BaseLayout>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+      <p class="small">© {new Date().getFullYear()} Recverse. Alle Rechte vorbehalten.</p>
+      <p class="small">Made in CH. Deployed via Netlify.</p>
+    </div>
+  </div>
+</footer>

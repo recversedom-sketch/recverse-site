@@ -1,211 +1,106 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const catalog = [
-  {
-    title: "Websites & digitale Präsenz",
-    desc: "Schlanke, performante Websites (Astro) mit sauberem UX-Fokus, SEO-Basics und wartbarer Struktur.",
-    items: [
-      "Landingpages, Blog, Business-Site",
-      "Conversion-fokussierte Struktur",
-      "Performance-first (Lighthouse-freundlich)",
-      "Technische SEO-Basics (Meta, Semantik, Sitemap)",
-    ],
-    tags: ["Astro", "Mobile-first", "Performance", "SEO-Basics"],
-    cta: { label: "Zum RecVerseShop", href: "/shop?cat=web" },
-  },
-  {
-    title: "KI-MVP / PoC",
-    desc: "Von Idee zu lieferbarer Demo: Nutzen, Datenfluss, Risiken und Scope werden pragmatisch greifbar gemacht.",
-    items: [
-      "Use-Case-Scoping & MVP-Schnitt",
-      "Prompt/Workflow-Design",
-      "Prototyp/Demo (Web)",
-      "Übergabe: Doku, Backlog, nächste Steps",
-    ],
-    tags: ["LLM", "MVP", "Prototyp", "Delivery"],
-    cta: { label: "Projekt anfragen", href: "/contact?topic=KI-MVP%20/%20PoC" },
-  },
-  {
-    title: "Transformation & IT-Projektmanagement",
-    desc: "Struktur, Klarheit und Fortschritt: Stakeholder, Backlog, Roadmap, Cutover – ohne Show-Prozesse.",
-    items: [
-      "Zielbild, Roadmap, Priorisierung",
-      "Stakeholder-/Risiko-Management",
-      "Lieferobjekte: Doku, Entscheide, Umsetzung",
-      "Go-live Support & Stabilisierung",
-    ],
-    tags: ["PM", "Transformation", "Delivery", "Stakeholder"],
-    cta: { label: "Kontakt", href: "/contact?topic=IT-Projektmanagement" },
-  },
-  {
-    title: "Unternehmens- & Prozessberatung",
-    desc: "Analyse und Optimierung von Abläufen (O2C, Finance/IT, Schnittstellen, Rollen) – praxisnah und umsetzungsorientiert.",
-    items: [
-      "Ist-/Soll-Prozessbild",
-      "Pain Points → Maßnahmen",
-      "Rollen, Schnittstellen, Verantwortlichkeiten",
-      "Dokumentation, Entscheidungsgrundlagen",
-    ],
-    tags: ["Prozesse", "Wirtschaftsinformatik", "O2C", "FiCo"],
-    cta: { label: "Kontakt", href: "/contact?topic=Prozess-%2FUnternehmensberatung" },
-  },
-];
-
-const highlights = [
-  {
-    title: "Brainstorming → Angebot",
-    text: "Du bringst die Idee. Wir strukturieren, schärfen Scope und Risiken. Danach bekommst du ein klares Angebot.",
-  },
-  {
-    title: "Enterprise-Look, lean umgesetzt",
-    text: "Modernes Design, saubere Semantik, performante Umsetzung. Kein Overhead, keine unnötigen Libraries.",
-  },
-  {
-    title: "Saubere Übergabe",
-    text: "Dokumentation, nächste Schritte, nachvollziehbare Struktur – damit es nicht bei einer Demo bleibt.",
-  },
-];
+const mk = (topic) => `/contact?topic=${encodeURIComponent(topic)}`;
 ---
 
 <BaseLayout
   title="Leistungen — Recverse"
-  description="Leistungen von Recverse: Websites, KI-MVP/PoC, Transformation & IT-Projektmanagement sowie Prozessberatung."
+  description="KI-MVPs, IT-Projektmanagement und Web-Presence für KMUs. Fokus auf klare Deliverables und saubere Umsetzung."
 >
-  <section class="container" style="padding-top: 34px;">
-    <div class="top card">
-      <div class="pill"><span class="dot"></span> Deine Ideen — unser Brainstorming — mein Angebot</div>
+  <section class="hero-wrap">
+    <div class="hero-aurora" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
 
-      <div class="top-grid">
-        <div>
-          <h1 style="margin-top:14px; font-family:'Space Grotesk', Inter, system-ui;">
-            Leistungen, die modern wirken — und operativ liefern.
-          </h1>
-          <p style="margin-top:14px; max-width: 70ch;">
-            Recverse fokussiert auf umsetzbare Resultate: klare Struktur, sauberer Code, saubere Übergabe.
-            Du bekommst keine Folien-Show, sondern ein Ergebnis, mit dem du intern weiterarbeiten kannst.
-          </p>
+    <div class="container section" style="position:relative; z-index:2;">
+      <div class="kicker"><span class="badge-dot"></span> Leistungen</div>
+      <h1 class="h1" style="margin-top: 16px;">Deine Ideen – unser Brainstorming – mein Angebot</h1>
+      <p class="lead" style="margin-top: 12px;">
+        Du bringst Ziel & Kontext. Ich bringe Struktur, Delivery-Erfahrung und pragmatische Umsetzung.
+        Ergebnis: ein realistischer, sauberer Plan – und wenn’s passt, ein Angebot.
+      </p>
+      <div style="margin-top: 16px; display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="/contact">Brainstorming starten</a>
+        <a class="btn btn-ghost" href="/contact?topic=KI-MVP%20/%20PoC">Direkt KI-MVP anfragen</a>
+      </div>
+    </div>
+  </section>
 
-          <div class="actions">
-            <a class="btn primary" href="/contact">Projekt anfragen</a>
-            <a class="btn" href="/shop">RecVerseShop</a>
-          </div>
-        </div>
+  <section class="section">
+    <div class="container">
+      <h2 class="h2">Kernbereiche</h2>
 
-        <div class="mini-grid">
-          {highlights.map((h) => (
-            <div class="mini card">
-              <strong>{h.title}</strong>
-              <span>{h.text}</span>
+      <div class="grid grid-3" style="margin-top: 18px;">
+        <div class="card">
+          <div class="card-inner">
+            <h3 style="font-size:16px;">KI-MVP / PoC</h3>
+            <p style="margin-top:8px;">
+              Validierung in Tagen/Wochen statt Monaten: Use-Case, Datenlage, Machbarkeit, Prototyp, klare Metriken.
+            </p>
+            <div style="margin-top: 14px;">
+              <a class="btn btn-primary" href={mk("KI-MVP / PoC")}>Anfragen</a>
             </div>
-          ))}
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <h3 style="font-size:16px;">IT-Projektmanagement</h3>
+            <p style="margin-top:8px;">
+              Stakeholder-Management, Scope/Timeline, Risiken, Cutover-Planung. Fokus: saubere Lieferung.
+            </p>
+            <div style="margin-top: 14px;">
+              <a class="btn btn-primary" href={mk("IT-Projektmanagement")}>Anfragen</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <h3 style="font-size:16px;">Web-Presence (B2B)</h3>
+            <p style="margin-top:8px;">
+              Schlankes, schnelles Setup: Design, Content-Struktur, Performance-Basics, Deployment.
+            </p>
+            <div style="margin-top: 14px;">
+              <a class="btn btn-primary" href={mk("Website (Landing/Blog/Business)")}>Anfragen</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="hr" />
+
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-inner">
+            <h3 style="font-size:16px;">Website Datenschutz-Check</h3>
+            <p style="margin-top:8px;">
+              Schneller Check für gängige Stolpersteine (Formulare, Einbindungen, Tracking, Texte/Transparenz).
+              Ergebnis: konkrete To-Dos mit Prioritäten.
+            </p>
+            <div style="margin-top: 12px; display:flex; gap:10px; flex-wrap:wrap;">
+              <span class="pill"><span class="badge-dot"></span> KMU: CHF 380</span>
+              <span class="pill"><span class="badge-dot"></span> Privatperson: CHF 100</span>
+            </div>
+            <div style="margin-top: 14px;">
+              <a class="btn btn-primary" href={mk("Website Datenschutz-Check")}>Anfragen</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <h3 style="font-size:16px;">Unternehmens- & Prozessberatung</h3>
+            <p style="margin-top:8px;">
+              Klarheit in Prozessen, Rollen und Übergaben – mit Blick auf Umsetzbarkeit in deiner Organisation.
+              Keine Preis-/Zeitangaben hier; das klären wir im Briefing.
+            </p>
+            <div style="margin-top: 14px;">
+              <a class="btn btn-primary" href={mk("Prozess-/Unternehmensberatung")}>Anfragen</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
-  <section class="container">
-    <div class="section-head">
-      <div>
-        <div class="kicker">Catalog</div>
-        <h2 style="margin-top:8px; font-family:'Space Grotesk', Inter, system-ui;">Was ich abdecke</h2>
-      </div>
-      <a class="btn ghost" href="/contact">Unklar? Kurz anfragen</a>
-    </div>
-
-    <div class="grid cards">
-      {catalog.map((c) => (
-        <article class="svc card">
-          <header>
-            <h3>{c.title}</h3>
-            <p style="margin-top:10px;">{c.desc}</p>
-          </header>
-
-          <ul class="list">
-            {c.items.map((it) => <li>{it}</li>)}
-          </ul>
-
-          <div class="tags">
-            {c.tags.map((t) => <span class="tag">{t}</span>)}
-          </div>
-
-          <div class="svc-cta">
-            <a class="btn" href={c.cta.href}>{c.cta.label}</a>
-            <a class="btn ghost" href="/contact">Brainstorming starten</a>
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="container" style="padding-bottom: 62px;">
-    <div class="cta card">
-      <div>
-        <div class="kicker">Next step</div>
-        <h2 style="margin-top:8px; font-family:'Space Grotesk', Inter, system-ui;">
-          Schnell klären, ob es Sinn macht.
-        </h2>
-        <p style="margin-top:12px; max-width: 70ch;">
-          Schreib kurz, was du erreichen willst. Ich antworte konkret mit Scope-Vorschlag und nächsten Schritten.
-        </p>
-      </div>
-      <div class="cta-actions">
-        <a class="btn primary" href="/contact">Formular öffnen</a>
-        <a class="btn" href="/shop">Fixpreis-Items ansehen</a>
-      </div>
-    </div>
-  </section>
-
-  <style>
-    .top{ padding: 22px; border-radius: var(--r-2xl); }
-    .top-grid{ display:grid; gap:18px; margin-top: 14px; }
-    .actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 18px; }
-
-    .mini-grid{ display:grid; gap: 12px; }
-    .mini{ padding: 16px; border-radius: var(--r-xl); }
-    .mini strong{ display:block; color: rgb(var(--text)); font-weight: 800; font-size: 13px; }
-    .mini span{ display:block; margin-top:6px; color: rgb(var(--muted)); font-size: 12px; line-height: 1.6; }
-
-    .section-head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin-top: 10px;
-      margin-bottom: 16px;
-    }
-
-    .cards{ grid-template-columns: 1fr; }
-    .svc{ padding: 20px; border-radius: var(--r-2xl); display:flex; flex-direction:column; gap:14px; }
-    .svc h3{ font-size: 18px; font-weight: 820; color: rgb(var(--text)); letter-spacing: -0.02em; }
-
-    .list{ margin:0; padding-left: 18px; display:grid; gap:8px; color: rgb(var(--muted)); }
-    .list li{ line-height: 1.6; }
-
-    .tags{ display:flex; flex-wrap:wrap; gap:8px; }
-    .tag{
-      font-size: 12px;
-      color: rgb(var(--muted));
-      border: 1px solid rgb(var(--border) / .30);
-      background: rgb(var(--surface2) / .25);
-      padding: 6px 10px;
-      border-radius: 999px;
-    }
-
-    .svc-cta{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 4px; }
-
-    .cta{
-      padding: 22px;
-      border-radius: var(--r-2xl);
-      display:grid;
-      gap: 18px;
-      align-items: center;
-    }
-    .cta-actions{ display:flex; gap:10px; flex-wrap:wrap; }
-
-    @media (min-width: 980px){
-      .top-grid{ grid-template-columns: 1.05fr .95fr; align-items: stretch; }
-      .mini-grid{ grid-template-columns: 1fr; }
-      .cards{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .cta{ grid-template-columns: 1.1fr .9fr; }
-      .cta-actions{ justify-content: flex-end; }
-    }
-  </style>
 </BaseLayout>

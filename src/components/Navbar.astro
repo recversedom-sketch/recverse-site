@@ -1,173 +1,39 @@
 ---
-const nav = [
-  { href: "/services", label: "Leistungen" },
-  { href: "/shop", label: "RecVerseShop" },
-  { href: "/contact", label: "Kontakt" },
-];
+import "../styles/theme.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const {
+  title = "Recverse — AI & IT Services",
+  description = "KI-MVPs, IT-Projektmanagement und moderne Web-Präsenzen für KMUs. Schlank umgesetzt, sauber betrieben.",
+} = Astro.props;
 ---
 
-<div class="nav-wrap">
-  <div class="container">
-    <div class="nav card" role="navigation" aria-label="Hauptnavigation">
-      <a class="brand" href="/">
-        <div class="logo" aria-hidden="true"><span>R</span></div>
-        <div class="brand-title">
-          <strong>Recverse</strong>
-          <small>AI • IT Services • Projektmanagement</small>
-        </div>
-      </a>
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
 
-      <div class="nav-links" aria-label="Seitenlinks">
-        {nav.map((l) => <a href={l.href}>{l.label}</a>)}
-      </div>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-      <div class="nav-cta">
-        <a class="btn ghost" href="/services">Leistungen ansehen</a>
-        <a class="btn primary" href="/contact">Projekt anfragen</a>
-      </div>
+    <meta name="theme-color" content="#05070c" />
+  </head>
 
-      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer">
-        <span class="hamburger" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </span>
-        Menü
-      </button>
-    </div>
+  <body>
+    <Navbar />
 
-    <div class="drawer card" id="drawer">
-      {nav.map((l) => <a href={l.href}>{l.label} <span aria-hidden="true">→</span></a>)}
-      <div class="drawer-cta">
-        <a class="btn ghost" href="/services">Leistungen ansehen</a>
-        <a class="btn primary" href="/contact">Projekt anfragen</a>
-      </div>
-    </div>
-  </div>
-</div>
+    <main>
+      <slot />
+    </main>
 
-<style>
-  .nav-wrap{
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    padding-top: 14px;
-    padding-bottom: 10px;
-    background: linear-gradient(180deg, rgb(var(--bg) / .85), transparent);
-    backdrop-filter: blur(6px);
-  }
-
-  .nav{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    padding: 12px 14px;
-    border-radius: var(--r-2xl);
-  }
-
-  .brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    text-decoration:none;
-    min-width: 180px;
-  }
-
-  .logo{
-    width: 40px;
-    height: 40px;
-    border-radius: 16px;
-    border: 1px solid rgb(var(--accent) / .35);
-    background: rgb(var(--accent) / .10);
-    display:grid;
-    place-items:center;
-    position:relative;
-    overflow:hidden;
-  }
-  .logo::after{
-    content:"";
-    position:absolute;
-    inset:-50%;
-    background:
-      radial-gradient(circle at 30% 30%, rgb(var(--accent) / .40), transparent 55%),
-      radial-gradient(circle at 70% 70%, rgb(var(--accent2) / .25), transparent 60%);
-    filter: blur(10px);
-    opacity: .8;
-  }
-  .logo span{
-    position:relative;
-    font-weight: 900;
-    letter-spacing: .02em;
-    color: rgb(var(--text));
-  }
-
-  .brand-title{ display:flex; flex-direction:column; line-height:1.1; }
-  .brand-title strong{ letter-spacing:-0.02em; }
-  .brand-title small{ color: rgb(var(--faint)); font-size: 12px; }
-
-  .nav-links{ display:none; gap:6px; align-items:center; justify-content:center; flex:1; }
-  .nav-links a{
-    text-decoration:none;
-    padding: 10px 12px;
-    border-radius: 14px;
-    color: rgb(var(--muted));
-    border: 1px solid transparent;
-    transition: background var(--t) var(--ease), border-color var(--t) var(--ease), color var(--t) var(--ease);
-    font-size: 14px;
-  }
-  .nav-links a:hover{
-    color: rgb(var(--text));
-    background: rgb(var(--surface2) / .35);
-    border-color: rgb(var(--border) / .35);
-  }
-
-  .nav-cta{ display:none; gap:10px; align-items:center; }
-
-  .menu-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding: 12px 14px;
-    border-radius: 16px;
-    border: 1px solid rgb(var(--border) / .55);
-    background: rgb(var(--surface2) / .25);
-    color: rgb(var(--text));
-    font-weight: 650;
-    cursor:pointer;
-    transition: background var(--t) var(--ease), border-color var(--t) var(--ease);
-    -webkit-tap-highlight-color: transparent;
-  }
-  .menu-btn:hover{ background: rgb(var(--surface2) / .45); border-color: rgb(var(--border) / .75); }
-
-  .hamburger{ width: 18px; height: 14px; display:grid; gap:3px; }
-  .hamburger span{
-    height:2px;
-    width:100%;
-    border-radius:999px;
-    background: rgb(var(--text));
-    opacity:.92;
-    transition: transform var(--t) var(--ease), opacity var(--t) var(--ease);
-  }
-
-  .drawer{ display:none; margin-top: 12px; padding: 12px; border-radius: var(--r-xl); }
-  .drawer a{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    text-decoration:none;
-    padding: 12px 12px;
-    border-radius: 16px;
-    color: rgb(var(--muted));
-    border: 1px solid transparent;
-    transition: background var(--t) var(--ease), border-color var(--t) var(--ease), color var(--t) var(--ease);
-  }
-  .drawer a:hover{ color: rgb(var(--text)); background: rgb(var(--surface2) / .35); border-color: rgb(var(--border) / .35); }
-
-  .drawer-cta{ display:grid; gap:10px; margin-top:12px; }
-
-  @media (min-width: 980px){
-    .nav-links{ display:flex; }
-    .nav-cta{ display:flex; }
-    .menu-btn{ display:none; }
-    .drawer{ display:none !important; }
-  }
-</style>
+    <Footer />
+  </body>
+</html>

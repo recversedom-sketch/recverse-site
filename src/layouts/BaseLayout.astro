@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 
 const {
   title = "Recverse — AI & IT Services",
-  description = "KI-MVPs, IT-Projektmanagement und moderne Web-Präsenzen für KMUs. Enterprise-Look, schlanke Umsetzung.",
+  description = "KI-MVPs, IT-Projektmanagement und moderne Web-Präsenzen für KMUs. Schlank umgesetzt, sauber betrieben.",
 } = Astro.props;
 ---
 
@@ -14,69 +14,25 @@ const {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
     <meta name="description" content={description} />
+    <title>{title}</title>
 
-    <!-- Fonts -->
+    <!-- Fonts (robust, keine Sonder-Attribute, keine Parser-Fallen) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- Theme -->
+    <meta name="theme-color" content="#05070c" />
   </head>
 
-  <body style="font-family: Inter, ui-sans-serif, system-ui;">
+  <body>
     <Navbar />
     <main>
       <slot />
     </main>
     <Footer />
-
-    <script is:inline>
-      (function(){
-        // Year in footer (safe if missing)
-        var y = document.getElementById("year");
-        if (y) y.textContent = String(new Date().getFullYear());
-
-        // Mobile drawer nav
-        var btn = document.getElementById("menuBtn");
-        var drawer = document.getElementById("drawer");
-        if (!btn || !drawer) return;
-
-        function setOpen(open){
-          drawer.style.display = open ? "block" : "none";
-          btn.setAttribute("aria-expanded", String(open));
-          var bars = btn.querySelectorAll(".hamburger span");
-          if (bars && bars.length === 3){
-            bars[0].style.transform = open ? "translateY(5px) rotate(45deg)" : "none";
-            bars[1].style.opacity = open ? "0" : "0.92";
-            bars[2].style.transform = open ? "translateY(-5px) rotate(-45deg)" : "none";
-          }
-        }
-
-        var open = false;
-        btn.addEventListener("click", function(){ open = !open; setOpen(open); });
-
-        drawer.addEventListener("click", function(e){
-          var a = e.target.closest("a");
-          if (!a) return;
-          open = false; setOpen(false);
-        });
-
-        document.addEventListener("keydown", function(e){
-          if (e.key === "Escape" && open){
-            open = false; setOpen(false);
-            btn.focus();
-          }
-        });
-
-        var mq = window.matchMedia("(min-width: 980px)");
-        mq.addEventListener("change", function(ev){
-          if (ev.matches){ open = false; setOpen(false); }
-        });
-
-        setOpen(false);
-      })();
-    </script>
   </body>
 </html>
