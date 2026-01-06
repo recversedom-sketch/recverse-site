@@ -1,33 +1,58 @@
 ---
-const year = new Date().getFullYear();
+import { getLocale } from "../lib/i18n";
+const locale = getLocale(Astro.url.pathname);
+
+const homeHref = locale === "en" ? "/en/" : "/";
+const servicesHref = locale === "en" ? "/en/services/" : "/services/";
+const shopHref = locale === "en" ? "/en/shop/" : "/shop/";
+const contactHref = locale === "en" ? "/en/contact/" : "/contact/";
+
+const privacyHref = locale === "en" ? "/en/privacy/" : "/privacy/";
+const impressumHref = locale === "en" ? "/en/impressum/" : "/impressum/";
 ---
 
 <footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <div class="brand">
-          <span class="brand__mark" aria-hidden="true"></span>
-          <span class="brand__name">Recverse</span>
-        </div>
-        <div class="fine">KI · IT-Delivery · Projektmanagement. Schweiz (AG).</div>
-        <div class="fine">Kontakt: ausschliesslich via <a href="/contact" style="text-decoration: underline;">Formular</a>.</div>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="brand-row">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <strong>Recverse</strong>
       </div>
-
-      <div>
-        <div style="font-weight:650;margin-bottom:10px">Seiten</div>
-        <a href="/services">Leistungen</a><br />
-        <a href="/shop">RecVerseShop</a><br />
-        <a href="/contact">Kontakt</a>
-      </div>
-
-      <div>
-        <div style="font-weight:650;margin-bottom:10px">Rechtliches</div>
-        <a href="/privacy">Datenschutz</a><br />
-        <a href="/impressum">Impressum</a>
-      </div>
+      <p class="muted">
+        {locale === "en"
+          ? "AI and IT delivery for SMEs — pragmatic execution, clean handover, reliable operations."
+          : "KI und IT-Delivery für KMUs — pragmatische Umsetzung, saubere Übergabe, zuverlässiger Betrieb."}
+      </p>
     </div>
 
-    <div class="fine">© {year} Recverse. Alle Rechte vorbehalten.</div>
+    <div class="footer-col">
+      <div class="footer-title">{locale === "en" ? "Navigation" : "Navigation"}</div>
+      <a href={homeHref}>{locale === "en" ? "Home" : "Start"}</a>
+      <a href={servicesHref}>{locale === "en" ? "Services" : "Leistungen"}</a>
+      <a href={shopHref}>RecVerseShop</a>
+      <a href={contactHref}>{locale === "en" ? "Contact" : "Kontakt"}</a>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-title">{locale === "en" ? "Legal" : "Rechtliches"}</div>
+      <a href={privacyHref}>{locale === "en" ? "Privacy" : "Datenschutz"}</a>
+      <a href={impressumHref}>{locale === "en" ? "Imprint" : "Impressum"}</a>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-title">{locale === "en" ? "Location" : "Standort"}</div>
+      <div class="muted">6042 Dietwil, Aargau (CH)</div>
+      <div class="spacer"></div>
+      <a class="btn btn-secondary" href={contactHref}>
+        {locale === "en" ? "Send request" : "Anfrage senden"}
+      </a>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <span class="muted">© {new Date().getFullYear()} Recverse</span>
+    <span class="muted">
+      {locale === "en" ? "Built for speed & clarity." : "Gebaut für Geschwindigkeit & Klarheit."}
+    </span>
   </div>
 </footer>

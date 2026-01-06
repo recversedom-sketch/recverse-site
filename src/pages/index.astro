@@ -1,72 +1,39 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-
 <BaseLayout
-  title="Recverse — KI & IT Delivery für KMUs"
-  description="Recverse liefert KI-MVPs, IT-Projektmanagement und moderne Web-Präsenzen für KMUs. Schlank gebaut, sauber betrieben."
+  title="Recverse — Moderne KI- & IT-Delivery für KMUs"
+  description="KI-MVPs, ERP-nahe Umsetzung, IT-Projektmanagement und moderne Web-Präsenzen. Klarer Scope, saubere Lieferung, messbare Ergebnisse."
 >
   <section class="hero">
-    <div class="container">
-      <div class="kicker">
-        <span class="kicker__dot" aria-hidden="true"></span>
-        <span>KI & IT Delivery · für KMUs</span>
-      </div>
-
-      <h1 class="h1">Von Idee zu Ergebnis — in Wochen, nicht Quartalen.</h1>
-
-      <p class="lead">
-        Recverse verbindet Produktdenken, Engineering und Projektmanagement: MVPs, Websites und IT-Delivery,
-        die skalierbar gebaut sind und im Alltag funktionieren.
+    <div class="container hero-inner">
+      <div class="kicker">KI · Delivery · Projektmanagement</div>
+      <h1 class="h1">Moderne Lösungen, die wirklich geliefert werden.</h1>
+      <p class="p">
+        Recverse unterstützt KMUs beim Schritt in die Moderne: KI-MVPs, ERP-nahe Umsetzung und IT-Projektmanagement — schlank,
+        transparent, zuverlässig. Ohne Overengineering.
       </p>
-
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="/contact">Angebot anfragen</a>
-        <a class="btn btn--ghost" href="/services">Leistungen ansehen</a>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/contact/?topic=Brainstorming">Brainstorming starten</a>
+        <a class="btn btn-secondary" href="/services/">Leistungen ansehen</a>
       </div>
+    </div>
+  </section>
 
-      <div class="hero__grid">
-        <div class="panel">
-          <div class="panel__inner">
-            <div class="stat-row">
-              <div class="stat">
-                <div class="stat__label">Fokus</div>
-                <div class="stat__value">MVPs · Delivery · <strong>Trust</strong></div>
-              </div>
-              <div class="stat">
-                <div class="stat__label">Arbeitsweise</div>
-                <div class="stat__value">klarer Scope · iterativ · dokumentiert</div>
-              </div>
-            </div>
-
-            <div class="mini">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
-              </svg>
-              <span>Neon-Akzente bewusst dosiert — „Enterprise“ statt „Gaming“.</span>
-            </div>
-          </div>
+  <section class="section-tight">
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="card" style="padding:18px;">
+          <h2 class="h2">Klarer Scope</h2>
+          <p class="p">Wir definieren in kurzer Zeit Ziel, Risiken, Abhängigkeiten und ein lieferbares MVP.</p>
         </div>
-
-        <div class="panel">
-          <div class="panel__inner">
-            <div class="stat">
-              <div class="stat__label">Typische Outputs</div>
-              <div class="stat__value">Landing · PoC · Delivery-Plan</div>
-            </div>
-
-            <div class="stat" style="margin-top:12px">
-              <div class="stat__label">Start</div>
-              <div class="stat__value">Brainstorming → Angebot</div>
-            </div>
-
-            <div class="mini">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6 12h12M12 6v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-              </svg>
-              <span>Du bekommst Klarheit: Scope, Risiko, nächste Schritte.</span>
-            </div>
-          </div>
+        <div class="card" style="padding:18px;">
+          <h2 class="h2">Saubere Delivery</h2>
+          <p class="p">Technisch schlank, nachvollziehbar dokumentiert, mit sauberem Handover.</p>
+        </div>
+        <div class="card" style="padding:18px;">
+          <h2 class="h2">Messbarer Nutzen</h2>
+          <p class="p">Ergebnisse als Impact: weniger manueller Aufwand, geringeres Risiko, bessere Qualität.</p>
         </div>
       </div>
     </div>
@@ -74,60 +41,61 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <section class="section">
     <div class="container">
-      <h2 class="section__title">Wobei ich helfe</h2>
-      <p class="section__sub">
-        Fokussiert, pragmatisch, mit sauberer Dokumentation. Du bekommst keine „Folien“-Beratung,
-        sondern umsetzbare Delivery.
-      </p>
+      <div class="kicker">Anonymisierte Case-Highlights</div>
+      <h2 class="h2" style="margin-top:10px;">Drei typische Projekte — Ausgangslage → Vorgehen → Resultat</h2>
 
-      <div class="grid grid--3 mt-12">
-        <article class="card">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7 7h10v10H7z" stroke="currentColor" stroke-width="1.6" />
-              <path d="M4 12h3M17 12h3M12 4v3M12 17v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-            </svg>
-          </div>
-          <h3>KI-MVP / PoC</h3>
-          <p>Prototypen, die echte Prozesse abbilden: Datenfluss, Security, Hand-off in Betrieb.</p>
-        </article>
+      <div class="grid grid-3" style="margin-top:18px;">
+        <div class="card" style="padding:18px;">
+          <h3 style="margin:0; font-weight:900;">KI-Tools einsetzen, erschaffen, vernetzen</h3>
+          <p class="p"><strong>Ausgangslage:</strong> Verstreute Tools/Workflows, hoher manueller Koordinationsaufwand.</p>
+          <p class="p"><strong>Vorgehen:</strong> Use-Cases priorisiert, leichtes Integrations-Setup, klare Governance & Übergabe.</p>
+          <p class="p"><strong>Resultat:</strong> ~20–30% weniger manueller Aufwand und stabilere Abläufe.</p>
+        </div>
 
-        <article class="card">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 18V6l8-3 8 3v12l-8 3-8-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
-              <path d="M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-            </svg>
-          </div>
-          <h3>IT-Projektmanagement</h3>
-          <p>Steuerung, Stakeholder, Risiko, Scope — damit Delivery planbar bleibt.</p>
-        </article>
+        <div class="card" style="padding:18px;">
+          <h3 style="margin:0; font-weight:900;">ERP-Projektmanagement; ERP & KI</h3>
+          <p class="p"><strong>Ausgangslage:</strong> Viele Stakeholder, Schnittstellen-Risiko, unklare Verantwortlichkeiten.</p>
+          <p class="p"><strong>Vorgehen:</strong> Delivery-Plan, Interface-Blick, Pilot-Use-Case für KI-Unterstützung im Prozess.</p>
+          <p class="p"><strong>Resultat:</strong> weniger Rework-Schleifen, geringeres Risiko in kritischen Übergaben.</p>
+        </div>
 
-        <article class="card">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M6 19h12M8 17V7h8v10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-              <path d="M9 10h6M9 13h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-            </svg>
-          </div>
-          <h3>Web & UX</h3>
-          <p>Performance-optimierte Websites/Landingpages mit klarer Conversion und sauberer Struktur.</p>
-        </article>
+        <div class="card" style="padding:18px;">
+          <h3 style="margin:0; font-weight:900;">Websites-Erneuerung / SEO-Optimierung</h3>
+          <p class="p"><strong>Ausgangslage:</strong> Veraltete Seite, schlechte Performance, wenig Vertrauen/Conversion.</p>
+          <p class="p"><strong>Vorgehen:</strong> Modernes Redesign, klare Informationsarchitektur, technische SEO-Basics.</p>
+          <p class="p"><strong>Resultat:</strong> bessere Ladezeiten, klarere Conversion-Route, bessere Sichtbarkeit-Basis.</p>
+        </div>
       </div>
 
-      <div class="panel mt-12">
-        <div class="panel__inner">
-          <h2 class="section__title">Deine Ideen — unser Brainstorming — mein Angebot</h2>
-          <p class="section__sub">
-            Du schickst mir kurz Ziel, Kontext und gewünschtes Ergebnis. Du bekommst eine konkrete Rückmeldung:
-            Scope, nächste Schritte und ein Angebot.
-          </p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="/contact">Brainstorming starten</a>
-            <a class="btn btn--ghost" href="/services">Leistungen im Detail</a>
-          </div>
-          <p class="help">Keine Newsletter, kein Tracking by default. Details siehe <a href="/privacy">Datenschutz</a>.</p>
+      <div style="margin-top:18px;" class="muted">
+        Hinweis: anonymisiert, Zahlen als Richtwerte/Spannen je nach Ausgangslage.
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="kicker">So arbeiten wir</div>
+      <h2 class="h2" style="margin-top:10px;">Deine Idee → Brainstorming → Angebot</h2>
+
+      <div class="grid grid-3" style="margin-top:18px;">
+        <div class="card" style="padding:18px;">
+          <h3 style="margin:0; font-weight:900;">1) Brainstorming (kurz & konkret)</h3>
+          <p class="p">Ziel, Kontext, Risiken, Constraints, Erfolgskriterien.</p>
         </div>
+        <div class="card" style="padding:18px;">
+          <h3 style="margin:0; font-weight:900;">2) Scope & Delivery-Plan</h3>
+          <p class="p">Was wird geliefert, in welcher Reihenfolge, inkl. Abhängigkeiten.</p>
+        </div>
+        <div class="card" style="padding:18px;">
+          <h3 style="margin:0; font-weight:900;">3) Angebot</h3>
+          <p class="p">Konkreter Vorschlag, transparent und umsetzbar.</p>
+        </div>
+      </div>
+
+      <div class="hero-actions" style="margin-top:18px;">
+        <a class="btn btn-primary" href="/contact/?topic=Brainstorming">Brainstorming starten</a>
+        <a class="btn btn-secondary" href="/services/">Leistungen ansehen</a>
       </div>
     </div>
   </section>

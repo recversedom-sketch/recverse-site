@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const sp = Astro.url.searchParams;
 const preTopic = sp.get("topic") ?? "";
@@ -7,27 +7,27 @@ const preModule = sp.get("module") ?? "";
 const prePackage = sp.get("package") ?? "";
 
 const prefill =
-  prePackage ? `Paket: ${prePackage}\n` :
-  preModule ? `Modul: ${preModule}\n` :
-  preTopic ? `Thema: ${preTopic}\n` : "";
+  prePackage ? `Package: ${prePackage}\n` :
+  preModule ? `Module: ${preModule}\n` :
+  preTopic ? `Topic: ${preTopic}\n` : "";
 ---
 
 <BaseLayout
-  title="Brainstorming / Anfrage — Recverse"
-  description="Beschreibe kurz dein Ziel. Du bekommst eine konkrete Rückmeldung (Scope, nächste Schritte)."
+  title="Brainstorm / Inquiry — Recverse"
+  description="Briefly describe your goal. You’ll get a concrete response (scope, next steps)."
 >
   <section class="section">
     <div class="container" style="max-width: 760px;">
-      <div class="kicker">Kontakt</div>
-      <h1 class="h1">Anfrage senden</h1>
+      <div class="kicker">Contact</div>
+      <h1 class="h1">Send an inquiry</h1>
       <p class="p">
-        Beschreibe gerne kurz, was du erreichen willst. Du bekommst baldmöglichst eine Rückmeldung.
+        Briefly describe what you want to achieve. I’ll get back to you as soon as possible.
       </p>
 
       <form
         name="angebot"
         method="POST"
-        action="/thanks/"
+        action="/en/thanks/"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         class="card"
@@ -46,39 +46,39 @@ const prefill =
 
         <div class="grid grid-2">
           <label style="display:grid; gap:8px;">
-            <span class="muted">Name (Pflicht)</span>
+            <span class="muted">Name (required)</span>
             <input name="name" required class="card" style="padding:12px; background:rgba(0,0,0,.15);" />
           </label>
 
           <label style="display:grid; gap:8px;">
-            <span class="muted">E-Mail (Pflicht)</span>
+            <span class="muted">Email (required)</span>
             <input name="email" type="email" required class="card" style="padding:12px; background:rgba(0,0,0,.15);" />
           </label>
         </div>
 
         <div class="grid grid-2" style="margin-top:12px;">
           <label style="display:grid; gap:8px;">
-            <span class="muted">Firma (optional)</span>
+            <span class="muted">Company (optional)</span>
             <input name="company" class="card" style="padding:12px; background:rgba(0,0,0,.15);" />
           </label>
 
           <label style="display:grid; gap:8px;">
-            <span class="muted">Telefon (optional, für Rückruf)</span>
+            <span class="muted">Phone (optional, for a callback)</span>
             <input name="phone" class="card" style="padding:12px; background:rgba(0,0,0,.15);" />
           </label>
         </div>
 
         <label style="display:grid; gap:8px; margin-top:12px;">
-          <span class="muted">Worum geht’s?</span>
+          <span class="muted">What is this about?</span>
           <select name="topic" class="card" style="padding:12px; background:rgba(0,0,0,.15);">
             {[
               "Brainstorming",
-              "KI-MVP / PoC",
-              "ERP / IT-Projektmanagement",
-              "Web-Präsenz / Redesign",
-              "Website Datenschutz-Check",
+              "AI MVP / PoC",
+              "ERP / IT Project Management",
+              "Web Presence / Redesign",
+              "Website Privacy Check",
               "Website Renewal / SEO",
-              "Etwas anderes",
+              "Something else",
             ].map((opt) => (
               <option value={opt} selected={preTopic === opt}>{opt}</option>
             ))}
@@ -86,7 +86,7 @@ const prefill =
         </label>
 
         <label style="display:grid; gap:8px; margin-top:12px;">
-          <span class="muted">Kurzbeschreibung (Pflicht)</span>
+          <span class="muted">Short description (required)</span>
           <textarea
             name="message"
             required
@@ -98,45 +98,45 @@ const prefill =
 
         <div class="grid grid-2" style="margin-top:12px;">
           <label style="display:grid; gap:8px;">
-            <span class="muted">Budgetrahmen (optional)</span>
+            <span class="muted">Budget range (optional)</span>
             <select name="budget" class="card" style="padding:12px; background:rgba(0,0,0,.15);">
               <option value="">—</option>
-              <option>unter CHF 500</option>
-              <option>CHF 500–1'500</option>
-              <option>CHF 1'500–5'000</option>
-              <option>CHF 5'000+</option>
-              <option>noch offen</option>
+              <option>under CHF 500</option>
+              <option>CHF 500–1,500</option>
+              <option>CHF 1,500–5,000</option>
+              <option>CHF 5,000+</option>
+              <option>open</option>
             </select>
           </label>
 
           <label style="display:grid; gap:8px;">
-            <span class="muted">Zeitrahmen für die Endlösung (optional)</span>
+            <span class="muted">Timeline for the target outcome (optional)</span>
             <select name="timeline" class="card" style="padding:12px; background:rgba(0,0,0,.15);">
               <option value="">—</option>
-              <option>sofort / diese Woche</option>
-              <option>2–4 Wochen</option>
-              <option>1–3 Monate</option>
-              <option>später</option>
+              <option>ASAP / this week</option>
+              <option>2–4 weeks</option>
+              <option>1–3 months</option>
+              <option>later</option>
             </select>
           </label>
         </div>
 
         <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:14px;">
-          <button type="submit" class="btn btn-primary">Anfrage senden</button>
-          <a class="btn btn-secondary" href="/services/">Leistungen ansehen</a>
+          <button type="submit" class="btn btn-primary">Send inquiry</button>
+          <a class="btn btn-secondary" href="/en/services/">View services</a>
         </div>
 
         <p class="muted" style="font-size:12px; margin-top:10px;">
-          Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Angaben zur Bearbeitung deiner Anfrage einverstanden.
-          Details siehe <a class="muted" style="text-decoration:underline;" href="/privacy/">Datenschutz</a>.
+          By submitting, you agree that your information may be processed to handle your inquiry.
+          Details: <a class="muted" style="text-decoration:underline;" href="/en/privacy/">Privacy</a>.
         </p>
       </form>
 
       <noscript>
         <div class="card" style="padding:14px; margin-top:14px;">
-          <strong>Hinweis:</strong>
+          <strong>Note:</strong>
           <div class="muted" style="margin-top:6px;">
-            JavaScript ist deaktiviert. Das Formular funktioniert möglicherweise, Spam-Schutz ist dann aber eingeschränkt.
+            JavaScript is disabled. The form may still work, but anti-spam protection is reduced.
           </div>
         </div>
       </noscript>
@@ -158,13 +158,12 @@ const prefill =
         // 3s minimum
         if (elapsed < 3000) {
           e.preventDefault();
-          alert("Bitte kurz prüfen und danach senden (Spam-Schutz).");
+          alert("Please take a moment to review, then submit (anti-spam).");
           return;
         }
-        // basic check: js_ok must be 1
         if (jsok && jsok.value !== "1") {
           e.preventDefault();
-          alert("Bitte erneut versuchen.");
+          alert("Please try again.");
           return;
         }
       });

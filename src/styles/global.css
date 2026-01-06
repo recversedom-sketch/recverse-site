@@ -1,3 +1,37 @@
-/* Minimal global layer (no utility framework required) */
-html{scroll-behavior:smooth}
-img,svg{max-width:100%; height:auto}
+/* Global Reset & Base */
+
+/* WICHTIG: Das verhindert das "Ineinanderlaufen" der Kacheln */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Verhindert horizontales Scrollen */
+}
+
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Scrollbar styling (Chrome/Safari/Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #020305;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+  border: 2px solid #020305;
+}

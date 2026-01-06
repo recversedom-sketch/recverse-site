@@ -1,104 +1,64 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-
 <BaseLayout
   title="Leistungen — Recverse"
-  description="KI-MVPs, IT-Projektmanagement, Web & UX. Klarer Scope, schlanke Umsetzung, zuverlässige Delivery."
+  description="KI-MVPs, ERP-nahe Umsetzung, IT-Projektmanagement und moderne Web-Präsenzen für KMUs. Brainstorming → Scope → Angebot."
 >
   <section class="section">
     <div class="container">
-      <div class="kicker">
-        <span class="kicker__dot" aria-hidden="true"></span>
-        <span>Leistungen</span>
-      </div>
-
-      <h1 class="h1">Klarer Output statt Buzzwords.</h1>
-      <p class="lead">
-        Ich unterstütze KMUs, die modernisieren wollen — mit pragmatischer Delivery, sauberer Dokumentation
-        und Fokus auf Betriebssicherheit.
+      <div class="kicker">Leistungen</div>
+      <h1 class="h1">Deine Ideen → unser Brainstorming → mein Angebot</h1>
+      <p class="p">
+        Wir fokussieren uns auf umsetzbare pragmatische Deliverables.
       </p>
 
-      <div class="grid grid--3 mt-12">
-        <article class="card">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7 7h10v10H7z" stroke="currentColor" stroke-width="1.6" />
-              <path d="M4 12h3M17 12h3M12 4v3M12 17v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-            </svg>
+      <div class="grid grid-3" style="margin-top:18px;">
+        <div class="card" style="padding:18px;">
+          <h2 class="h2">KI-MVP / PoC</h2>
+          <p class="p">Use-Cases priorisieren, MVP bauen, sauber integrieren — inkl. pragmatischer Sicherheits- und Betriebsaspekte.</p>
+          <div style="margin-top:14px;">
+            <a class="btn btn-primary" href="/contact/?topic=KI-MVP%20%2F%20PoC">Anfragen</a>
           </div>
-          <h3>KI-MVP / PoC</h3>
-          <p>
-            Vom Use-Case zur lauffähigen Lösung: Daten- und Systemfluss, Guardrails, Logging/Monitoring
-            (wo sinnvoll), Übergabe in Betrieb.
-          </p>
-        </article>
+        </div>
 
-        <article class="card">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 18V6l8-3 8 3v12l-8 3-8-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
-              <path d="M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-            </svg>
+        <div class="card" style="padding:18px;">
+          <h2 class="h2">ERP- & IT-Projektmanagement</h2>
+          <p class="p">Requirements- & Delivery-Planung, Stakeholder-Management, Schnittstellen-/Risiko-Steuerung. Klarer Fokus auf Go-Live-Fähigkeit. MVP ASAP.</p>
+          <div style="margin-top:14px;">
+            <a class="btn btn-primary" href="/contact/?topic=ERP%20%2F%20IT-Projektmanagement">Anfragen</a>
           </div>
-          <h3>Transformation & Delivery PM</h3>
-          <p>
-            Projektsteuerung mit Substanz: Scope, Plan, Risiko, Stakeholder, Entscheidungslogik.
-            Ziel: weniger Reibung, mehr Tempo.
-          </p>
-        </article>
+        </div>
 
-        <article class="card">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M6 19h12M8 17V7h8v10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-              <path d="M9 10h6M9 13h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-            </svg>
+        <div class="card" style="padding:18px;">
+          <h2 class="h2">Moderne Web-Präsenz</h2>
+          <p class="p">Schnell, vertrauenswürdig, conversion-klar. Performance-first, saubere Struktur, technisch wartbar.</p>
+          <div style="margin-top:14px;">
+            <a class="btn btn-primary" href="/contact/?topic=Web-Pr%C3%A4senz%20%2F%20Redesign">Anfragen</a>
           </div>
-          <h3>Websites & UX</h3>
-          <p>
-            Moderne Websites/Landingpages (Astro/Static) mit klarer Conversion, hoher Performance
-            und sauberer Content-Struktur.
-          </p>
-        </article>
-      </div>
-
-      <div class="panel mt-12">
-        <div class="panel__inner">
-          <h2 class="section__title">Website Datenschutz-Check</h2>
-          <p class="section__sub">
-            Kompakter Check der Website/Tools (Formulare, Cookies/Tracking, Drittanbieter, Consent, Datenschutzerklärung).
-            Ergebnis: klare To-dos + Priorisierung.
-          </p>
-
-          <div class="stat-row mt-8">
-            <div class="stat">
-              <div class="stat__label">KMU</div>
-              <div class="stat__value">CHF <strong>380</strong></div>
-            </div>
-            <div class="stat">
-              <div class="stat__label">Privatperson</div>
-              <div class="stat__value">CHF <strong>100</strong></div>
-            </div>
-          </div>
-
-          <p class="help">
-            Hinweis: Das ist keine Rechtsberatung. Wenn du rechtliche Prüfung brauchst (CH/EU), arbeite ich mit Anwalt/Datenschutzberater zusammen.
-          </p>
         </div>
       </div>
 
-      <div class="panel mt-12">
-        <div class="panel__inner">
-          <h2 class="section__title">Deine Ideen — unser Brainstorming — mein Angebot</h2>
-          <p class="section__sub">
-            Du bekommst in kurzer Zeit Klarheit: Was ist realistisch? Welche Risiken sind relevant?
-            Was ist der nächste Schritt?
-          </p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="/contact">Brainstorming starten</a>
-            <a class="btn btn--ghost" href="/shop">RecVerseShop</a>
-          </div>
+      <div class="card" style="padding:18px; margin-top:18px;">
+        <h2 class="h2">Website Datenschutz-Check</h2>
+        <p class="p">
+          Schnellcheck deiner Website auf Datenschutz-Basics (Cookies/Forms/Tracking/Einbindung externer Dienste).
+          Ergebnis: konkrete To-Dos, priorisiert.
+        </p>
+        <p class="p"><strong>Preis:</strong> KMU CHF 380 · Privatperson CHF 100</p>
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="/contact/?topic=Website%20Datenschutz-Check&package=KMU">KMU anfragen</a>
+          <a class="btn btn-secondary" href="/contact/?topic=Website%20Datenschutz-Check&package=Privat">Privat anfragen</a>
+        </div>
+      </div>
+
+      <div class="card" style="padding:18px; margin-top:18px;">
+        <h2 class="h2">Unternehmens- & Prozessberatung</h2>
+        <p class="p">
+          Wir identifizieren Engpässe, entscheiden pragmatisch und setzen um. Prozesse verändern sich, genau so wie das Unternehmen und die Umwelt.
+        </p>
+        <div style="margin-top:14px;">
+          <a class="btn btn-primary" href="/contact/?topic=Prozess-%20%2F%20Unternehmensberatung">Brainstorming starten</a>
         </div>
       </div>
     </div>

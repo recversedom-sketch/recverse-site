@@ -1,0 +1,8 @@
+***DIESEN BEFEHL IM PROJEKTROOT IN POWERSHELL AUSFÜHREN***
+
+cd "C:\Dev_DRe\myWebsite\recverse-site"
+npm run build
+git status
+git add -A
+git commit -m "Publish: latest site updates"
+git push

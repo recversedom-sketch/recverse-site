@@ -1,80 +1,68 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-
-<BaseLayout
-  title="Datenschutz — Recverse"
-  description="Datenschutzhinweise für recverse.ch (Schweiz/EU)."
->
+<BaseLayout title="Datenschutz — Recverse" description="Informationen zur Verarbeitung personenbezogener Daten.">
   <section class="section">
-    <div class="container">
-      <div class="kicker">
-        <span class="kicker__dot" aria-hidden="true"></span>
-        <span>Datenschutz</span>
+    <div class="container" style="max-width:760px;">
+      <div class="kicker">Rechtliches</div>
+      <h1 class="h1">Datenschutz</h1>
+
+      <div class="card" style="padding:18px; margin-top:18px;">
+        <h2 class="h2">Verantwortlich</h2>
+        <p class="p"><strong>Domenico Recchia</strong>, 6042 Dietwil, Aargau, Schweiz</p>
+        <p class="p">Kontakt: über <a href="/contact/" style="text-decoration:underline;">Kontaktformular</a></p>
       </div>
 
-      <h1 class="h1">Datenschutzhinweise</h1>
-      <p class="lead">
-        Kurz und konkret: Welche Daten fallen an, wofür werden sie genutzt, und welche Drittanbieter sind beteiligt.
-      </p>
-
-      <div class="panel mt-12">
-        <div class="panel__inner">
-          <h2 class="section__title">Verantwortlicher</h2>
-          <p class="section__sub">
-            Domenico Recchia, 6042 Dietwil (AG), Schweiz. Kontakt ausschliesslich via <a href="/contact">Kontaktformular</a>.
-          </p>
-
-          <h2 class="section__title" style="margin-top:20px">Hosting</h2>
-          <p class="section__sub">
-            Diese Website wird bei Netlify (Netlify, Inc.) gehostet. Beim Aufruf der Website können technische Daten
-            (z. B. IP-Adresse, Zeitpunkt, angeforderte Ressource, User-Agent) in Server-Logs verarbeitet werden,
-            um den Betrieb und die Sicherheit sicherzustellen.
-          </p>
-
-          <h2 class="section__title" style="margin-top:20px">Kontaktformular (Netlify Forms)</h2>
-          <p class="section__sub">
-            Wenn du das Kontaktformular nutzt, werden die von dir eingegebenen Daten (z. B. Name, E-Mail, Nachricht)
-            zur Bearbeitung deiner Anfrage verarbeitet. Die Übermittlung erfolgt via Netlify Forms.
-            Anti-Spam: Honeypot + Zeitprüfung (Time-Trap).
-          </p>
-
-          <h2 class="section__title" style="margin-top:20px">Fonts (Google Fonts)</h2>
-          <p class="section__sub">
-            Zur Darstellung von Schriftarten werden Google Fonts eingebunden. Dabei kann eine Verbindung zu Servern von Google
-            hergestellt werden, wodurch technische Daten (insb. IP-Adresse) übertragen werden können.
-            Wenn du das vermeiden willst, kann ich die Fonts auch selbst hosten.
-          </p>
-
-          <h2 class="section__title" style="margin-top:20px">Cookies / Tracking</h2>
-          <p class="section__sub">
-            Aktuell werden keine Marketing- oder Tracking-Cookies gesetzt. Technisch notwendige Cookies können durch
-            Netlify/Browser entstehen (z. B. für Security/Performance).
-          </p>
-
-          <h2 class="section__title" style="margin-top:20px">Rechtsgrundlagen (CH/EU)</h2>
-          <p class="section__sub">
-            Schweiz: Verarbeitung nach DSG (insb. für Vertrags-/Anbahnung, Betriebssicherheit). EU/DSGVO (falls anwendbar):
-            Art. 6 Abs. 1 lit. b (Vertragsanbahnung) und lit. f (berechtigtes Interesse: Betrieb/Sicherheit).
-          </p>
-
-          <h2 class="section__title" style="margin-top:20px">Speicherdauer</h2>
-          <p class="section__sub">
-            Formulardaten werden so lange gespeichert, wie es für die Bearbeitung der Anfrage notwendig ist, sowie
-            entsprechend gesetzlicher Aufbewahrungspflichten, sofern anwendbar.
-          </p>
-
-          <h2 class="section__title" style="margin-top:20px">Deine Rechte</h2>
-          <p class="section__sub">
-            Du kannst Auskunft, Berichtigung, Löschung oder Einschränkung verlangen, soweit gesetzlich vorgesehen.
-            Nutze dafür bitte das <a href="/contact">Kontaktformular</a>.
-          </p>
-        </div>
+      <div class="card" style="padding:18px; margin-top:14px;">
+        <h2 class="h2">Welche Daten werden verarbeitet?</h2>
+        <p class="p">
+          Wenn du das Kontaktformular nutzt, werden die von dir eingegebenen Angaben verarbeitet (z.B. Name, E-Mail, Nachricht
+          sowie optionale Felder wie Firma/Telefon/Budget/Zeitrahmen).
+        </p>
       </div>
 
-      <p class="help">
-        Stand: Januar 2026. Diese Hinweise können angepasst werden, wenn Funktionen/Drittanbieter erweitert werden.
-      </p>
+      <div class="card" style="padding:18px; margin-top:14px;">
+        <h2 class="h2">Zweck</h2>
+        <p class="p">
+          Bearbeitung deiner Anfrage, Kommunikation, Vorbereitung eines Angebots. Es findet kein Tracking/Analytics statt.
+        </p>
+      </div>
+
+      <div class="card" style="padding:18px; margin-top:14px;">
+        <h2 class="h2">Dienstleister / Hosting</h2>
+        <p class="p">
+          Diese Website wird bei Netlify gehostet. Formulare können über Netlify Forms verarbeitet werden.
+          Dabei werden die Formulardaten an Netlify übertragen, um die Anfrage zuzustellen.
+        </p>
+        <p class="p">
+          Zusätzlich können serverseitige Logs (z.B. IP-Adresse, Zeitpunkt, User-Agent) zur Sicherstellung des Betriebs
+          und zur Abwehr von Missbrauch anfallen.
+        </p>
+      </div>
+
+      <div class="card" style="padding:18px; margin-top:14px;">
+        <h2 class="h2">Aufbewahrung</h2>
+        <p class="p">
+          Anfragen werden grundsätzlich so lange aufbewahrt, wie es für die Bearbeitung und eine angemessene Nachverfolgung
+          erforderlich ist (typischerweise bis zu 12 Monate), sofern keine längeren gesetzlichen Pflichten bestehen.
+        </p>
+      </div>
+
+      <div class="card" style="padding:18px; margin-top:14px;">
+        <h2 class="h2">Schriften / externe Ressourcen</h2>
+        <p class="p">
+          Aktuell werden Google Fonts eingebunden. Dabei werden Daten an Google übertragen.
+          Weitere Informationen findest du bei Google <a href="https://policies.google.com/privacy"> </a>
+        </p>
+      </div>
+
+      <div class="card" style="padding:18px; margin-top:14px;">
+        <h2 class="h2">Deine Rechte</h2>
+        <p class="p">
+          Du kannst Auskunft, Berichtigung oder Löschung deiner Daten verlangen, soweit dies rechtlich möglich ist.
+          Bitte nutze dafür das Kontaktformular.
+        </p>
+      </div>
     </div>
   </section>
 </BaseLayout>

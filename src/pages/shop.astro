@@ -1,55 +1,47 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const items = [
-  { title: "Website Starter (Template)", desc: "Schlanke, schnelle Basis — ideal für KMUs. (In Vorbereitung)", tag: "Coming soon" },
-  { title: "Datenschutz-Check (Website)", desc: "Kompakter Audit + To-dos. (Buchbar via Kontakt)", tag: "Buchbar" },
-  { title: "KI-MVP Sprint", desc: "PoC/MVP in klaren Iterationen. (Scope via Brainstorming)", tag: "Buchbar" },
-];
 ---
-
 <BaseLayout
-  title="RecVerseShop — Recverse"
-  description="RecVerseShop: schlanke Pakete, Templates und Services. Aktuell im Aufbau."
+  title="RecVerseShop — Catalog"
+  description="Kleiner, fokussierter Katalog. Kein Checkout: Interesse anmelden → wir klären Scope & Machbarkeit."
 >
   <section class="section">
     <div class="container">
-      <div class="kicker">
-        <span class="kicker__dot" aria-hidden="true"></span>
-        <span>RecVerseShop</span>
-      </div>
+      <div class="kicker">RecVerseShop</div>
+      <h1 class="h1">ein kleiner fokussierter Katalog</h1>
+      <p class="p">Kein Checkout. Du meldest Interesse an — ich melde mich mit Scope-Vorschlag und nächstem Schritt.</p>
 
-      <h1 class="h1">Katalog (im Aufbau)</h1>
-      <p class="lead">
-        Hier entsteht ein kuratierter Katalog aus Templates und Services. Bis dahin: buche direkt via Kontaktformular.
-      </p>
+      <div class="grid grid-2" style="margin-top:18px;">
+        <div class="card" style="padding:18px;">
+          <h2 class="h2">Website Datenschutz-Check</h2>
+          <p class="p">KMU: CHF 380 · Privat: CHF 100</p>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="/contact/?topic=Website%20Datenschutz-Check&package=KMU">KMU</a>
+            <a class="btn btn-secondary" href="/contact/?topic=Website%20Datenschutz-Check&package=Privat">Privat</a>
+          </div>
+        </div>
 
-      <div class="grid grid--3 mt-12">
-        {items.map((it) => (
-          <article class="card">
-            <div class="stat" style="padding:10px 12px; display:flex; justify-content:space-between; align-items:center;">
-              <div class="stat__label">{it.tag}</div>
-              <div class="stat__value" style="font-size:12px; font-weight:650;">Recverse</div>
-            </div>
-            <h3>{it.title}</h3>
-            <p>{it.desc}</p>
-            <div class="hero__actions" style="margin-top:14px">
-              <a class="btn btn--primary" href="/contact">Anfragen</a>
-              <a class="btn btn--ghost" href="/services">Details</a>
-            </div>
-          </article>
-        ))}
-      </div>
+        <div class="card" style="padding:18px;">
+          <h2 class="h2">KI-MVP Sprint</h2>
+          <p class="p">Von Use-Case zu MVP: klarer Scope, lauffähiger Prototyp, sauberer Handover.</p>
+          <div style="margin-top:14px;">
+            <a class="btn btn-primary" href="/contact/?topic=KI-MVP%20Sprint">Interesse anmelden</a>
+          </div>
+        </div>
 
-      <div class="panel mt-12">
-        <div class="panel__inner">
-          <h2 class="section__title">Hinweis</h2>
-          <p class="section__sub">
-            Sobald der Shop live ist, folgt hier ein sauberer Checkout (ohne unnötiges Tracking) inkl. klaren AGB/Datenschutz.
-            Bis dahin: Kontakt → kurze Klärung → Angebot.
-          </p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="/contact">Kontakt</a>
+        <div class="card" style="padding:18px;">
+          <h2 class="h2">ERP & KI-Enablement</h2>
+          <p class="p">Use-Case Auswahl, Risiken/Interfaces, Pilot-Plan. Fokus: realistische Umsetzung.</p>
+          <div style="margin-top:14px;">
+            <a class="btn btn-primary" href="/contact/?topic=ERP%20%2B%20KI%20Enablement">Interesse anmelden</a>
+          </div>
+        </div>
+
+        <div class="card" style="padding:18px;">
+          <h2 class="h2">Website Renewal / SEO-Basis</h2>
+          <p class="p">Modernes Redesign + technische SEO-Basics. Ziel: Vertrauen & Performance.</p>
+          <div style="margin-top:14px;">
+            <a class="btn btn-primary" href="/contact/?topic=Website%20Renewal%20%2F%20SEO">Interesse anmelden</a>
           </div>
         </div>
       </div>
