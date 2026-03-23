@@ -1,50 +1,354 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
+
 <BaseLayout
-  title="RecVerseShop — Catalog"
-  description="Kleiner, fokussierter Katalog. Kein Checkout: Interesse anmelden → wir klären Scope & Machbarkeit."
+  title="RecVerseShop — Katalog"
+  description="Kleiner, fokussierter Katalog. Kein Checkout: Interesse anmelden, Scope klären, sinnvoll nächsten Schritt definieren."
 >
-  <section class="section">
-    <div class="container">
-      <div class="kicker">RecVerseShop</div>
-      <h1 class="h1">ein kleiner fokussierter Katalog</h1>
-      <p class="p">Kein Checkout. Du meldest Interesse an — ich melde mich mit Scope-Vorschlag und nächstem Schritt.</p>
+  <main class="landing-page landing-page--shop">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">RecVerseShop</p>
+          <h1>Ein kleiner, fokussierter Katalog statt beliebiger Standardpakete</h1>
+          <p class="lead">
+            Kein klassischer Checkout, kein blinder Sofortkauf. Sie melden Interesse an, wir prüfen
+            kurz Kontext, Machbarkeit und sinnvollen Scope – und leiten daraus den nächsten Schritt ab.
+          </p>
 
-      <div class="grid grid-2" style="margin-top:18px;">
-        <div class="card" style="padding:18px;">
-          <h2 class="h2">Website Datenschutz-Check</h2>
-          <p class="p">KMU: CHF 380 · Privat: CHF 100</p>
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-primary" href="/contact/?topic=Website%20Datenschutz-Check&package=KMU">KMU</a>
-            <a class="btn btn-secondary" href="/contact/?topic=Website%20Datenschutz-Check&package=Privat">Privat</a>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#katalog">Katalog ansehen</a>
+            <a class="btn btn-secondary" href="/contact/?topic=Erstgespräch">Erstgespräch anfragen</a>
           </div>
+
+          <ul class="hero-points" aria-label="Grundsätze">
+            <li>Kein Overengineering</li>
+            <li>Klare Scope-Einordnung</li>
+            <li>Realistische Umsetzbarkeit</li>
+          </ul>
         </div>
 
-        <div class="card" style="padding:18px;">
-          <h2 class="h2">KI-MVP Sprint</h2>
-          <p class="p">Von Use-Case zu MVP: klarer Scope, lauffähiger Prototyp, sauberer Handover.</p>
-          <div style="margin-top:14px;">
-            <a class="btn btn-primary" href="/contact/?topic=KI-MVP%20Sprint">Interesse anmelden</a>
-          </div>
-        </div>
-
-        <div class="card" style="padding:18px;">
-          <h2 class="h2">ERP & KI-Enablement</h2>
-          <p class="p">Use-Case Auswahl, Risiken/Interfaces, Pilot-Plan. Fokus: realistische Umsetzung.</p>
-          <div style="margin-top:14px;">
-            <a class="btn btn-primary" href="/contact/?topic=ERP%20%2B%20KI%20Enablement">Interesse anmelden</a>
-          </div>
-        </div>
-
-        <div class="card" style="padding:18px;">
-          <h2 class="h2">Website Renewal / SEO-Basis</h2>
-          <p class="p">Modernes Redesign + technische SEO-Basics. Ziel: Vertrauen & Performance.</p>
-          <div style="margin-top:14px;">
-            <a class="btn btn-primary" href="/contact/?topic=Website%20Renewal%20%2F%20SEO">Interesse anmelden</a>
+        <div class="hero-card">
+          <div class="card-glow"></div>
+          <div class="hero-panel">
+            <p class="panel-label">Wie der Shop funktioniert</p>
+            <h2>Interesse zuerst. Umsetzung nur, wenn sie wirklich Sinn ergibt.</h2>
+            <p>
+              Die Angebote im Katalog sind bewusst kompakt gehalten. Ziel ist nicht, möglichst viel
+              zu verkaufen, sondern passende Einstiege, Reviews oder Projektstarts sauber zu strukturieren.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <p class="section-kicker">Vorgehen</p>
+        <h2>Was nach einer Anfrage passiert</h2>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-number">01</div>
+            <h3>Interesse anmelden</h3>
+            <p>
+              Sie wählen ein passendes Thema oder Paket und senden eine kurze Anfrage.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-number">02</div>
+            <h3>Scope prüfen</h3>
+            <p>
+              Wir klären, was davon in Ihrer Situation sinnvoll, realistisch und verhältnismässig ist.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-number">03</div>
+            <h3>Nächsten Schritt definieren</h3>
+            <p>
+              Sie erhalten eine konkrete Einordnung statt eines unpassenden Standardverkaufs.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="katalog">
+      <div class="container">
+        <p class="section-kicker">Katalog</p>
+        <h2>Kompakte Angebote mit klarem Fokus</h2>
+        <p class="body-large section-intro">
+          Die folgenden Angebote sind als strukturierte Einstiege gedacht. Preise, Umfang und Tiefe
+          hängen im Einzelfall von Ausgangslage, Komplexität und gewünschtem Ergebnis ab.
+        </p>
+
+        <div class="shop-grid">
+          <article class="shop-card">
+            <div class="shop-card-head">
+              <span class="shop-tag">Review</span>
+              <h3>Website Datenschutz-Check</h3>
+            </div>
+
+            <p class="shop-price">KMU: CHF 380 · Privat: CHF 100</p>
+
+            <p>
+              Kompakter Review für typische Datenschutz-Schwachstellen auf Websites:
+              Formulare, Transparenz, Basis-Hinweise und naheliegende operative Risiken.
+            </p>
+
+            <ul class="shop-list">
+              <li>Fokus auf praktikable Schwachstellen</li>
+              <li>Geeignet für KMU und Privatprojekte</li>
+              <li>Kein überladener Voll-Audit</li>
+            </ul>
+
+            <div class="shop-actions">
+              <a class="btn btn-primary" href="/contact/?topic=Website%20Datenschutz-Check&package=KMU">KMU anfragen</a>
+              <a class="btn btn-secondary" href="/contact/?topic=Website%20Datenschutz-Check&package=Privat">Privat anfragen</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card-head">
+              <span class="shop-tag">MVP</span>
+              <h3>KI-MVP Sprint</h3>
+            </div>
+
+            <p class="shop-price">Von Use-Case zu klarem MVP-Start</p>
+
+            <p>
+              Strukturierter Einstieg von der ersten Idee bis zu einem realistisch geschnittenen
+              MVP oder PoC – mit klarem Scope, sinnvollen Grenzen und sauberem nächsten Schritt.
+            </p>
+
+            <ul class="shop-list">
+              <li>Use-Case schärfen</li>
+              <li>Scope und Risiken reduzieren</li>
+              <li>MVP / PoC realistisch vorbereiten</li>
+            </ul>
+
+            <div class="shop-actions">
+              <a class="btn btn-primary" href="/contact/?topic=KI-MVP%20/%20PoC&package=KI-MVP%20Sprint">Interesse anmelden</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card-head">
+              <span class="shop-tag">Enablement</span>
+              <h3>ERP &amp; KI-Enablement</h3>
+            </div>
+
+            <p class="shop-price">Use-Case, Risiken, Pilot-Plan</p>
+
+            <p>
+              Einordnung von KI-Potenzialen im ERP-/IT-Kontext mit Fokus auf Schnittstellen,
+              Machbarkeit, operative Risiken und einen belastbaren Pilot- oder Einführungsweg.
+            </p>
+
+            <ul class="shop-list">
+              <li>Use-Case-Auswahl mit Priorisierung</li>
+              <li>Interface- und Risikobetrachtung</li>
+              <li>Realistische nächste Projektstufe</li>
+            </ul>
+
+            <div class="shop-actions">
+              <a class="btn btn-primary" href="/contact/?topic=ERP%20/%20IT-Projektmanagement&module=ERP%20%26%20KI-Enablement">Interesse anmelden</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card-head">
+              <span class="shop-tag">Web</span>
+              <h3>Website Renewal / SEO-Basis</h3>
+            </div>
+
+            <p class="shop-price">Modernisierung mit Fokus auf Vertrauen und Basis-Performance</p>
+
+            <p>
+              Redesign oder strukturelle Überarbeitung Ihrer Website mit Fokus auf Klarheit,
+              Lesbarkeit, Vertrauensaufbau und saubere technische SEO-Grundlagen.
+            </p>
+
+            <ul class="shop-list">
+              <li>Redesign mit klarerer Nutzerführung</li>
+              <li>Basis-SEO statt SEO-Overpromise</li>
+              <li>Verbesserung von Vertrauen und Struktur</li>
+            </ul>
+
+            <div class="shop-actions">
+              <a class="btn btn-primary" href="/contact/?topic=Website%20Renewal%20/%20SEO&package=Website%20Renewal%20/%20SEO-Basis">Interesse anmelden</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <p class="section-kicker">Einordnung</p>
+        <h2>Was dieser Shop bewusst nicht ist</h2>
+
+        <div class="trust-grid">
+          <article class="trust-card">
+            <h3>Kein Massen-Checkout</h3>
+            <p>
+              Die Angebote sind kein anonymer Standardkauf, sondern Einstiegspunkte für sinnvolle Arbeit.
+            </p>
+          </article>
+
+          <article class="trust-card">
+            <h3>Kein Blindverkauf</h3>
+            <p>
+              Nicht jedes Paket passt zu jeder Situation. Deshalb wird der Scope zuerst kurz geprüft.
+            </p>
+          </article>
+
+          <article class="trust-card">
+            <h3>Keine unrealistischen Versprechen</h3>
+            <p>
+              Der Fokus liegt auf klaren nächsten Schritten, nicht auf aufgeblasenen Leistungszusagen.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container cta-box">
+        <div>
+          <p class="section-kicker">Nächster Schritt</p>
+          <h2>Sie haben ein passendes Thema gefunden?</h2>
+          <p class="body-large">
+            Dann melden Sie Ihr Interesse an. Wir prüfen kurz, ob das Format passt und wie der
+            sinnvollste nächste Schritt aussieht.
+          </p>
+        </div>
+
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="/contact/?topic=Erstgespräch">Anfrage starten</a>
+          <a class="btn btn-secondary" href="/services/">Leistungen ansehen</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .landing-page--shop .steps-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .landing-page--shop .trust-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .landing-page--shop .shop-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .landing-page--shop .shop-card {
+      position: relative;
+      z-index: 1;
+      background: var(--rv-bg-soft);
+      border: 1px solid var(--rv-border);
+      border-radius: var(--rv-radius);
+      box-shadow: var(--rv-shadow);
+      backdrop-filter: blur(8px);
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      min-height: 100%;
+    }
+
+    .landing-page--shop .shop-card-head {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .landing-page--shop .shop-card h3 {
+      margin-bottom: 0;
+    }
+
+    .landing-page--shop .shop-tag {
+      display: inline-block;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--rv-accent);
+      font-weight: 700;
+    }
+
+    .landing-page--shop .shop-price {
+      margin: 0;
+      font-weight: 700;
+      color: var(--rv-text);
+      line-height: 1.6;
+    }
+
+    .landing-page--shop .shop-card p {
+      margin: 0;
+      color: var(--rv-text-soft);
+      line-height: 1.7;
+    }
+
+    .landing-page--shop .shop-list {
+      margin: 0.15rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--rv-text-soft);
+    }
+
+    .landing-page--shop .shop-list li {
+      line-height: 1.7;
+      margin-bottom: 0.35rem;
+    }
+
+    .landing-page--shop .shop-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-top: 0.5rem;
+    }
+
+    .landing-page--shop .shop-actions .btn,
+    .landing-page--shop .shop-actions .btn:visited {
+      text-decoration: none;
+    }
+
+    .landing-page--shop .shop-actions .btn-primary,
+    .landing-page--shop .shop-actions .btn-primary:visited {
+      color: #071018;
+    }
+
+    .landing-page--shop .shop-actions .btn-secondary,
+    .landing-page--shop .shop-actions .btn-secondary:visited {
+      color: var(--rv-text);
+    }
+
+    @media (max-width: 980px) {
+      .landing-page--shop .shop-grid,
+      .landing-page--shop .steps-grid,
+      .landing-page--shop .trust-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .landing-page--shop .shop-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .landing-page--shop .shop-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </BaseLayout>

@@ -98,7 +98,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <li>Priorisierung nach Nutzen und Aufwand</li>
               <li>Erste sinnvolle Einsatzmöglichkeiten</li>
             </ul>
-            <a href="/contact/?topic=KI-Einstieg%20/%20Orientierung" class="service-link">Anfrage zu diesem Thema</a>
+            <a href="/contact/?topic=KI-Einstieg%20/%20Orientierung" class="btn btn-secondary service-link">Anfrage zu diesem Thema</a>
           </article>
 
           <article class="service-card">
@@ -113,7 +113,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <li>Quick Wins mit direktem Alltagsnutzen</li>
               <li>Pragmatische Verbesserungen statt Grossprojekt</li>
             </ul>
-            <a href="/contact/?topic=Brainstorming" class="service-link">Effizienzpotenziale besprechen</a>
+            <a href="/contact/?topic=Brainstorming" class="btn btn-secondary service-link">Effizienzpotenziale besprechen</a>
           </article>
 
           <article class="service-card">
@@ -129,7 +129,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <li>Schrittweise Einführung statt Big Bang</li>
               <li>Klare Prioritäten und Verantwortlichkeiten</li>
             </ul>
-            <a href="/contact/?topic=Brainstorming" class="service-link">Fahrplan definieren</a>
+            <a href="/contact/?topic=Brainstorming" class="btn btn-secondary service-link">Fahrplan definieren</a>
           </article>
 
           <article class="service-card">
@@ -145,7 +145,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <li>Projekt- und Entscheidungslogik schärfen</li>
               <li>Saubere Reduktion von Scope-Risiken</li>
             </ul>
-            <a href="/contact/?topic=KI-MVP%20/%20PoC" class="service-link">MVP oder PoC besprechen</a>
+            <a href="/contact/?topic=KI-MVP%20/%20PoC" class="btn btn-secondary service-link">MVP oder PoC besprechen</a>
           </article>
 
           <article class="service-card">
@@ -161,7 +161,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <li>Bewusster Umgang mit sensiblen Daten</li>
               <li>Reduktion unnötiger Tool- und Prozessrisiken</li>
             </ul>
-            <a href="/contact/?topic=Website%20Datenschutz-Check" class="service-link">Datenschutz-Thema anfragen</a>
+            <a href="/contact/?topic=Website%20Datenschutz-Check" class="btn btn-secondary service-link">Datenschutz-Thema anfragen</a>
           </article>
 
           <article class="service-card">
@@ -177,7 +177,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <li>Nachschärfung von Prioritäten und Massnahmen</li>
               <li>Begleitung bei neuen Fragestellungen</li>
             </ul>
-            <a href="/contact/?topic=Laufende%20Begleitung" class="service-link">Laufende Begleitung anfragen</a>
+            <a href="/contact/?topic=Laufende%20Begleitung" class="btn btn-secondary service-link">Laufende Begleitung anfragen</a>
           </article>
         </div>
       </div>
@@ -305,22 +305,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       margin-bottom: 0.35rem;
     }
 
-    .landing-page--services .service-link {
+    .landing-page--services .service-link,
+    .landing-page--services .service-link:visited {
       margin-top: auto;
-      padding-top: 0.6rem;
-      color: var(--rv-accent);
+      align-self: flex-start;
       text-decoration: none;
-      font-weight: 700;
+      color: var(--rv-text);
     }
 
-    .landing-page--services .service-link:hover {
-      text-decoration: underline;
+    .landing-page--services .service-link:hover,
+    .landing-page--services .service-link:focus-visible {
+      color: var(--rv-text);
+      text-decoration: none;
     }
 
     @media (max-width: 1180px) {
       .landing-page--services .process-grid,
       .landing-page--services .trust-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .landing-page--services .service-link {
+        width: 100%;
       }
     }
   </style>
