@@ -6,7 +6,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   title="Leistungen – Recverse"
   description="Klarheit, Fahrplan und pragmatische Begleitung für sinnvollen Technologieeinsatz – von Orientierung über Effizienz bis zur datenschutzbewussten Umsetzung."
 >
-  <main>
+  <main class="landing-page landing-page--services">
     <section class="hero section">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -69,7 +69,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
 
         <p class="section-bridge">
-          Genau an dieser Stelle unterstützen wir mit Struktur, Einordnung und pragmischer Umsetzung.
+          Genau an dieser Stelle unterstützen wir mit Struktur, Einordnung und pragmatischer Umsetzung.
         </p>
       </div>
     </section>
@@ -281,263 +281,31 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </main>
 
   <style>
-    :root {
-      --rv-bg: #0b1020;
-      --rv-bg-soft: rgba(255, 255, 255, 0.04);
-      --rv-bg-soft-2: rgba(255, 255, 255, 0.06);
-      --rv-border: rgba(255, 255, 255, 0.12);
-      --rv-text: #f5f7fb;
-      --rv-text-soft: rgba(245, 247, 251, 0.78);
-      --rv-accent: #88f7d4;
-      --rv-accent-2: #7aa2ff;
-      --rv-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
-      --rv-radius: 22px;
-      --rv-radius-sm: 16px;
-      --rv-max: 1180px;
-    }
-
-    main {
-      color: var(--rv-text);
-    }
-
-    .section {
-      padding: 5.5rem 1.25rem;
-    }
-
-    .section-alt {
-      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.03));
-    }
-
-    .container {
-      max-width: var(--rv-max);
-      margin: 0 auto;
-    }
-
-    .narrow {
-      max-width: 900px;
-    }
-
-    .hero {
-      padding-top: 7rem;
-      padding-bottom: 5rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .eyebrow,
-    .section-kicker,
-    .panel-label,
-    .service-tag {
-      display: inline-block;
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--rv-accent);
-      font-weight: 700;
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1.08;
-      margin: 0 0 1rem;
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 4.4rem);
-      max-width: 11ch;
-    }
-
-    h2 {
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-      max-width: 18ch;
-    }
-
-    h3 {
-      font-size: 1.2rem;
-    }
-
-    .lead,
-    .body-large {
-      font-size: 1.12rem;
-      line-height: 1.75;
-      color: var(--rv-text-soft);
-      max-width: 62ch;
-    }
-
-    .section-intro {
-      margin-top: 0.3rem;
-    }
-
-    .hero-actions,
-    .cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-top: 1.5rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0.85rem 1.2rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-      border: 1px solid transparent;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--rv-accent), #bafce7);
-      color: #071018;
-      box-shadow: var(--rv-shadow);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--rv-text);
-      border-color: var(--rv-border);
-    }
-
-    .hero-points {
-      list-style: none;
-      padding: 0;
-      margin: 1.4rem 0 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .hero-points li {
-      padding: 0.65rem 0.9rem;
-      border: 1px solid var(--rv-border);
-      background: var(--rv-bg-soft);
-      border-radius: 999px;
-      color: var(--rv-text-soft);
-      font-size: 0.95rem;
-    }
-
-    .hero-card {
-      position: relative;
-    }
-
-    .card-glow {
-      position: absolute;
-      inset: auto 10% -10% 10%;
-      height: 180px;
-      background: radial-gradient(circle, rgba(122,162,255,0.35), transparent 70%);
-      filter: blur(24px);
-      z-index: 0;
-    }
-
-    .hero-panel,
-    .problem-card,
-    .service-card,
-    .process-card,
-    .trust-card,
-    .cta-box {
-      position: relative;
-      z-index: 1;
-      background: var(--rv-bg-soft);
-      border: 1px solid var(--rv-border);
-      border-radius: var(--rv-radius);
-      box-shadow: var(--rv-shadow);
-      backdrop-filter: blur(8px);
-    }
-
-    .hero-panel {
-      padding: 1.6rem;
-    }
-
-    .hero-panel h2 {
-      font-size: 1.5rem;
-      max-width: none;
-      margin-top: 0.6rem;
-    }
-
-    .hero-panel p {
-      color: var(--rv-text-soft);
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .problem-grid,
-    .services-grid,
-    .process-grid,
-    .trust-grid {
-      display: grid;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .problem-grid {
+    .landing-page--services .problem-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .services-grid {
+    .landing-page--services .services-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .process-grid {
+    .landing-page--services .process-grid,
+    .landing-page--services .trust-grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .trust-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .problem-card,
-    .service-card,
-    .process-card,
-    .trust-card {
-      padding: 1.35rem;
-    }
-
-    .problem-card p,
-    .process-card p,
-    .trust-card p {
-      margin: 0;
-      color: var(--rv-text-soft);
-      line-height: 1.7;
-    }
-
-    .service-card {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      min-height: 100%;
-    }
-
-    .service-card p {
-      margin: 0;
-      color: var(--rv-text-soft);
-      line-height: 1.7;
-    }
-
-    .service-list {
+    .landing-page--services .service-list {
       margin: 0.35rem 0 0;
       padding-left: 1.1rem;
       color: var(--rv-text-soft);
     }
 
-    .service-list li {
+    .landing-page--services .service-list li {
       line-height: 1.7;
       margin-bottom: 0.35rem;
     }
 
-    .service-link {
+    .landing-page--services .service-link {
       margin-top: auto;
       padding-top: 0.6rem;
       color: var(--rv-accent);
@@ -545,96 +313,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       font-weight: 700;
     }
 
-    .service-link:hover {
+    .landing-page--services .service-link:hover {
       text-decoration: underline;
     }
 
-    .section-bridge {
-      margin-top: 1.5rem;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--rv-text);
-    }
-
-    .step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      background: rgba(136, 247, 212, 0.12);
-      border: 1px solid rgba(136, 247, 212, 0.28);
-      color: var(--rv-accent);
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .cta-section {
-      padding-top: 3rem;
-      padding-bottom: 6rem;
-    }
-
-    .cta-box {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem;
-    }
-
     @media (max-width: 1180px) {
-      .process-grid,
-      .trust-grid {
+      .landing-page--services .process-grid,
+      .landing-page--services .trust-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .services-grid,
-      .problem-grid,
-      .process-grid,
-      .trust-grid,
-      .cta-box {
-        grid-template-columns: 1fr;
-        display: grid;
-      }
-
-      .cta-box {
-        align-items: start;
-      }
-
-      h1 {
-        max-width: 13ch;
-      }
-
-      h2 {
-        max-width: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .section {
-        padding: 4rem 1rem;
-      }
-
-      .hero {
-        padding-top: 5.5rem;
-      }
-
-      .hero-actions,
-      .cta-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .hero-points {
-        flex-direction: column;
       }
     }
   </style>

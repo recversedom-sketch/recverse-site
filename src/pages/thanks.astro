@@ -6,72 +6,128 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   title="Danke — Recverse"
   description="Ihre Anfrage ist eingegangen. So geht es jetzt weiter."
 >
-  <section class="section">
-    <div class="container" style="max-width: 820px;">
-      <div class="kicker">Danke</div>
-      <h1 class="h1">Ihre Anfrage ist angekommen.</h1>
-      <p class="p">
-        Danke für Ihre Nachricht. Wir prüfen Ihr Anliegen und melden uns baldmöglichst mit einem
-        sinnvollen nächsten Schritt zurück.
-      </p>
+  <main class="landing-page landing-page--thanks">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Danke</p>
+          <h1>Ihre Anfrage ist angekommen.</h1>
+          <p class="lead">
+            Danke für Ihre Nachricht. Wir prüfen Ihr Anliegen und melden uns mit einem sinnvollen
+            nächsten Schritt zurück – klar, strukturiert und ohne Standardfloskeln.
+          </p>
 
-      <div class="card" style="padding:18px; margin-top:18px;">
-        <h2 class="h2">Was jetzt passiert</h2>
-        <p class="p" style="margin-bottom:10px;">
-          Damit der Einstieg für Sie klar und effizient bleibt, gehen wir strukturiert vor:
-        </p>
-        <div class="grid grid-3" style="margin-top:10px;">
-          <div>
-            <strong>1) Verständnis</strong>
-            <p class="p" style="margin-top:6px;">
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/services/">Leistungen ansehen</a>
+            <a class="btn btn-secondary" href="/">Zur Startseite</a>
+          </div>
+
+          <ul class="hero-points" aria-label="Nächste Schritte">
+            <li>Anliegen wird eingeordnet</li>
+            <li>Nächste Schritte werden priorisiert</li>
+            <li>Rückmeldung erfolgt strukturiert</li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <div class="card-glow"></div>
+          <div class="hero-panel">
+            <p class="panel-label">Was jetzt passiert</p>
+            <h2>Ihr Anliegen wird nicht einfach weitergereicht.</h2>
+            <p>
+              Wir prüfen Ihre Ausgangslage, ordnen die Fragestellung ein und überlegen, welcher
+              nächste Schritt realistisch und sinnvoll ist. Ziel ist nicht mehr Komplexität,
+              sondern eine belastbare erste Richtung.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <p class="section-kicker">Ablauf</p>
+        <h2>So geht es typischerweise weiter</h2>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-number">01</div>
+            <h3>Verständnis</h3>
+            <p>
               Wir prüfen Ihre Ausgangslage, Ziele und mögliche Engpässe.
             </p>
-          </div>
-          <div>
-            <strong>2) Einordnung</strong>
-            <p class="p" style="margin-top:6px;">
-              Wir ordnen ein, welche nächsten Schritte sinnvoll und realistisch sind.
+          </article>
+
+          <article class="step-card">
+            <div class="step-number">02</div>
+            <h3>Einordnung</h3>
+            <p>
+              Wir ordnen ein, welche nächsten Schritte sinnvoll, realistisch und verhältnismässig sind.
             </p>
-          </div>
-          <div>
-            <strong>3) Rückmeldung</strong>
-            <p class="p" style="margin-top:6px;">
-              Sie erhalten eine konkrete Rückmeldung statt allgemeiner Standardantworten.
+          </article>
+
+          <article class="step-card">
+            <div class="step-number">03</div>
+            <h3>Rückmeldung</h3>
+            <p>
+              Sie erhalten eine konkrete Rückmeldung statt einer generischen Standardantwort.
             </p>
-          </div>
+          </article>
         </div>
       </div>
+    </section>
 
-      <div class="grid grid-2" style="margin-top:18px;">
-        <div class="card" style="padding:18px;">
-          <h2 class="h2">Was Sie nicht tun müssen</h2>
-          <p class="p">
-            Sie müssen Ihre Anfrage nicht perfekt formuliert haben. Genau dafür ist der nächste Austausch da:
-            um Komplexität zu reduzieren und Klarheit zu schaffen.
+    <section class="section">
+      <div class="container">
+        <p class="section-kicker">Gut zu wissen</p>
+        <h2>Wichtige Hinweise für den weiteren Austausch</h2>
+
+        <div class="trust-grid">
+          <article class="trust-card">
+            <h3>Sie müssen nicht alles perfekt formulieren</h3>
+            <p>
+              Es reicht, wenn die Ausgangslage grob erkennbar ist. Der nächste Austausch dient genau dazu,
+              Komplexität zu reduzieren und Klarheit zu schaffen.
+            </p>
+          </article>
+
+          <article class="trust-card">
+            <h3>Sensible Informationen bitte nur, wenn wirklich nötig</h3>
+            <p>
+              Bitte senden Sie auch im Nachgang keine unnötig sensiblen Informationen, solange noch nicht
+              klar ist, welcher Detailgrad für Ihr Anliegen wirklich erforderlich ist.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container cta-box">
+        <div>
+          <p class="section-kicker">Weiterführend</p>
+          <h2>Bis dahin können Sie sich bereits einen Überblick verschaffen</h2>
+          <p class="body-large">
+            Auf der Leistungsseite sehen Sie, bei welchen typischen Fragestellungen wir unterstützen
+            und wie die Zusammenarbeit grundsätzlich aufgebaut ist.
           </p>
         </div>
 
-        <div class="card" style="padding:18px;">
-          <h2 class="h2">Falls Sie ergänzen möchten</h2>
-          <p class="p">
-            Wenn Sie bereits relevante Links, Screenshots, Dokumente oder Kontext haben, können Sie diese bei einer
-            späteren Rückmeldung ergänzen. Im Erstkontakt genügen die wichtigsten Eckpunkte.
-          </p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="/services/">Leistungen ansehen</a>
+          <a class="btn btn-secondary" href="/">Zur Startseite</a>
         </div>
       </div>
+    </section>
+  </main>
 
-      <div class="card" style="padding:18px; margin-top:18px;">
-        <h2 class="h2">Gut zu wissen</h2>
-        <p class="p">
-          Bitte senden Sie auch im Nachgang keine unnötig sensiblen Informationen, solange noch nicht klar ist,
-          welcher Detailgrad für Ihr Anliegen wirklich erforderlich ist.
-        </p>
-      </div>
+  <style>
+    .landing-page--thanks .steps-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 
-      <div class="hero-actions" style="margin-top:18px;">
-        <a class="btn btn-primary" href="/services/">Leistungen ansehen</a>
-        <a class="btn btn-secondary" href="/">Zur Startseite</a>
-      </div>
-    </div>
-  </section>
+    .landing-page--thanks .trust-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  </style>
 </BaseLayout>

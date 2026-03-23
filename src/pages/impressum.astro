@@ -1,26 +1,101 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
+
 <BaseLayout title="Impressum — Recverse" description="Impressum und Anbieterinformationen.">
-  <section class="section">
-    <div class="container" style="max-width:760px;">
-      <div class="kicker">Rechtliches</div>
-      <h1 class="h1">Impressum</h1>
-
-      <div class="card" style="padding:18px; margin-top:18px;">
-        <h2 class="h2">Anbieter</h2>
-        <p class="p"><strong>Domenico Recchia</strong></p>
-        <p class="p">6042 Dietwil, Aargau, Schweiz</p>
-        <p class="p"><strong>Kontakt:</strong> Bitte über das <a href="/contact/" style="text-decoration:underline;">Kontaktformular</a>.</p>
-      </div>
-
-      <div class="card" style="padding:18px; margin-top:14px;">
-        <h2 class="h2">Haftungshinweis</h2>
-        <p class="p">
-          Alle Inhalte werden mit Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität wird keine Gewähr übernommen.
-          Links auf externe Seiten liegen außerhalb des Verantwortungsbereichs von Domenico Recchia.
+  <main class="landing-page landing-page--impressum">
+    <section class="section legal-section">
+      <div class="container legal-container">
+        <p class="eyebrow">Rechtliches</p>
+        <h1>Impressum</h1>
+        <p class="lead legal-lead">
+          Anbieterinformationen und rechtliche Hinweise in schlichter Form.
         </p>
+
+        <div class="legal-box">
+          <h2>Anbieter</h2>
+          <p><strong>Domenico Recchia</strong></p>
+          <p>6042 Dietwil, Aargau, Schweiz</p>
+          <p>
+            <strong>Kontakt:</strong> Bitte über das
+            <a href="/contact/">Kontaktformular</a>.
+          </p>
+        </div>
+
+        <div class="legal-box legal-box--subtle">
+          <h2>Haftungshinweis</h2>
+          <p>
+            Alle Inhalte werden mit Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und
+            Aktualität wird keine Gewähr übernommen. Links auf externe Seiten liegen ausserhalb
+            des Verantwortungsbereichs von Domenico Recchia.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
+
+  <style>
+    .landing-page--impressum .legal-section {
+      padding-top: 6.5rem;
+      padding-bottom: 5rem;
+    }
+
+    .landing-page--impressum .legal-container {
+      max-width: 760px;
+    }
+
+    .landing-page--impressum h1 {
+      max-width: none;
+      margin-bottom: 0.75rem;
+    }
+
+    .landing-page--impressum .legal-lead {
+      max-width: 52ch;
+      margin-bottom: 2rem;
+    }
+
+    .landing-page--impressum .legal-box {
+      background: var(--rv-bg-soft);
+      border: 1px solid var(--rv-border);
+      border-radius: 18px;
+      padding: 1.25rem 1.35rem;
+      margin-top: 1rem;
+    }
+
+    .landing-page--impressum .legal-box h2 {
+      font-size: 1.2rem;
+      max-width: none;
+      margin-bottom: 0.9rem;
+    }
+
+    .landing-page--impressum .legal-box p {
+      margin: 0 0 0.7rem;
+      color: var(--rv-text-soft);
+      line-height: 1.7;
+    }
+
+    .landing-page--impressum .legal-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .landing-page--impressum .legal-box a {
+      color: var(--rv-accent);
+      text-decoration: underline;
+    }
+
+    .landing-page--impressum .legal-box--subtle {
+      background: rgba(255, 255, 255, 0.025);
+      box-shadow: none;
+    }
+
+    @media (max-width: 640px) {
+      .landing-page--impressum .legal-section {
+        padding-top: 5.5rem;
+      }
+
+      .landing-page--impressum .legal-box {
+        padding: 1rem 1.05rem;
+      }
+    }
+  </style>
 </BaseLayout>

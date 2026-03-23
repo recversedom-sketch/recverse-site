@@ -1,68 +1,195 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-<BaseLayout title="Datenschutz — Recverse" description="Informationen zur Verarbeitung personenbezogener Daten.">
-  <section class="section">
-    <div class="container" style="max-width:760px;">
-      <div class="kicker">Rechtliches</div>
-      <h1 class="h1">Datenschutz</h1>
 
-      <div class="card" style="padding:18px; margin-top:18px;">
-        <h2 class="h2">Verantwortlich</h2>
-        <p class="p"><strong>Domenico Recchia</strong>, 6042 Dietwil, Aargau, Schweiz</p>
-        <p class="p">Kontakt: über <a href="/contact/" style="text-decoration:underline;">Kontaktformular</a></p>
-      </div>
+<BaseLayout
+  title="Datenschutz — Recverse"
+  description="Informationen zur Verarbeitung personenbezogener Daten auf der Website von Recverse."
+>
+  <div class="landing-page landing-page--privacy">
+    <section class="section legal-section">
+      <div class="container legal-container">
+        <p class="eyebrow">Rechtliches</p>
+        <h1>Datenschutz</h1>
+        <p class="lead legal-lead">
+          Diese Hinweise informieren in knapper Form darüber, welche personenbezogenen Daten auf
+          dieser Website verarbeitet werden, zu welchem Zweck dies geschieht und an wen Sie sich
+          bei Fragen wenden können.
+        </p>
 
-      <div class="card" style="padding:18px; margin-top:14px;">
-        <h2 class="h2">Welche Daten werden verarbeitet?</h2>
-        <p class="p">
-          Wenn du das Kontaktformular nutzt, werden die von dir eingegebenen Angaben verarbeitet (z.B. Name, E-Mail, Nachricht
-          sowie optionale Felder wie Firma/Telefon/Budget/Zeitrahmen).
-        </p>
-      </div>
+        <div class="legal-box">
+          <h2>Verantwortliche Stelle</h2>
+          <p><strong>Domenico Recchia</strong></p>
+          <p>6042 Dietwil, Aargau, Schweiz</p>
+          <p>
+            Kontakt bitte über das <a href="/contact/">Kontaktformular</a>.
+          </p>
+        </div>
 
-      <div class="card" style="padding:18px; margin-top:14px;">
-        <h2 class="h2">Zweck</h2>
-        <p class="p">
-          Bearbeitung deiner Anfrage, Kommunikation, Vorbereitung eines Angebots. Es findet kein Tracking/Analytics statt.
-        </p>
-      </div>
+        <div class="legal-box">
+          <h2>Welche Daten verarbeitet werden</h2>
+          <p>
+            Wenn Sie das Kontaktformular nutzen, werden die von Ihnen eingegebenen Angaben
+            verarbeitet. Dazu können insbesondere Name, E-Mail-Adresse, Nachricht sowie freiwillige
+            Angaben wie Firma, Telefon, Rolle, Budget, Zeitrahmen oder thematische Auswahlfelder gehören.
+          </p>
+          <p>
+            Zusätzlich können technisch bedingt Meta- oder Protokolldaten anfallen, etwa Zeitpunkt
+            der Anfrage, IP-Adresse, Browser-Informationen oder ähnliche Verbindungsdaten.
+          </p>
+        </div>
 
-      <div class="card" style="padding:18px; margin-top:14px;">
-        <h2 class="h2">Dienstleister / Hosting</h2>
-        <p class="p">
-          Diese Website wird bei Netlify gehostet. Formulare können über Netlify Forms verarbeitet werden.
-          Dabei werden die Formulardaten an Netlify übertragen, um die Anfrage zuzustellen.
-        </p>
-        <p class="p">
-          Zusätzlich können serverseitige Logs (z.B. IP-Adresse, Zeitpunkt, User-Agent) zur Sicherstellung des Betriebs
-          und zur Abwehr von Missbrauch anfallen.
-        </p>
-      </div>
+        <div class="legal-box">
+          <h2>Zwecke der Verarbeitung</h2>
+          <p>
+            Die Verarbeitung erfolgt, um Anfragen entgegenzunehmen, zu beantworten, den Sachverhalt
+            einzuordnen, einen möglichen nächsten Schritt vorzubereiten und bei Bedarf ein Gespräch
+            oder Angebot anzubahnen.
+          </p>
+          <p>
+            Nach heutigem Stand werden auf dieser Website keine separaten Tracking- oder Analytics-Tools
+            zur Verhaltensanalyse eingesetzt.
+          </p>
+        </div>
 
-      <div class="card" style="padding:18px; margin-top:14px;">
-        <h2 class="h2">Aufbewahrung</h2>
-        <p class="p">
-          Anfragen werden grundsätzlich so lange aufbewahrt, wie es für die Bearbeitung und eine angemessene Nachverfolgung
-          erforderlich ist (typischerweise bis zu 12 Monate), sofern keine längeren gesetzlichen Pflichten bestehen.
-        </p>
-      </div>
+        <div class="legal-box">
+          <h2>Hosting und Formularverarbeitung</h2>
+          <p>
+            Diese Website wird bei Netlify gehostet. Formulare können über Netlify Forms verarbeitet
+            werden, damit Anfragen technisch entgegengenommen und weitergeleitet werden können.
+          </p>
+          <p>
+            Dabei kann nicht ausgeschlossen werden, dass technische Verarbeitungsschritte auch über
+            Systeme ausserhalb der Schweiz erfolgen. Bitte übermitteln Sie deshalb im Erstkontakt keine
+            unnötig sensiblen Informationen.
+          </p>
+        </div>
 
-      <div class="card" style="padding:18px; margin-top:14px;">
-        <h2 class="h2">Schriften / externe Ressourcen</h2>
-        <p class="p">
-          Aktuell werden Google Fonts eingebunden. Dabei werden Daten an Google übertragen.
-          Weitere Informationen findest du bei Google <a href="https://policies.google.com/privacy"> </a>
-        </p>
-      </div>
+        <div class="legal-box">
+          <h2>Technische Protokolle und Spam-Schutz</h2>
+          <p>
+            Zum sicheren Betrieb der Website und zur Abwehr von Missbrauch können technische Logs
+            sowie einfache Schutzmechanismen gegen automatisierte Eingaben eingesetzt werden.
+          </p>
+          <p>
+            Dazu können insbesondere serverseitige Protokolle, Formular-Metadaten sowie einfache
+            technische Prüfungen im Zusammenhang mit der Formularnutzung gehören.
+          </p>
+        </div>
 
-      <div class="card" style="padding:18px; margin-top:14px;">
-        <h2 class="h2">Deine Rechte</h2>
-        <p class="p">
-          Du kannst Auskunft, Berichtigung oder Löschung deiner Daten verlangen, soweit dies rechtlich möglich ist.
-          Bitte nutze dafür das Kontaktformular.
-        </p>
+        <div class="legal-box">
+          <h2>Aufbewahrung</h2>
+          <p>
+            Anfragen und zugehörige Daten werden grundsätzlich nur so lange aufbewahrt, wie dies für
+            die Bearbeitung, eine angemessene Nachverfolgung und gegebenenfalls für geschäftliche oder
+            rechtliche Nachweise erforderlich ist.
+          </p>
+          <p>
+            Soweit keine längeren gesetzlichen Pflichten bestehen, erfolgt in der Regel keine unnötig
+            lange Speicherung.
+          </p>
+        </div>
+
+        <div class="legal-box">
+          <h2>Schriftarten und externe Ressourcen</h2>
+          <p>
+            Die auf dieser Website verwendeten Schriftarten werden nach heutigem Stand lokal bzw.
+            selbst gehostet eingebunden. Dadurch wird für die reine Schriftanzeige keine zusätzliche
+            Verbindung zu externen Font-Diensten benötigt.
+          </p>
+        </div>
+
+        <div class="legal-box">
+          <h2>Ihre Rechte</h2>
+          <p>
+            Sie können im Rahmen des anwendbaren Rechts insbesondere Auskunft über die zu Ihrer Person
+            bearbeiteten Daten verlangen sowie Berichtigung oder Löschung beantragen, soweit dem keine
+            gesetzlichen oder berechtigten Gründe entgegenstehen.
+          </p>
+          <p>
+            Für entsprechende Anliegen nutzen Sie bitte das <a href="/contact/">Kontaktformular</a>.
+          </p>
+        </div>
+
+        <div class="legal-box legal-box--subtle">
+          <h2>Hinweis</h2>
+          <p>
+            Diese Datenschutzhinweise können angepasst werden, wenn sich technische Abläufe, eingesetzte
+            Dienste oder rechtliche Anforderungen ändern.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
+
+  <style>
+    .landing-page--privacy .legal-section {
+      padding-top: 6.5rem;
+      padding-bottom: 5rem;
+    }
+
+    .landing-page--privacy .legal-container {
+      max-width: 820px;
+    }
+
+    .landing-page--privacy h1 {
+      max-width: none;
+      margin-bottom: 0.75rem;
+    }
+
+    .landing-page--privacy .legal-lead {
+      max-width: 60ch;
+      margin-bottom: 2rem;
+    }
+
+    .landing-page--privacy .legal-box {
+      background: var(--rv-bg-soft);
+      border: 1px solid var(--rv-border);
+      border-radius: 18px;
+      padding: 1.25rem 1.35rem;
+      margin-top: 1rem;
+      box-shadow: var(--rv-shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .landing-page--privacy .legal-box h2 {
+      font-size: 1.2rem;
+      max-width: none;
+      margin-bottom: 0.9rem;
+    }
+
+    .landing-page--privacy .legal-box p,
+    .landing-page--privacy .legal-box li {
+      color: var(--rv-text-soft);
+      line-height: 1.75;
+    }
+
+    .landing-page--privacy .legal-box p {
+      margin: 0 0 0.8rem;
+    }
+
+    .landing-page--privacy .legal-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .landing-page--privacy .legal-box a {
+      color: var(--rv-accent);
+      text-decoration: underline;
+    }
+
+    .landing-page--privacy .legal-box--subtle {
+      background: rgba(255, 255, 255, 0.025);
+      box-shadow: none;
+    }
+
+    @media (max-width: 640px) {
+      .landing-page--privacy .legal-section {
+        padding-top: 5.5rem;
+      }
+
+      .landing-page--privacy .legal-box {
+        padding: 1rem 1.05rem;
+      }
+    }
+  </style>
 </BaseLayout>

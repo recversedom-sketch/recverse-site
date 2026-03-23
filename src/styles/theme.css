@@ -338,3 +338,347 @@ select {
 /* Utility */
 .section { padding: 80px 0; }
 .spacer { height: 24px; }
+
+/* ===========================
+   LANDING PAGES (shared)
+   Scoped to .landing-page so other pages stay stable
+   =========================== */
+
+:root {
+  --rv-bg: #0b1020;
+  --rv-bg-soft: rgba(255, 255, 255, 0.04);
+  --rv-border: rgba(255, 255, 255, 0.12);
+  --rv-text: #f5f7fb;
+  --rv-text-soft: rgba(245, 247, 251, 0.78);
+  --rv-accent: #88f7d4;
+  --rv-accent-2: #7aa2ff;
+  --rv-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+  --rv-radius: 22px;
+  --rv-radius-sm: 16px;
+  --rv-max: 1180px;
+}
+
+.landing-page {
+  color: var(--rv-text);
+}
+
+.landing-page .section {
+  padding: 5.5rem 1.25rem;
+}
+
+.landing-page .section-alt {
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.03));
+}
+
+.landing-page .container {
+  max-width: var(--rv-max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.landing-page .narrow {
+  max-width: 900px;
+}
+
+.landing-page .hero {
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+}
+
+.landing-page .hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.landing-page .eyebrow,
+.landing-page .section-kicker,
+.landing-page .panel-label,
+.landing-page .case-tag,
+.landing-page .service-tag {
+  display: inline-block;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rv-accent);
+  font-weight: 700;
+}
+
+.landing-page h1,
+.landing-page h2,
+.landing-page h3 {
+  line-height: 1.08;
+  margin: 0 0 1rem;
+}
+
+.landing-page h1 {
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  max-width: 12ch;
+}
+
+.landing-page h2 {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  max-width: 18ch;
+}
+
+.landing-page h3 {
+  font-size: 1.2rem;
+}
+
+.landing-page .lead,
+.landing-page .body-large {
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: var(--rv-text-soft);
+  max-width: 62ch;
+}
+
+.landing-page .section-intro {
+  margin-top: 0.3rem;
+}
+
+.landing-page .hero-actions,
+.landing-page .cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+.landing-page .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.85rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  border: 1px solid transparent;
+}
+
+.landing-page .btn:hover {
+  transform: translateY(-1px);
+}
+
+.landing-page .btn-primary {
+  background: linear-gradient(135deg, var(--rv-accent), #bafce7);
+  color: #071018;
+  box-shadow: var(--rv-shadow);
+  border-color: transparent;
+  filter: none;
+}
+
+.landing-page .btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--rv-shadow);
+  filter: none;
+}
+
+.landing-page .btn-secondary {
+  background: transparent;
+  color: var(--rv-text);
+  border-color: var(--rv-border);
+}
+
+.landing-page .btn-secondary:hover {
+  border-color: var(--rv-border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.landing-page .hero-points {
+  list-style: none;
+  padding: 0;
+  margin: 1.4rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.landing-page .hero-points li {
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--rv-border);
+  background: var(--rv-bg-soft);
+  border-radius: 999px;
+  color: var(--rv-text-soft);
+  font-size: 0.95rem;
+}
+
+.landing-page .hero-card {
+  position: relative;
+}
+
+.landing-page .card-glow {
+  position: absolute;
+  inset: auto 10% -10% 10%;
+  height: 180px;
+  background: radial-gradient(circle, rgba(122,162,255,0.35), transparent 70%);
+  filter: blur(24px);
+  z-index: 0;
+}
+
+.landing-page .hero-panel,
+.landing-page .problem-card,
+.landing-page .step-card,
+.landing-page .trust-card,
+.landing-page .case-card,
+.landing-page .service-card,
+.landing-page .process-card,
+.landing-page .cta-box {
+  position: relative;
+  z-index: 1;
+  background: var(--rv-bg-soft);
+  border: 1px solid var(--rv-border);
+  border-radius: var(--rv-radius);
+  box-shadow: var(--rv-shadow);
+  backdrop-filter: blur(8px);
+}
+
+.landing-page .hero-panel {
+  padding: 1.6rem;
+}
+
+.landing-page .hero-panel h2 {
+  font-size: 1.5rem;
+  max-width: none;
+  margin-top: 0.6rem;
+}
+
+.landing-page .hero-panel p {
+  color: var(--rv-text-soft);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.landing-page .problem-grid,
+.landing-page .steps-grid,
+.landing-page .trust-grid,
+.landing-page .cases-grid,
+.landing-page .services-grid,
+.landing-page .process-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.landing-page .problem-card,
+.landing-page .step-card,
+.landing-page .trust-card,
+.landing-page .case-card,
+.landing-page .service-card,
+.landing-page .process-card {
+  padding: 1.35rem;
+}
+
+.landing-page .problem-card p,
+.landing-page .step-card p,
+.landing-page .trust-card p,
+.landing-page .case-card p,
+.landing-page .process-card p {
+  margin: 0;
+  color: var(--rv-text-soft);
+  line-height: 1.7;
+}
+
+.landing-page .service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 100%;
+}
+
+.landing-page .service-card p {
+  margin: 0;
+  color: var(--rv-text-soft);
+  line-height: 1.7;
+}
+
+.landing-page .section-bridge {
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--rv-text);
+}
+
+.landing-page .step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(136, 247, 212, 0.12);
+  border: 1px solid rgba(136, 247, 212, 0.28);
+  color: var(--rv-accent);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.landing-page .cta-section {
+  padding-top: 3rem;
+  padding-bottom: 6rem;
+}
+
+.landing-page .cta-box {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+@media (max-width: 980px) {
+  .landing-page .hero-grid,
+  .landing-page .problem-grid,
+  .landing-page .steps-grid,
+  .landing-page .trust-grid,
+  .landing-page .cases-grid,
+  .landing-page .services-grid,
+  .landing-page .process-grid,
+  .landing-page .cta-box {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .landing-page .cta-box {
+    align-items: start;
+  }
+
+  .landing-page h1 {
+    max-width: 14ch;
+  }
+
+  .landing-page h2 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing-page .section {
+    padding: 4rem 1rem;
+  }
+
+  .landing-page .container {
+    padding: 0 1rem;
+  }
+
+  .landing-page .hero {
+    padding-top: 5.5rem;
+  }
+
+  .landing-page .hero-actions,
+  .landing-page .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .landing-page .btn {
+    width: 100%;
+  }
+
+  .landing-page .hero-points {
+    flex-direction: column;
+  }
+}
