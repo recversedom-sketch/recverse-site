@@ -1,61 +1,485 @@
 ---
-import { buildCanonical, buildAlternate, absUrl, type SeoProps, buildBreadcrumbJsonLd, buildOrgJsonLd } from "../lib/seo";
+import { buildCanonical, buildAlternate, absUrl, type SeoProps, buildBreadcrumbJsonLd } from "../lib/seo";
 
-const props = Astro.props as SeoProps;
+type ExtraStructuredData = NonNullable<SeoProps["structuredData"]> & {
+  sameAs?: string[];
+};
+
+type ExtraSeoProps = SeoProps & {
+  type?: "website" | "article" | "service" | "collection" | "contact";
+  modifiedTime?: string;
+  imageAlt?: string;
+  faq?: Array<{ question: string; answer: string }>;
+  structuredData?: ExtraStructuredData;
+};
+
+const props = Astro.props as ExtraSeoProps;
 
 const SITE = "https://www.recverse.ch";
-
-const title =
-  props.title ?? "Recverse — KI & IT Delivery für KMUs";
-const description =
-  props.description ??
-  "KI-MVPs, IT-Projektmanagement und moderne Web-Präsenzen für KMUs. Schlank umgesetzt, sauber betrieben.";
+const BRAND = "Recverse";
+const DEFAULT_IMAGE = "/og/recverse-default.jpg";
 
 const pathname = Astro.url?.pathname ?? "/";
 const canonical = buildCanonical(SITE, pathname);
+const alternates = buildAlternate(SITE, pathname);
 
-const alternates = buildAlternate(SITE, pathname); // { deCH, en, xDefault }
-const ogImage = absUrl(SITE, props.image ?? "/og/recverse-default.jpg");
+const isEn = pathname === "/en/" || pathname.startsWith("/en/");
+const lang = isEn ? "en" : "de-CH";
+const ogLocale = isEn ? "en_US" : "de_CH";
+const ogLocaleAlternate = isEn ? "de_CH" : "en_US";
+
+const normalizedPath = pathname.endsWith("/") ? pathname : `${pathname}/`;
+const basePathRaw = isEn ? normalizedPath.replace(/^\/en(?=\/|$)/, "") : normalizedPath;
+const basePath = basePathRaw || "/";
+const pageKey = basePath === "/" ? "home" : basePath.replace(/^\/|\/$/g, "");
+
+const DEFAULTS = {
+  de: {
+    home: {
+      title: "Recverse — KI-Beratung, KI-MVPs, IT Delivery & Website-Projekte für KMU | Schweiz & DACH",
+      description:
+        "Recverse unterstützt KMU in der Schweiz und im DACH-Raum mit KI-Beratung, KI-MVPs, IT-Projektmanagement, Website-Optimierung und pragmatischer Delivery.",
+    },
+    services: {
+      title: "Leistungen — KI-Beratung, KI-MVP, IT-Projektmanagement & Website-Optimierung | Recverse",
+      description:
+        "Leistungen von Recverse: KI-Einstieg, KI-MVPs, IT-Projektmanagement, Datenschutz-Checks, Website-Optimierung und laufende Begleitung für KMU im DACH-Raum.",
+    },
+    shop: {
+      title: "RecVerseShop — Datenschutz-Check, KI-MVP Sprint & SEO-Basis | Recverse",
+      description:
+        "Kompakter Katalog mit Website Datenschutz-Check, KI-MVP Sprint, ERP & KI-Enablement sowie Website Renewal / SEO-Basis für KMU in der Schweiz und DACH.",
+    },
+    contact: {
+      title: "Kontakt — KI-Beratung, KI-MVPs & IT-Projekte anfragen | Recverse",
+      description:
+        "Kontakt zu Recverse für KI-Beratung, KI-MVPs, IT-Projektmanagement, Datenschutz-Checks und Website-Projekte. Anfrage für Schweiz und DACH senden.",
+    },
+    privacy: {
+      title: "Datenschutz — Recverse",
+      description:
+        "Datenschutzhinweise von Recverse zur Verarbeitung personenbezogener Daten auf der Website und bei Kontaktanfragen.",
+    },
+    impressum: {
+      title: "Impressum — Recverse",
+      description:
+        "Impressum und Anbieterinformationen von Recverse.",
+    },
+  },
+  en: {
+    home: {
+      title: "Recverse — AI consulting, AI MVPs, IT delivery & website projects for SMEs | Switzerland & DACH",
+      description:
+        "Recverse supports SMEs in Switzerland and the DACH region with AI consulting, AI MVPs, IT project delivery, website optimization and pragmatic execution.",
+    },
+    services: {
+      title: "Services — AI consulting, AI MVPs, IT project delivery & website optimization | Recverse",
+      description:
+        "Recverse services: AI discovery, AI MVPs, IT project delivery, privacy checks, website optimization and ongoing support for SMEs in Switzerland and DACH.",
+    },
+    shop: {
+      title: "RecVerseShop — Privacy Check, AI MVP Sprint & SEO foundation | Recverse",
+      description:
+        "Focused catalog with Website Privacy Check, AI MVP Sprint, ERP & AI Enablement and Website Renewal / SEO foundation for SMEs in Switzerland and DACH.",
+    },
+    contact: {
+      title: "Contact — enquire about AI consulting, AI MVPs and IT delivery | Recverse",
+      description:
+        "Contact Recverse about AI consulting, AI MVPs, IT project delivery, privacy checks and website projects for Switzerland and the DACH region.",
+    },
+    privacy: {
+      title: "Privacy — Recverse",
+      description:
+        "Privacy notice for how Recverse processes personal data on this website and through contact requests.",
+    },
+    impressum: {
+      title: "Legal Notice — Recverse",
+      description:
+        "Legal notice and provider information for Recverse.",
+    },
+  },
+} as const;
+
+const localeDefaults = isEn ? DEFAULTS.en : DEFAULTS.de;
+const fallbackMeta =
+  localeDefaults[pageKey as keyof typeof localeDefaults] ?? localeDefaults.home;
+
+function normalizeWhitespace(value: string) {
+  return value.replace(/\s+/g, " ").trim();
+}
+
+function ensureBrandInTitle(value: string) {
+  const cleaned = normalizeWhitespace(value);
+  return /recverse/i.test(cleaned) ? cleaned : `${cleaned} | ${BRAND}`;
+}
+
+function isGenericTitle(value: string) {
+  const cleaned = normalizeWhitespace(value).toLowerCase();
+  return [
+    /^recverse\b/,
+    /^leistungen\b/,
+    /^services\b/,
+    /^kontakt\b/,
+    /^contact\b/,
+    /^erstgespräch\b/,
+    /^shop\b/,
+    /^recverseshop\b/,
+    /^datenschutz\b/,
+    /^privacy\b/,
+    /^impressum\b/,
+    /^legal notice\b/,
+  ].some((rx) => rx.test(cleaned));
+}
+
+const incomingTitle = props.title?.trim() ?? "";
+const title =
+  incomingTitle && !isGenericTitle(incomingTitle)
+    ? ensureBrandInTitle(incomingTitle)
+    : fallbackMeta.title;
+
+const description = normalizeWhitespace(props.description ?? fallbackMeta.description);
+
+const ogImage = absUrl(SITE, props.image ?? DEFAULT_IMAGE);
+const ogImageAlt = props.imageAlt ?? title;
 
 const noindex = Boolean(props.noindex);
+const publishedTime = props.publishedTime;
+const modifiedTime = props.modifiedTime ?? props.publishedTime;
+
+const robotsContent = noindex
+  ? "noindex, nofollow, noarchive, max-image-preview:none"
+  : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1";
+
+const ogType =
+  props.type === "article" || Boolean(publishedTime) ? "article" : "website";
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd(SITE, pathname);
-const orgJsonLd = buildOrgJsonLd(SITE, props.structuredData);
 
-// Optional: für Blog-Artikel (derzeit nicht genutzt)
-const publishedTime = props.publishedTime;
+const orgId = `${SITE}/#organization`;
+const serviceOrgId = `${SITE}/#professional-service`;
+const websiteId = `${SITE}/#website`;
+const pageId = `${canonical}#webpage`;
+const imageId = `${canonical}#primaryimage`;
+const serviceId = `${canonical}#service`;
+const catalogId = `${canonical}#catalog`;
+
+const legalName = props.structuredData?.legalName ?? BRAND;
+const addressLocality = props.structuredData?.addressLocality ?? "Dietwil";
+const addressRegion = props.structuredData?.addressRegion ?? "Aargau";
+const postalCode = props.structuredData?.postalCode;
+const streetAddress = props.structuredData?.streetAddress;
+const telephone = props.structuredData?.telephone;
+const sameAs = Array.isArray(props.structuredData?.sameAs)
+  ? props.structuredData?.sameAs.filter(Boolean)
+  : [];
+
+const address: Record<string, unknown> = {
+  "@type": "PostalAddress",
+  addressCountry: "CH",
+  addressLocality,
+  addressRegion,
+};
+if (postalCode) address.postalCode = postalCode;
+if (streetAddress) address.streetAddress = streetAddress;
+
+const serviceAreas = [
+  { "@type": "Country", name: "Switzerland" },
+  { "@type": "Country", name: "Germany" },
+  { "@type": "Country", name: "Austria" },
+];
+
+const knowsAbout = isEn
+  ? [
+      "AI consulting",
+      "AI MVPs",
+      "IT project delivery",
+      "ERP enablement",
+      "website optimization",
+      "privacy checks",
+      "SME digital transformation",
+    ]
+  : [
+      "KI-Beratung",
+      "KI-MVPs",
+      "IT-Projektmanagement",
+      "ERP-Enablement",
+      "Website-Optimierung",
+      "Datenschutz-Checks",
+      "digitale Transformation für KMU",
+    ];
+
+const organizationGraph: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": orgId,
+      name: BRAND,
+      legalName,
+      url: SITE,
+      areaServed: serviceAreas,
+      knowsAbout,
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          url: `${SITE}${isEn ? "/en/contact/" : "/contact/"}`,
+          availableLanguage: ["de-CH", "de-DE", "en"],
+        },
+      ],
+      ...(sameAs.length ? { sameAs } : {}),
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": serviceOrgId,
+      name: BRAND,
+      url: SITE,
+      address,
+      areaServed: serviceAreas,
+      parentOrganization: { "@id": orgId },
+      serviceType: isEn
+        ? "AI consulting, AI MVPs, IT delivery, website optimization"
+        : "KI-Beratung, KI-MVPs, IT-Projektmanagement, Website-Optimierung",
+      knowsAbout,
+      ...(telephone ? { telephone } : {}),
+      ...(sameAs.length ? { sameAs } : {}),
+    },
+  ],
+};
+
+const webSiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": websiteId,
+  url: SITE,
+  name: BRAND,
+  inLanguage: lang,
+  publisher: { "@id": orgId },
+};
+
+const imageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "@id": imageId,
+  url: ogImage,
+  caption: ogImageAlt,
+};
+
+const schemaPageType =
+  props.type === "article"
+    ? "Article"
+    : props.type === "contact"
+      ? "ContactPage"
+      : props.type === "collection"
+        ? "CollectionPage"
+        : pageKey === "contact"
+          ? "ContactPage"
+          : pageKey === "services" || pageKey === "shop"
+            ? "CollectionPage"
+            : "WebPage";
+
+const webPageJsonLd: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": schemaPageType,
+  "@id": pageId,
+  url: canonical,
+  name: title,
+  description,
+  isPartOf: { "@id": websiteId },
+  about: { "@id": serviceOrgId },
+  primaryImageOfPage: { "@id": imageId },
+  inLanguage: lang,
+};
+if (publishedTime) webPageJsonLd.datePublished = publishedTime;
+if (modifiedTime) webPageJsonLd.dateModified = modifiedTime;
+
+function serviceOffer(name: string) {
+  return {
+    "@type": "Offer",
+    itemOffered: {
+      "@type": "Service",
+      name,
+      provider: { "@id": serviceOrgId },
+      areaServed: serviceAreas,
+    },
+  };
+}
+
+function getPageSpecificJsonLd() {
+  if (pageKey === "services") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": serviceId,
+      name: isEn
+        ? "AI consulting, AI MVPs, IT project delivery and website optimization"
+        : "KI-Beratung, KI-MVPs, IT-Projektmanagement und Website-Optimierung",
+      serviceType: isEn
+        ? "AI consulting for SMEs, AI MVPs, IT project delivery, privacy checks and website optimization"
+        : "KI-Beratung für KMU, KI-MVPs, IT-Projektmanagement, Datenschutz-Checks und Website-Optimierung",
+      provider: { "@id": serviceOrgId },
+      areaServed: serviceAreas,
+      audience: {
+        "@type": "BusinessAudience",
+        name: isEn ? "SMEs and owner-led businesses" : "KMU und inhabergeführte Unternehmen",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: isEn ? "Core services" : "Kernleistungen",
+        itemListElement: isEn
+          ? [
+              serviceOffer("AI discovery and prioritization"),
+              serviceOffer("Process efficiency and workflow simplification"),
+              serviceOffer("Roadmap and implementation planning"),
+              serviceOffer("AI MVP / PoC support"),
+              serviceOffer("Website privacy checks"),
+              serviceOffer("Ongoing advisory support"),
+            ]
+          : [
+              serviceOffer("KI-Einstieg / Orientierung"),
+              serviceOffer("Effizienz und Prozessvereinfachung"),
+              serviceOffer("Fahrplan und Umsetzungsplanung"),
+              serviceOffer("KI-MVP / PoC Begleitung"),
+              serviceOffer("Website Datenschutz-Check"),
+              serviceOffer("Laufende Begleitung"),
+            ],
+      },
+    };
+  }
+
+  if (pageKey === "shop") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "OfferCatalog",
+      "@id": catalogId,
+      url: canonical,
+      name: isEn ? "RecVerseShop catalog" : "RecVerseShop Katalog",
+      itemListElement: isEn
+        ? [
+            serviceOffer("Website Privacy Check"),
+            serviceOffer("AI MVP Sprint"),
+            serviceOffer("ERP & AI Enablement"),
+            serviceOffer("Website Renewal / SEO Foundation"),
+          ]
+        : [
+            serviceOffer("Website Datenschutz-Check"),
+            serviceOffer("KI-MVP Sprint"),
+            serviceOffer("ERP & KI-Enablement"),
+            serviceOffer("Website Renewal / SEO-Basis"),
+          ],
+    };
+  }
+
+  if (pageKey === "contact") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "@id": `${canonical}#contact-page`,
+      url: canonical,
+      name: title,
+      description,
+      isPartOf: { "@id": websiteId },
+      about: { "@id": serviceOrgId },
+      mainEntity: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        url: canonical,
+        availableLanguage: ["de-CH", "de-DE", "en"],
+      },
+    };
+  }
+
+  if (pageKey === "home") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": serviceId,
+      name: isEn
+        ? "AI consulting and IT delivery for SMEs"
+        : "KI-Beratung und IT-Delivery für KMU",
+      serviceType: isEn
+        ? "AI consulting, AI MVPs, IT project delivery and website optimization"
+        : "KI-Beratung, KI-MVPs, IT-Projektmanagement und Website-Optimierung",
+      provider: { "@id": serviceOrgId },
+      areaServed: serviceAreas,
+      audience: {
+        "@type": "BusinessAudience",
+        name: isEn ? "SMEs and owner-led businesses" : "KMU und inhabergeführte Unternehmen",
+      },
+    };
+  }
+
+  return null;
+}
+
+const pageSpecificJsonLd = getPageSpecificJsonLd();
+
+const faqJsonLd =
+  Array.isArray(props.faq) && props.faq.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: props.faq
+          .filter((item) => item?.question?.trim() && item?.answer?.trim())
+          .map((item) => ({
+            "@type": "Question",
+            name: item.question.trim(),
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer.trim(),
+            },
+          })),
+      }
+    : null;
 ---
 
 <!-- Primary SEO -->
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
-
-{noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
+<meta name="robots" content={robotsContent} />
+<meta name="googlebot" content={robotsContent} />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta name="author" content={BRAND} />
 
 <!-- Hreflang -->
 <link rel="alternate" hreflang="de-CH" href={alternates.deCH} />
+<link rel="alternate" hreflang="de-DE" href={alternates.deCH} />
+<link rel="alternate" hreflang="de-AT" href={alternates.deCH} />
 <link rel="alternate" hreflang="en" href={alternates.en} />
 <link rel="alternate" hreflang="x-default" href={alternates.xDefault} />
 
 <!-- Open Graph -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={ogType} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={ogImage} />
-<meta property="og:site_name" content="Recverse" />
-<meta property="og:locale" content="de_CH" />
-<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:image:secure_url" content={ogImage} />
+<meta property="og:image:alt" content={ogImageAlt} />
+<meta property="og:site_name" content={BRAND} />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlternate} />
 
 {publishedTime ? <meta property="article:published_time" content={publishedTime} /> : null}
+{modifiedTime ? <meta property="article:modified_time" content={modifiedTime} /> : null}
 
-<!-- Twitter -->
+<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={ogImageAlt} />
 
-<!-- JSON-LD (Organization/LocalBusiness + Breadcrumbs) -->
-<script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
+<!-- JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(organizationGraph)} />
+<script type="application/ld+json" set:html={JSON.stringify(webSiteJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(imageJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(webPageJsonLd)} />
 <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+{pageSpecificJsonLd ? (
+  <script type="application/ld+json" set:html={JSON.stringify(pageSpecificJsonLd)} />
+) : null}
+{faqJsonLd ? (
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+) : null}

@@ -1,0 +1,61 @@
+# Recverse
+
+> Recverse ist ein Schweizer Anbieter für KI-Beratung, KI-MVPs, IT-Delivery, ERP-/IT-Projektmanagement, Website-Optimierung und Website-Datenschutz-Checks für KMU in der Schweiz und im DACH-Raum.
+
+## Primäre Seiten
+- Startseite: https://www.recverse.ch/
+- Leistungen: https://www.recverse.ch/services/
+- RecVerseShop: https://www.recverse.ch/shop/
+- Kontakt: https://www.recverse.ch/contact/
+- Datenschutz: https://www.recverse.ch/privacy/
+- Impressum: https://www.recverse.ch/impressum/
+
+## Angebot
+- KI-Einstieg / Orientierung
+- KI-MVP / PoC Begleitung
+- ERP / IT-Projektmanagement
+- Website Datenschutz-Check
+- Website Renewal / SEO-Basis
+- Laufende Begleitung / Sparring
+
+## Zielgruppe
+- KMU
+- inhabergeführte Unternehmen
+- Teams mit Digitalisierungs- oder KI-Druck
+- Organisationen mit Bedarf an pragmatischer Umsetzung statt Theorie
+
+## Regionen
+- Schweiz
+- Zentralschweiz
+- Luzern
+- Zug
+- Obwalden
+- Aargau
+- Deutschland
+- Österreich
+- DACH
+
+## Fachgebiete
+- KI-Beratung
+- KI-MVP
+- AI consulting
+- IT delivery
+- IT Software
+- IT Beratung
+- ERP enablement
+- ERP implementation
+- ERP Projects
+- Transformation and Technology
+- Website optimization
+- privacy check
+- digital transformation for SMEs
+
+## Kontakt
+- Kontaktformular: https://www.recverse.ch/contact/
+
+## Rechtliches
+- Datenschutz: https://www.recverse.ch/privacy/
+- Impressum: https://www.recverse.ch/impressum/
+
+## Mehr Details
+- Vollständige LLM-Übersicht: https://www.recverse.ch/llms-full.txt
