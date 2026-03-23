@@ -1,58 +1,26 @@
-/** Current request path (no origin), default "/" */
+---
 const pathname = Astro.url?.pathname ?? "/";
 
-/** EN lives under /en/... */
 const isEn = pathname === "/en" || pathname.startsWith("/en/");
 
-/**
- * Ensure trailing slash for route-like paths (Astro static pages).
- * Keep "/" as-is.
- * Do NOT enforce on file-like paths (e.g. /sitemap.xml).
- * @param {string} p
- * @returns {string}
- */
 const ensureTrailingSlash = (p) => {
   if (!p) return "/";
   if (p === "/" || p.endsWith("/")) return p;
-  if (/\.[a-z0-9]+$/i.test(p)) return p; // file path
+  if (/\.[a-z0-9]+$/i.test(p)) return p;
   return `${p}/`;
 };
 
-/**
- * Normalize for comparisons (case-insensitive, trailing slash enforced).
- * @param {string} p
- * @returns {string}
- */
 const normalizeComparable = (p) => ensureTrailingSlash(p).toLowerCase();
 
-/**
- * Strip leading "/en" for DE path derivation.
- * Examples:
- *  - "/en/services/" -> "/services/"
- *  - "/en/" -> "/"
- * @type {string}
- */
 const dePathRaw = isEn ? pathname.replace(/^\/en(?=\/|$)/, "") : pathname;
 const dePath = ensureTrailingSlash(dePathRaw || "/");
 
-/**
- * Build EN path from DE path:
- *  - "/" -> "/en/"
- *  - "/services/" -> "/en/services/"
- * @type {string}
- */
 const enPath = dePath === "/" ? "/en/" : ensureTrailingSlash(`/en${dePath}`);
 
-/**
- * Language switch base target WITHOUT query.
- * Query/hash will be appended client-side (Astro static output safe).
- */
 const langBaseHref = isEn ? dePath : enPath;
 
-/** Base prefix for nav links */
 const base = isEn ? "/en" : "";
 
-/** Labels: EN/DE */
 const labels = isEn
   ? {
       home: "Home",
@@ -77,7 +45,6 @@ const labels = isEn
       close: "Schliessen",
     };
 
-/** Nav structure identical DE/EN; enforce trailing slash in hrefs */
 const links = [
   { href: `${base}/`, label: labels.home },
   { href: `${base}/services/`, label: labels.services },
@@ -85,21 +52,17 @@ const links = [
   { href: `${base}/contact/`, label: labels.contact },
 ];
 
-/** Active matching */
 const current = normalizeComparable(pathname);
-/** @param {string} href */
 const isActive = (href) => normalizeComparable(href) === current;
 ---
 
 <header class="nav-wrap" data-nav>
   <div class="nav container">
-    <!-- Brand -->
     <a class="brand" href={isEn ? "/en/" : "/"}>
       <span class="brand-mark" aria-hidden="true"></span>
       <span class="brand-text">Recverse</span>
     </a>
 
-    <!-- Desktop nav -->
     <nav class="nav-links" aria-label="Primary">
       {links.map((l) => (
         <a class={`nav-link ${isActive(l.href) ? "is-active" : ""}`} href={l.href}>
@@ -108,9 +71,7 @@ const isActive = (href) => normalizeComparable(href) === current;
       ))}
     </nav>
 
-    <!-- Right -->
     <div class="nav-right">
-      <!-- Language switch (query/hash preserved client-side) -->
       <a
         class="lang"
         href={langBaseHref}
@@ -121,7 +82,6 @@ const isActive = (href) => normalizeComparable(href) === current;
         {labels.lang}
       </a>
 
-      <!-- CTA (preserve query/hash too, AND keep contact?topic=Brainstorming) -->
       <a
         class="btn btn-primary nav-cta"
         href={`${base}/contact/?topic=Brainstorming`}
@@ -131,14 +91,12 @@ const isActive = (href) => normalizeComparable(href) === current;
         {labels.cta}
       </a>
 
-      <!-- Mobile toggle -->
       <button class="burger" type="button" aria-label={labels.menu} aria-expanded="false" data-burger>
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
 
-  <!-- Mobile panel -->
   <div class="mobile" data-mobile hidden>
     <div class="mobile-inner container">
       <div class="mobile-top">
@@ -217,28 +175,11 @@ const isActive = (href) => normalizeComparable(href) === current;
     a.addEventListener("click", closeMenu);
   });
 
-  // ==========================================================
-  // Preserve Query + Hash (Astro static output safe)
-  //
-  // Works for:
-  // - Language switch (keep ?topic=... / utm_* / any params)
-  // - CTA buttons (merge existing target query with current query)
-  //
-  // Behavior:
-  // - data-preserve-query: always carry over current search+hash
-  // - data-merge-query: if link already has query (e.g. ?topic=Brainstorming),
-  //   merge it with current query; current query wins on conflicts except `topic`
-  //   where the link's topic wins (so CTA keeps Brainstorming by design).
-  // ==========================================================
-
-  /** Merge two URLSearchParams; optionally protect keys from being overwritten */
   const mergeSearchParams = (baseParams, incomingParams, { protectKeys = [] } = {}) => {
     const protect = new Set(protectKeys.map((k) => String(k).toLowerCase()));
     for (const [k, v] of incomingParams.entries()) {
       const lk = k.toLowerCase();
       if (protect.has(lk) && baseParams.has(k)) continue;
-      // If key exists in different casing, overwrite the first match
-      // (keep behavior simple: delete all variants then set)
       for (const key of Array.from(baseParams.keys())) {
         if (key.toLowerCase() === lk) baseParams.delete(key);
       }
@@ -256,26 +197,13 @@ const isActive = (href) => normalizeComparable(href) === current;
 
     const wantsMerge = anchorEl.hasAttribute("data-merge-query");
 
-    // If merge: keep target query (e.g. topic=Brainstorming) and also bring over current query (utm_*)
-    // Conflict policy:
-    // - `topic` is protected (CTA keeps its topic)
-    // - for everything else current query wins (so utm_* updated, etc.)
     if (wantsMerge) {
-      // Start with current query (so it generally wins)...
       const merged = new URLSearchParams(currentSearch.toString());
-      // ...then merge target, but protect topic from being overwritten if already present in merged
-      // However we want CTA's topic to win vs current: so we instead protect nothing and explicitly enforce topic last.
-      // Strategy:
-      // 1) merged = current
-      // 2) merged <- target (target overwrites)
-      // 3) if current had any key not in target, it stays
       mergeSearchParams(merged, targetSearch, { protectKeys: [] });
 
-      // Ensure CTA topic is always the target topic if present
       const targetTopicKey = Array.from(targetSearch.keys()).find((k) => k.toLowerCase() === "topic");
       if (targetTopicKey) {
         const targetTopicVal = targetSearch.get(targetTopicKey);
-        // delete any topic variants then set
         for (const key of Array.from(merged.keys())) {
           if (key.toLowerCase() === "topic") merged.delete(key);
         }
@@ -284,11 +212,9 @@ const isActive = (href) => normalizeComparable(href) === current;
 
       u.search = merged.toString() ? `?${merged.toString()}` : "";
     } else {
-      // Preserve only current query (overwrite any target query)
       u.search = currentSearch.toString() ? `?${currentSearch.toString()}` : "";
     }
 
-    // Always preserve hash from current location (campaign links should not carry target hash)
     u.hash = window.location.hash || "";
 
     return u.pathname + u.search + u.hash;
@@ -298,16 +224,12 @@ const isActive = (href) => normalizeComparable(href) === current;
     try {
       a.setAttribute("href", buildPreservedHref(a));
     } catch {
-      // no-op
     }
   };
 
   const preservedLinks = header?.querySelectorAll("a[data-preserve-query]") || [];
   preservedLinks.forEach((a) => {
-    // Update immediately so: right-click copy works correctly
     applyPreserve(a);
-
-    // Update on click (in case something changed after initial render)
     a.addEventListener("click", () => applyPreserve(a));
   });
 </script>
@@ -442,7 +364,9 @@ const isActive = (href) => normalizeComparable(href) === current;
     background: linear-gradient(135deg, rgba(59,130,246,1), rgba(34,211,238,0.95));
   }
 
-  .nav-cta { display: none; }
+  .nav-cta {
+    display: none;
+  }
 
   .burger {
     width: 44px;
@@ -469,7 +393,9 @@ const isActive = (href) => normalizeComparable(href) === current;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
 
-  .mobile-inner { padding: 14px 0 18px; }
+  .mobile-inner {
+    padding: 14px 0 18px;
+  }
 
   .mobile-top {
     display: flex;
@@ -524,11 +450,24 @@ const isActive = (href) => normalizeComparable(href) === current;
   }
 
   @media (min-width: 920px) {
-    .nav-links { display: flex; }
-    .nav-cta { display: inline-flex; }
-    .burger { display: none; }
-    .mobile { display: none; }
+    .nav-links {
+      display: flex;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+    }
+
+    .burger {
+      display: none;
+    }
+
+    .mobile {
+      display: none;
+    }
   }
 
-  .nav-open { overflow: hidden; }
+  .nav-open {
+    overflow: hidden;
+  }
 </style>
