@@ -1,66 +1,210 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
+
 <BaseLayout
-  title="Leistungen — Recverse"
-  description="KI-MVPs, ERP-nahe Umsetzung, IT-Projektmanagement und moderne Web-Präsenzen für KMUs. Brainstorming → Scope → Angebot."
+  title="Leistungen – Recverse"
+  description="Wir helfen Unternehmen und Personen, technologische Überforderung in konkrete, umsetzbare Verbesserungen zu übersetzen – mit Klarheit, Fahrplan und optionaler Begleitung."
 >
-  <section class="section">
-    <div class="container">
-      <div class="kicker">Leistungen</div>
-      <h1 class="h1">Deine Ideen → unser Brainstorming → mein Angebot</h1>
-      <p class="p">
-        Wir fokussieren uns auf umsetzbare pragmatische Deliverables.
-      </p>
+  <main>
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Leistungen</p>
+          <h1>Technologie soll entlasten. Nicht zusätzlich überfordern.</h1>
+          <p class="lead">
+            Wir helfen Ihnen dabei, KI und digitale Tools sinnvoll einzusetzen – strukturiert, praxisnah und mit Fokus
+            auf echte Entlastung im Alltag und im Unternehmen.
+          </p>
 
-      <div class="grid grid-3" style="margin-top:18px;">
-        <div class="card" style="padding:18px;">
-          <h2 class="h2">KI-MVP / PoC</h2>
-          <p class="p">Use-Cases priorisieren, MVP bauen, sauber integrieren — inkl. pragmatischer Sicherheits- und Betriebsaspekte.</p>
-          <div style="margin-top:14px;">
-            <a class="btn btn-primary" href="/contact/?topic=KI-MVP%20%2F%20PoC">Anfragen</a>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/contact/?topic=Erstgespräch">Erstgespräch anfragen</a>
+            <a class="btn btn-secondary" href="#leistungen">Leistungsbereiche ansehen</a>
           </div>
         </div>
 
-        <div class="card" style="padding:18px;">
-          <h2 class="h2">ERP- & IT-Projektmanagement</h2>
-          <p class="p">Requirements- & Delivery-Planung, Stakeholder-Management, Schnittstellen-/Risiko-Steuerung. Klarer Fokus auf Go-Live-Fähigkeit. MVP ASAP.</p>
-          <div style="margin-top:14px;">
-            <a class="btn btn-primary" href="/contact/?topic=ERP%20%2F%20IT-Projektmanagement">Anfragen</a>
-          </div>
-        </div>
-
-        <div class="card" style="padding:18px;">
-          <h2 class="h2">Moderne Web-Präsenz</h2>
-          <p class="p">Schnell, vertrauenswürdig, conversion-klar. Performance-first, saubere Struktur, technisch wartbar.</p>
-          <div style="margin-top:14px;">
-            <a class="btn btn-primary" href="/contact/?topic=Web-Pr%C3%A4senz%20%2F%20Redesign">Anfragen</a>
+        <div class="hero-card">
+          <div class="card-glow"></div>
+          <div class="hero-panel">
+            <p class="panel-label">Worum es dabei geht</p>
+            <h2>Weniger Tool-Chaos. Mehr Klarheit, Struktur und Wirkung.</h2>
+            <p>
+              Nicht jede neue Technologie ist automatisch sinnvoll. Entscheidend ist, was Ihnen konkret Zeit spart,
+              Prozesse vereinfacht und in Ihrer Realität tatsächlich funktioniert.
+            </p>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="card" style="padding:18px; margin-top:18px;">
-        <h2 class="h2">Website Datenschutz-Check</h2>
-        <p class="p">
-          Schnellcheck deiner Website auf Datenschutz-Basics (Cookies/Forms/Tracking/Einbindung externer Dienste).
-          Ergebnis: konkrete To-Dos, priorisiert.
-        </p>
-        <p class="p"><strong>Preis:</strong> KMU CHF 380 · Privatperson CHF 100</p>
-        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn btn-primary" href="/contact/?topic=Website%20Datenschutz-Check&package=KMU">KMU anfragen</a>
-          <a class="btn btn-secondary" href="/contact/?topic=Website%20Datenschutz-Check&package=Privat">Privat anfragen</a>
+    <section class="section section-alt" id="leistungen">
+      <div class="container">
+        <p class="section-kicker">Leistungsbereiche</p>
+        <h2>Wobei wir Sie konkret unterstützen</h2>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-tag">Orientierung</span>
+            <h3>Technologie- und KI-Einstieg mit Klarheit</h3>
+            <p>
+              Wenn unklar ist, wo Sie anfangen sollen, schaffen wir zuerst Übersicht. Wir ordnen Chancen,
+              Risiken und Prioritäten so, dass daraus ein realistischer erster Schritt entsteht.
+            </p>
+            <ul>
+              <li>Einordnung relevanter Technologien</li>
+              <li>Priorisierung nach Nutzen und Aufwand</li>
+              <li>Erste konkrete Einsatzmöglichkeiten</li>
+            </ul>
+            <div class="service-cta">
+              <a href="/contact/?topic=KI-Einstieg%20/%20Orientierung" class="link-cta">Anfragen →</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <span class="service-tag">Effizienz</span>
+            <h3>Prozesse vereinfachen und Zeit sparen</h3>
+            <p>
+              Viele Teams arbeiten mit unnötigen manuellen Schritten, Medienbrüchen oder unklaren Abläufen.
+              Wir identifizieren praktische Hebel, die schnell Entlastung bringen.
+            </p>
+            <ul>
+              <li>Analyse manueller Pain Points</li>
+              <li>Identifikation einfacher Automatisierungen</li>
+              <li>Pragmatische Verbesserung bestehender Abläufe</li>
+            </ul>
+            <div class="service-cta">
+              <a href="/contact/?topic=Prozesse%20/%20Effizienz" class="link-cta">Anfragen →</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <span class="service-tag">Umsetzung</span>
+            <h3>Konkreter Fahrplan statt Überforderung</h3>
+            <p>
+              Gute Ideen scheitern oft nicht an der Technik, sondern an fehlender Struktur. Deshalb übersetzen wir
+              Potenziale in klare nächste Schritte, Verantwortlichkeiten und Prioritäten.
+            </p>
+            <ul>
+              <li>Umsetzungsfahrplan mit Fokus auf 80/20-Wirkung</li>
+              <li>Schrittweise Einführung statt Big Bang</li>
+              <li>Realistische Reihenfolge und Entscheidungsgrundlagen</li>
+            </ul>
+            <div class="service-cta">
+              <a href="/contact/?topic=Brainstorming" class="link-cta">Anfragen →</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <span class="service-tag">Begleitung</span>
+            <h3>Laufende Unterstützung bei der Weiterentwicklung</h3>
+            <p>
+              Wer technologisch nicht zurückfallen will, braucht nicht ständig neue Tools, sondern jemanden,
+              der Entwicklungen einordnet und sinnvolle nächste Schritte begleitet.
+            </p>
+            <ul>
+              <li>Regelmässige Sparrings- und Review-Termine</li>
+              <li>Nachschärfung von Prioritäten und Massnahmen</li>
+              <li>Begleitung bei neuen Fragestellungen</li>
+            </ul>
+            <div class="service-cta">
+              <a href="/contact/?topic=Laufende%20Begleitung" class="link-cta">Anfragen →</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <span class="service-tag">Verantwortung</span>
+            <h3>Datenschutzbewusste Nutzung</h3>
+            <p>
+              Gerade bei KI und digitalen Tools sollten Daten, Vertraulichkeit und Grenzen der Anwendung sauber
+              mitgedacht werden.
+            </p>
+            <ul>
+              <li>Grundsätzliche Sensibilisierung (CH/EU)</li>
+              <li>Bewusster Umgang mit sensiblen Daten</li>
+              <li>Risikoreduktion bei Tool-Nutzung</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <span class="service-tag">Praxis</span>
+            <h3>Lösungen, die zu Ihrem Alltag passen</h3>
+            <p>
+              Theoretisch perfekte Konzepte bringen wenig, wenn sie in der Praxis nicht angenommen werden.
+            </p>
+            <ul>
+              <li>Pragmatische statt überladene Lösungen</li>
+              <li>Anpassung an Team & Realität</li>
+              <li>Fokus auf Umsetzbarkeit</li>
+            </ul>
+          </article>
         </div>
       </div>
+    </section>
 
-      <div class="card" style="padding:18px; margin-top:18px;">
-        <h2 class="h2">Unternehmens- & Prozessberatung</h2>
-        <p class="p">
-          Wir identifizieren Engpässe, entscheiden pragmatisch und setzen um. Prozesse verändern sich, genau so wie das Unternehmen und die Umwelt.
-        </p>
-        <div style="margin-top:14px;">
-          <a class="btn btn-primary" href="/contact/?topic=Prozess-%20%2F%20Unternehmensberatung">Brainstorming starten</a>
+    <section class="section" id="prozess">
+      <div class="container">
+        <p class="section-kicker">Zusammenarbeit</p>
+        <h2>So läuft die Zusammenarbeit typischerweise ab</h2>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <div class="step-number">01</div>
+            <h3>Erstgespräch</h3>
+            <p>Verstehen Ihrer Situation, Ziele und Engpässe.</p>
+          </article>
+
+          <article class="process-card">
+            <div class="step-number">02</div>
+            <h3>Standortbestimmung</h3>
+            <p>Klare Priorisierung statt Überforderung.</p>
+          </article>
+
+          <article class="process-card">
+            <div class="step-number">03</div>
+            <h3>Quick Wins & Fahrplan</h3>
+            <p>Konkrete nächste Schritte mit sofortigem Nutzen.</p>
+          </article>
+
+          <article class="process-card">
+            <div class="step-number">04</div>
+            <h3>Optionale Begleitung</h3>
+            <p>Kontinuität statt Rückfall.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="section section-alt" id="cta">
+      <div class="container cta-box">
+        <div>
+          <p class="section-kicker">Nächster Schritt</p>
+          <h2>Lassen Sie uns gemeinsam herausfinden, was sinnvoll ist</h2>
+          <p class="body-large">
+            Im Erstgespräch klären wir, wo Sie stehen und was realistisch sinnvoll ist.
+          </p>
+        </div>
+
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="/contact/?topic=Erstgespräch">Erstgespräch anfragen</a>
+          <a class="btn btn-secondary" href="/">Zur Startseite</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .service-cta {
+      margin-top: 12px;
+    }
+
+    .link-cta {
+      color: var(--rv-accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .link-cta:hover {
+      text-decoration: underline;
+    }
+  </style>
 </BaseLayout>

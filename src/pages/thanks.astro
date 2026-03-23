@@ -1,29 +1,76 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-<BaseLayout title="Danke — Recverse" description="Anfrage eingegangen. Nächste Schritte.">
+
+<BaseLayout
+  title="Danke — Recverse"
+  description="Ihre Anfrage ist eingegangen. So geht es jetzt weiter."
+>
   <section class="section">
-    <div class="container" style="max-width:760px;">
+    <div class="container" style="max-width: 820px;">
       <div class="kicker">Danke</div>
-      <h1 class="h1">Anfrage ist angekommen, DANKE!</h1>
+      <h1 class="h1">Ihre Anfrage ist angekommen.</h1>
       <p class="p">
-        Ich melde mich gerne baldmöglichst, bestenfalls mit einem konkreten nächsten Schritt (Scope/Fragen/Optionen).
+        Danke für Ihre Nachricht. Wir prüfen Ihr Anliegen und melden uns baldmöglichst mit einem
+        sinnvollen nächsten Schritt zurück.
       </p>
+
+      <div class="card" style="padding:18px; margin-top:18px;">
+        <h2 class="h2">Was jetzt passiert</h2>
+        <p class="p" style="margin-bottom:10px;">
+          Damit der Einstieg für Sie klar und effizient bleibt, gehen wir strukturiert vor:
+        </p>
+        <div class="grid grid-3" style="margin-top:10px;">
+          <div>
+            <strong>1) Verständnis</strong>
+            <p class="p" style="margin-top:6px;">
+              Wir prüfen Ihre Ausgangslage, Ziele und mögliche Engpässe.
+            </p>
+          </div>
+          <div>
+            <strong>2) Einordnung</strong>
+            <p class="p" style="margin-top:6px;">
+              Wir ordnen ein, welche nächsten Schritte sinnvoll und realistisch sind.
+            </p>
+          </div>
+          <div>
+            <strong>3) Rückmeldung</strong>
+            <p class="p" style="margin-top:6px;">
+              Sie erhalten eine konkrete Rückmeldung statt allgemeiner Standardantworten.
+            </p>
+          </div>
+        </div>
+      </div>
 
       <div class="grid grid-2" style="margin-top:18px;">
         <div class="card" style="padding:18px;">
-          <h2 class="h2">Was passiert als nächstes?</h2>
-          <p class="p">1) die Anforderungen vollumfänglich verstehen (Ziel/Constraints) → 2) Scope-Vorschlag → 3) Angebot.</p>
+          <h2 class="h2">Was Sie nicht tun müssen</h2>
+          <p class="p">
+            Sie müssen Ihre Anfrage nicht perfekt formuliert haben. Genau dafür ist der nächste Austausch da:
+            um Komplexität zu reduzieren und Klarheit zu schaffen.
+          </p>
         </div>
+
         <div class="card" style="padding:18px;">
-          <h2 class="h2">In der Zwischenzeit</h2>
-          <p class="p">Wenn du schon Links/Docs hast (Website, Screenshots, Anforderungen), kannst du sie beim Reply ergänzen.</p>
+          <h2 class="h2">Falls Sie ergänzen möchten</h2>
+          <p class="p">
+            Wenn Sie bereits relevante Links, Screenshots, Dokumente oder Kontext haben, können Sie diese bei einer
+            späteren Rückmeldung ergänzen. Im Erstkontakt genügen die wichtigsten Eckpunkte.
+          </p>
         </div>
+      </div>
+
+      <div class="card" style="padding:18px; margin-top:18px;">
+        <h2 class="h2">Gut zu wissen</h2>
+        <p class="p">
+          Bitte senden Sie auch im Nachgang keine unnötig sensiblen Informationen, solange noch nicht klar ist,
+          welcher Detailgrad für Ihr Anliegen wirklich erforderlich ist.
+        </p>
       </div>
 
       <div class="hero-actions" style="margin-top:18px;">
         <a class="btn btn-primary" href="/services/">Leistungen ansehen</a>
-        <a class="btn btn-secondary" href="/shop/">RecVerseShop</a>
+        <a class="btn btn-secondary" href="/">Zur Startseite</a>
       </div>
     </div>
   </section>
