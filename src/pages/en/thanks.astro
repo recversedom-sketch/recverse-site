@@ -1,30 +1,132 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
-<BaseLayout title="Thank you — Recverse" description="Inquiry received. Next steps.">
-  <section class="section">
-    <div class="container" style="max-width:760px;">
-      <div class="kicker">Thank you</div>
-      <h1 class="h1">Got it — thank you!</h1>
-      <p class="p">
-        I’ll respond as soon as possible, ideally with a concrete next step (questions, scope, or options).
-      </p>
 
-      <div class="grid grid-2" style="margin-top:18px;">
-        <div class="card" style="padding:18px;">
-          <h2 class="h2">What happens next?</h2>
-          <p class="p">1) Clarify requirements (goal/constraints) → 2) scope suggestion → 3) proposal.</p>
+<BaseLayout
+  title="Thank you — Recverse"
+  description="Your request has been received. Here is what happens next."
+>
+  <main class="landing-page landing-page--thanks">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Thank you</p>
+          <h1>Your request has been received.</h1>
+          <p class="lead">
+            Thank you for your message. We will review your request and get back to you with a sensible
+            next step — clearly, structurally, and without generic filler.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/en/services/">View services</a>
+            <a class="btn btn-secondary" href="/en/">Back to home</a>
+          </div>
+
+          <ul class="hero-points" aria-label="Next steps">
+            <li>Your request is being reviewed</li>
+            <li>Next steps are being prioritized</li>
+            <li>You will receive a structured response</li>
+          </ul>
         </div>
-        <div class="card" style="padding:18px;">
-          <h2 class="h2">In the meantime</h2>
-          <p class="p">If you already have links/docs (website, screenshots, requirements), include them in your reply.</p>
+
+        <div class="hero-card">
+          <div class="card-glow"></div>
+          <div class="hero-panel">
+            <p class="panel-label">What happens now</p>
+            <h2>Your request is not just being passed along.</h2>
+            <p>
+              We review your situation, classify the request, and determine which next step is both
+              realistic and useful. The goal is not more complexity, but a sound initial direction.
+            </p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="hero-actions" style="margin-top:18px;">
-        <a class="btn btn-primary" href="/en/services/">View services</a>
-        <a class="btn btn-secondary" href="/en/shop/">RecVerseShop</a>
+    <section class="section section-alt">
+      <div class="container">
+        <p class="section-kicker">Process</p>
+        <h2>What typically happens next</h2>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-number">01</div>
+            <h3>Understanding</h3>
+            <p>
+              We review your current situation, goals, and likely pain points.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-number">02</div>
+            <h3>Assessment</h3>
+            <p>
+              We assess which next steps are sensible, realistic, and proportionate.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-number">03</div>
+            <h3>Response</h3>
+            <p>
+              You receive a concrete response instead of a generic standard reply.
+            </p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-kicker">Good to know</p>
+        <h2>Important notes for the next exchange</h2>
+
+        <div class="trust-grid">
+          <article class="trust-card">
+            <h3>You do not need to phrase everything perfectly</h3>
+            <p>
+              It is enough if the general situation is recognizable. The next exchange is exactly
+              where complexity gets reduced and clarity gets created.
+            </p>
+          </article>
+
+          <article class="trust-card">
+            <h3>Only share sensitive details if truly necessary</h3>
+            <p>
+              Please do not send unnecessary sensitive information in follow-up messages unless it is
+              already clear that this level of detail is actually required.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container cta-box">
+        <div>
+          <p class="section-kicker">Further reading</p>
+          <h2>In the meantime, you can already get an overview</h2>
+          <p class="body-large">
+            On the services page, you can see which types of situations we typically support and how
+            the overall collaboration is structured.
+          </p>
+        </div>
+
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="/en/services/">View services</a>
+          <a class="btn btn-secondary" href="/en/">Back to home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .landing-page--thanks .steps-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .landing-page--thanks .trust-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  </style>
 </BaseLayout>

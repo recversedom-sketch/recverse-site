@@ -6,146 +6,242 @@ const preTopic = sp.get("topic") ?? "";
 const preModule = sp.get("module") ?? "";
 const prePackage = sp.get("package") ?? "";
 
+const topicOptions = [
+  "Intro call",
+  "Brainstorming",
+  "AI discovery / orientation",
+  "AI MVP / PoC",
+  "ERP / IT project management",
+  "Web presence / redesign",
+  "Website privacy check",
+  "Website renewal / SEO",
+  "Ongoing support",
+  "Something else",
+];
+
+const normalizedPreTopic = topicOptions.includes(preTopic) ? preTopic : "";
+
 const prefill =
   prePackage ? `Package: ${prePackage}\n` :
   preModule ? `Module: ${preModule}\n` :
-  preTopic ? `Topic: ${preTopic}\n` : "";
+  normalizedPreTopic ? `Topic: ${normalizedPreTopic}\n` : "";
 ---
 
 <BaseLayout
-  title="Brainstorm / Inquiry — Recverse"
-  description="Briefly describe your goal. You’ll get a concrete response (scope, next steps)."
+  title="Intro call / Request — Recverse"
+  description="Briefly describe your situation. You will receive a concrete response outlining sensible next steps."
 >
-  <section class="section">
-    <div class="container" style="max-width: 760px;">
-      <div class="kicker">Contact</div>
-      <h1 class="h1">Send an inquiry</h1>
-      <p class="p">
-        Briefly describe what you want to achieve. I’ll get back to you as soon as possible.
-      </p>
+  <main class="landing-page landing-page--contact">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Contact</p>
+          <h1>Start with a clear first conversation</h1>
+          <p class="lead">
+            If technology pressure, tool overload, or unclear priorities are currently causing more
+            strain than value, briefly describe your situation. You will receive a concrete assessment
+            of sensible next steps.
+          </p>
 
-      <form
-        name="angebot"
-        method="POST"
-        action="/en/thanks/"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        class="card"
-        style="margin-top:18px; padding:18px;"
-      >
-        <input type="hidden" name="form-name" value="angebot" />
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#form">Go to form</a>
+            <a class="btn btn-secondary" href="/en/services/">View services</a>
+          </div>
 
-        <!-- Honeypot -->
-        <p style="position:absolute; left:-9999px; height:0; overflow:hidden;">
-          <label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-        </p>
-
-        <!-- Time-trap + JS-gate -->
-        <input type="hidden" name="tt_start" value="0" />
-        <input type="hidden" name="js_ok" value="0" />
-
-        <div class="grid grid-2">
-          <label style="display:grid; gap:8px;">
-            <span class="muted">Name (required)</span>
-            <input name="name" required class="card" style="padding:12px; background:rgba(0,0,0,.15);" />
-          </label>
-
-          <label style="display:grid; gap:8px;">
-            <span class="muted">Email (required)</span>
-            <input name="email" type="email" required class="card" style="padding:12px; background:rgba(0,0,0,.15);" />
-          </label>
+          <ul class="hero-points" aria-label="Typical topics">
+            <li>Put AI into practical perspective</li>
+            <li>Identify efficiency potential</li>
+            <li>Clarify technology priorities</li>
+          </ul>
         </div>
 
-        <div class="grid grid-2" style="margin-top:12px;">
-          <label style="display:grid; gap:8px;">
-            <span class="muted">Company (optional)</span>
-            <input name="company" class="card" style="padding:12px; background:rgba(0,0,0,.15);" />
-          </label>
-
-          <label style="display:grid; gap:8px;">
-            <span class="muted">Phone (optional, for a callback)</span>
-            <input name="phone" class="card" style="padding:12px; background:rgba(0,0,0,.15);" />
-          </label>
-        </div>
-
-        <label style="display:grid; gap:8px; margin-top:12px;">
-          <span class="muted">What is this about?</span>
-          <select name="topic" class="card" style="padding:12px; background:rgba(0,0,0,.15);">
-            {[
-              "Brainstorming",
-              "AI MVP / PoC",
-              "ERP / IT Project Management",
-              "Web Presence / Redesign",
-              "Website Privacy Check",
-              "Website Renewal / SEO",
-              "Something else",
-            ].map((opt) => (
-              <option value={opt} selected={preTopic === opt}>{opt}</option>
-            ))}
-          </select>
-        </label>
-
-        <label style="display:grid; gap:8px; margin-top:12px;">
-          <span class="muted">Short description (required)</span>
-          <textarea
-            name="message"
-            required
-            rows="7"
-            class="card"
-            style="padding:12px; background:rgba(0,0,0,.15);"
-          >{prefill}</textarea>
-        </label>
-
-        <div class="grid grid-2" style="margin-top:12px;">
-          <label style="display:grid; gap:8px;">
-            <span class="muted">Budget range (optional)</span>
-            <select name="budget" class="card" style="padding:12px; background:rgba(0,0,0,.15);">
-              <option value="">—</option>
-              <option>under CHF 500</option>
-              <option>CHF 500–1,500</option>
-              <option>CHF 1,500–5,000</option>
-              <option>CHF 5,000+</option>
-              <option>open</option>
-            </select>
-          </label>
-
-          <label style="display:grid; gap:8px;">
-            <span class="muted">Timeline for the target outcome (optional)</span>
-            <select name="timeline" class="card" style="padding:12px; background:rgba(0,0,0,.15);">
-              <option value="">—</option>
-              <option>ASAP / this week</option>
-              <option>2–4 weeks</option>
-              <option>1–3 months</option>
-              <option>later</option>
-            </select>
-          </label>
-        </div>
-
-        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:14px;">
-          <button type="submit" class="btn btn-primary">Send inquiry</button>
-          <a class="btn btn-secondary" href="/en/services/">View services</a>
-        </div>
-
-        <p class="muted" style="font-size:12px; margin-top:10px;">
-          By submitting, you agree that your information may be processed to handle your inquiry.
-          Details: <a class="muted" style="text-decoration:underline;" href="/en/privacy/">Privacy</a>.
-        </p>
-      </form>
-
-      <noscript>
-        <div class="card" style="padding:14px; margin-top:14px;">
-          <strong>Note:</strong>
-          <div class="muted" style="margin-top:6px;">
-            JavaScript is disabled. The form may still work, but anti-spam protection is reduced.
+        <div class="hero-card">
+          <div class="card-glow"></div>
+          <div class="hero-panel">
+            <p class="panel-label">Important note</p>
+            <h2>At first contact, the key points are enough.</h2>
+            <p>
+              Please do not send unnecessary sensitive information at the outset. What matters is that
+              your situation, objective, and current pressure point are recognizable. Everything else
+              can be clarified more specifically afterward.
+            </p>
           </div>
         </div>
-      </noscript>
-    </div>
-  </section>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <p class="section-kicker">Typical requests</p>
+        <h2>What requests are often about</h2>
+
+        <div class="problem-grid">
+          <article class="problem-card">
+            <p>“We want to put AI in perspective without falling into action bias.”</p>
+          </article>
+
+          <article class="problem-card">
+            <p>“There are too many tools and no clear prioritization.”</p>
+          </article>
+
+          <article class="problem-card">
+            <p>“Our processes feel unnecessarily manual or inefficient.”</p>
+          </article>
+
+          <article class="problem-card">
+            <p>“We need orientation for a sensible first or next step.”</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="form">
+      <div class="container contact-shell">
+        <div class="contact-intro">
+          <p class="section-kicker">Request form</p>
+          <h2>Describe your situation as it stands today</h2>
+          <p class="body-large">
+            No perfect wording is required. What matters most is the context, the current pressure
+            point, and what you hope to get out of a conversation or ongoing support.
+          </p>
+        </div>
+
+        <form
+          name="request"
+          method="POST"
+          action="/en/thanks/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          class="contact-form-shell"
+        >
+          <input type="hidden" name="form-name" value="request" />
+
+          <p class="visually-hidden">
+            <label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+
+          <input type="hidden" name="tt_start" value="0" />
+          <input type="hidden" name="js_ok" value="0" />
+
+          <div class="contact-grid contact-grid--2">
+            <label class="field">
+              <span class="field-label">Name (required)</span>
+              <input
+                name="name"
+                required
+                autocomplete="name"
+              />
+            </label>
+
+            <label class="field">
+              <span class="field-label">Email (required)</span>
+              <input
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+              />
+            </label>
+          </div>
+
+          <div class="contact-grid contact-grid--2">
+            <label class="field">
+              <span class="field-label">Company (optional)</span>
+              <input
+                name="company"
+                autocomplete="organization"
+              />
+            </label>
+
+            <label class="field">
+              <span class="field-label">Phone (optional)</span>
+              <input
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+              />
+            </label>
+          </div>
+
+          <div class="contact-grid contact-grid--2">
+            <label class="field">
+              <span class="field-label">What is this about?</span>
+              <select name="topic">
+                {topicOptions.map((opt) => (
+                  <option value={opt} selected={normalizedPreTopic === opt}>{opt}</option>
+                ))}
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="field-label">Timeline (optional)</span>
+              <select name="timeline">
+                <option value="">—</option>
+                <option>right away / this week</option>
+                <option>2–4 weeks</option>
+                <option>1–3 months</option>
+                <option>later / still open</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="contact-grid contact-grid--2">
+            <label class="field">
+              <span class="field-label">Budget range (optional)</span>
+              <select name="budget">
+                <option value="">—</option>
+                <option>under CHF 500</option>
+                <option>CHF 500–1,500</option>
+                <option>CHF 1,500–5,000</option>
+                <option>CHF 5,000+</option>
+                <option>still open</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="field-label">Role / function (optional)</span>
+              <input
+                name="role"
+                placeholder="e.g. leadership, team lead"
+              />
+            </label>
+          </div>
+
+          <label class="field">
+            <span class="field-label">Brief description (required)</span>
+            <textarea
+              name="message"
+              required
+              rows="8"
+              placeholder="Briefly describe your current situation, where you see pressure, uncertainty, or efficiency potential, and what you hope to get from the conversation."
+            >{prefill}</textarea>
+          </label>
+
+          <p class="form-note">
+            Please do not send sensitive information at first contact. By submitting the form, you agree
+            to the processing of your information for handling your request. Details: <a href="/en/privacy/">Privacy</a>.
+          </p>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Send request</button>
+            <a class="btn btn-secondary" href="/en/services/">View services</a>
+          </div>
+        </form>
+
+        <noscript>
+          <div class="contact-alert">
+            <strong>Note:</strong>
+            <div class="contact-alert-copy">
+              JavaScript is disabled. The form may still work, but spam protection will be more limited.
+            </div>
+          </div>
+        </noscript>
+      </div>
+    </section>
+  </main>
 
   <script is:inline>
-    // Time-trap + JS gate: simple, effective against low-effort bots.
-    const form = document.querySelector('form[name="angebot"]');
+    const form = document.querySelector('form[name="request"]');
     if (form) {
       const start = Date.now();
       const tt = form.querySelector('input[name="tt_start"]');
@@ -155,10 +251,9 @@ const prefill =
 
       form.addEventListener("submit", (e) => {
         const elapsed = Date.now() - start;
-        // 3s minimum
         if (elapsed < 3000) {
           e.preventDefault();
-          alert("Please take a moment to review, then submit (anti-spam).");
+          alert("Please take a brief moment to review your form before sending it (spam protection).");
           return;
         }
         if (jsok && jsok.value !== "1") {
@@ -169,4 +264,119 @@ const prefill =
       });
     }
   </script>
+
+  <style>
+    .landing-page--contact .problem-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .landing-page--contact .contact-shell {
+      max-width: 900px;
+    }
+
+    .landing-page--contact .contact-intro {
+      margin-bottom: 1.5rem;
+    }
+
+    .landing-page--contact .contact-form-shell,
+    .landing-page--contact .contact-alert {
+      position: relative;
+      z-index: 1;
+      background: var(--rv-bg-soft);
+      border: 1px solid var(--rv-border);
+      border-radius: var(--rv-radius);
+      box-shadow: var(--rv-shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .landing-page--contact .contact-form-shell {
+      padding: 1.5rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .landing-page--contact .contact-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .landing-page--contact .contact-grid--2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .landing-page--contact .field {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .landing-page--contact .field-label {
+      font-size: 0.95rem;
+      color: var(--rv-text-soft);
+      font-weight: 600;
+    }
+
+    .landing-page--contact .form-note {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--rv-text-soft);
+    }
+
+    .landing-page--contact .form-note a {
+      color: var(--rv-accent);
+      text-decoration: underline;
+    }
+
+    .landing-page--contact .form-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .landing-page--contact .contact-alert {
+      margin-top: 1rem;
+      padding: 1rem 1.1rem;
+    }
+
+    .landing-page--contact .contact-alert strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--rv-text);
+    }
+
+    .landing-page--contact .contact-alert-copy {
+      color: var(--rv-text-soft);
+      line-height: 1.7;
+    }
+
+    .landing-page--contact .visually-hidden {
+      position: absolute;
+      left: -9999px;
+      height: 0;
+      overflow: hidden;
+    }
+
+    @media (max-width: 980px) {
+      .landing-page--contact .contact-grid--2,
+      .landing-page--contact .problem-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .landing-page--contact .contact-form-shell {
+        padding: 1.1rem;
+      }
+
+      .landing-page--contact .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .landing-page--contact .form-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </BaseLayout>
